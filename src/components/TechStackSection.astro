@@ -1,0 +1,48 @@
+<section id="techstack-section" class="min-h-screen snap-start flex justify-center items-center pt-16">
+  <div class="container w-full mx-auto flex-col text-center justify-center">
+    <h3 class={'text-primary font-bold text-6xl mb-16 opacity-0'}>
+      Build 3D with Vue 
+    </h3>
+    <p class="text-gray-400 text-center text-lg mb-16 opacity-0">
+    TresJS reduces the gap between the developers and the intimidating world of 3D </br>
+A custom render for ThreeJS powered by Vite.
+    <ul class="flex justify-center gap-16 mx-auto">
+      <li class="bg-gray-200 flex-inline rounded-full p-6 text-4xl opacity-0">
+        <i class="i-logos-vue" />
+      </li>
+      <li class="bg-gray-200 flex-inline rounded-full p-6 text-4xl opacity-0">
+        <i class="i-logos-threejs" />
+      </li>
+      <li class="bg-gray-200 flex-inline rounded-full p-6 text-4xl opacity-0">
+        <i class="i-logos-vitejs" />
+      </li>
+    </ul>
+  </p>
+  </div>
+</section>
+
+<script type="module">
+  const delays = [1,1.5,2]
+  const h3Delays = [0.5,0.75]
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const target = document.getElementById('techstack-section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          target?.querySelectorAll('h3, p').forEach((el, index) => {
+            el.classList.add('animate-fade-in', `animate-delay-${h3Delays[index]}s`, 'animate-forwards');
+          });
+          target?.querySelectorAll('li').forEach((el, index) => {
+            el.classList.add('animate-fade-in', `animate-delay-${delays[index]}s`, 'animate-forwards');
+          });
+        }
+      });
+    }, {
+      // Intersection Observer options
+      threshold: 0.1 // Adjust as needed
+    });
+
+    observer.observe(target);
+  });
+</script>

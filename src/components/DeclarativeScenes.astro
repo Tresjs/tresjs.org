@@ -1,0 +1,30 @@
+---
+import { getEntry, getEntries } from 'astro:content';
+import BasicScene from './BasicScene.vue';
+import CodeBlock from './CodeBlock.vue';
+import Tab from './Tab.vue';
+
+const section = await getEntry('section', 'declarative-scenes');
+const codeBasic = await getEntry('blocks', 'basic-tres');
+const { Content } = await section.render();
+const { Content: CodeBasic } = await codeBasic.render();
+
+---
+
+<section class="min-h-screen snap-start flex justify-center items-center pt-16">
+  <div class="relative container mx-auto flex flex-col sm:flex-row gap-16">
+    <div class="w-full sm:w-1/3 text-gray-500 dark:text-light prose ">
+      <Content />
+    </div>
+    <div class="w-full sm:w-2/3">
+      <CodeBlock uuid={2} tabs={['app.vue']} client:only>
+        <Tab uuid={2} client:only title={'app.vue'}>
+          <CodeBasic />
+        </Tab>
+      </CodeBlock>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg aspect-4/3 w-full sm:w-1/4 sm:absolute right-0 top-55%">
+      <BasicScene client:only />
+    </div>
+  </div>
+</section>

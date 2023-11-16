@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Hero from '../components/Hero.astro';
+import TechStackSection from '../components/TechStackSection.astro';
+import TheExperience from '../components/TheExperience.vue';
+import DeclarativeScenes from '../components/DeclarativeScenes.astro';
+import DxFocusedSection from '../components/DxFocusedSection.astro';
+import ShowcaseSection from '../components/ShowcaseSection.astro';
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<BaseLayout>
+			<main >
+				<Hero/>
+				<TechStackSection />
+				<DeclarativeScenes  />
+				<DxFocusedSection />
+				<ShowcaseSection />
+				<section class="min-h-screen snap-start flex justify-end items-start md:items-center pt-16">
+					Take the word from the community
+				</section>
+			</main>
+      <TheExperience client:load />
+		</BaseLayout>
+	</body>
+</html>

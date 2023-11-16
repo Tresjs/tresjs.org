@@ -1,0 +1,15 @@
+---
+import TheSocials from './TheSocials.vue';
+import TheLogo from './TheLogo.astro';
+import TheNav from './TheNav.astro';
+import MobileNav from './MobileNav.vue';
+---
+
+<header class="p-4 fixed w-full z-20">
+	<nav class="mx-auto container flex justify-between items-center">
+		<TheLogo />
+		<TheNav />
+		<TheSocials client:only />
+		<MobileNav client:only />
+	</nav>
+</header>

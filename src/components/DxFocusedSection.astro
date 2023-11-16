@@ -1,0 +1,47 @@
+---
+import { getEntry, getEntries } from 'astro:content';
+import ModelAnimation from './ModelAnimation.vue';
+import CodeBlock from './CodeBlock.vue';
+import Tab from './Tab.vue';
+
+const section = await getEntry('section', 'dx-focused');
+const codeModelAnimation = await getEntry('blocks', 'model-animations');
+const codeGltfModel = await getEntry('blocks', 'gltf-model');
+const { Content } = await section.render();
+const { Content: CodeModelAnimation } = await codeModelAnimation.render();
+const { Content: CodeGltfModel } = await codeGltfModel.render();
+---
+
+<section class="min-h-screen snap-start flex justify-center items-center pt-16">
+  <div class="relative container mx-auto flex flex-col sm:flex-row gap-16">
+    <div class="w-full sm:w-1/3 text-gray-500 dark:text-light prose ">
+      <Content />
+    </div>
+    <div class="w-full sm:w-2/3">
+      <CodeBlock uuid={1} tabs={['app.vue', 'UgglyBunny.vue']} client:only>
+        <Tab uuid={1} client:only title={'app.vue'}>
+          <CodeModelAnimation />
+        </Tab>
+        <Tab uuid={1} client:only title={'UgglyBunny.vue'}>
+          <CodeGltfModel />
+        </Tab>
+      </CodeBlock>
+      
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg aspect-4/3 w-full sm:w-1/4 sm:absolute right-0 top-55%">
+      <ModelAnimation client:only />
+    </div>
+   
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('button.tab');
+
+// Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      button.classList.add('bg-gray-100');
+    })
+  });
+</script>

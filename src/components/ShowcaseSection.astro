@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import ShowcaseCard  from './ShowcaseCard.astro';
+
+const showcaseEntries = await getCollection('showcase');
+console.log(showcaseEntries);
+---
+
+<section class="nin-h-screen snap-start text-gray-500 ">
+  <div class="container mx-auto">
+    <h2 class="important-text-4xl  dark:text-light mb-8 opacity-0 animate-fade-in animate-delay-1s animate-forwards">
+      Showcase your <strong class="text-primary">work</strong>.
+    </h2>
+    <p>Be part of the a big community of creators and 3D entusiasts</p>
+
+    <div class="grid grid-cols-4 gap-16 pt-32">
+      {showcaseEntries.map(({data}) => (
+        <ShowcaseCard 
+          author={data.author} 
+          avatar={data.avatar}
+          title={data.title}
+          thumbnail={data.thumbnail}
+          authorLink={data.author_link}
+          repo={data.repo}
+          demo={data.demo}
+          status={data.status}
+        />
+      ))}
+    </div>
+  </div>
+</section>
