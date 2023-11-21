@@ -4,8 +4,8 @@ const { title, thumbnail, author, authorLink, avatar, website, status, media, re
 
 <div class="flex flex-col items-center gap-8">
   <div class="relative bg-white dark:bg-dark 
-    rounded-xl border border-2 border-gray-100 
-    w-full p-4 shadow-xl text-gray-500 dark:text-light"
+    rounded-xl border border-2 border-gray-100 dark:border-gray-700 
+    w-full p-4 shadow-xl dark:shadow-gray-800 text-gray-500 dark:text-light"
   >
     {status === 'Soon' && <img src="/soon.png" class="w-32 absolute -top-8 -right-8" alt="Soon">}
     <a href={demo} target="_blank" class="block mb-16 text-gray-500 dark:text-light hover:text-primary transition-color duration-400 ease-in">
@@ -23,7 +23,7 @@ const { title, thumbnail, author, authorLink, avatar, website, status, media, re
        </div>
     </footer>
   </div>
-  <img class="w-16 h-16 rounded-full shadow-xl border border-dark" 
+  <img class="w-16 h-16 rounded-full shadow-xl dark:shadow-gray-800 border border-dark" 
     src={avatar} 
     alt={author}
   >

@@ -4,7 +4,8 @@ import { defineConfig,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
-  presetAttributify
+  presetAttributify,
+  presetTypography
 } from 'unocss'
 
 export default defineConfig({
@@ -26,6 +27,16 @@ export default defineConfig({
         'vertical-align': 'middle',
         // ...
       },
+    }),
+    presetTypography({
+      cssExtend: {
+        'hr': {
+          'height': '1px',
+          'border': 'none',
+          'background': 'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0))',
+
+        }
+      }
     }),
   ],
   shortcuts: [

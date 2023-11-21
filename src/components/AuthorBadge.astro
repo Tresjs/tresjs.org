@@ -1,0 +1,11 @@
+---
+const { name, avatar, handle, link } = Astro.props;
+---
+
+<div class="p-4 inline-flex items-center gap-4">
+  <img class="w-10 h-10 rounded-full" src={avatar} alt={name}>
+  <div class="text-left">
+    <span class="block">{name}</span>
+    <a class="block text-xs text-gray-400" href={link}>@{handle}</a>
+  </div>
+</div>

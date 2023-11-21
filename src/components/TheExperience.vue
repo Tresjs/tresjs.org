@@ -32,7 +32,7 @@ const smAndLarger = breakpoints.greaterOrEqual('sm') // sm and larger
 
 <template>
   <TresCanvas v-bind="gl">
-    <TresPerspectiveCamera :position="[-10,5,20]" :look-at="[-7,0,0]" />
+    <TresPerspectiveCamera :position="smAndLarger ? [-10,5,20] : [-10,5,30]" :look-at="smAndLarger ? [-7,0,0] : [0,-6,0]" />
     <TresGridHelper ref="gridHelperRef" />
     <ScrollControls
       ref="scRef"

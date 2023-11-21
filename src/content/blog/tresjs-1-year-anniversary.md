@@ -1,8 +1,9 @@
 ---
-title: 'Using MDX'
+title: 'TresJS 1 Year Anniversary'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 02 2022'
-heroImage: '/blog-placeholder-5.jpg'
+publishedDate: 'Nov 28 2023'
+author: alvaro-saburido
+heroImage: '/blog/tres-1-year-anniversary.webp'
 ---
 
 This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.

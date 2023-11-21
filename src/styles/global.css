@@ -5,6 +5,19 @@
  */
 
 :root {
+	--_placeholder-bg: linear-gradient(transparent, transparent);
+	--bg-image-main: url('/bg-main.webp');
+	--bg-image-main-curves: url('/bg-main-light.svg');
+	--bg-image-subtle-1: var(--_placeholder-bg);
+	--bg-image-subtle-2: var(--_placeholder-bg);
+	--bg-image-footer: var(--_placeholder-bg);
+	--bg-svg-blend-mode: overlay;
+	--bg-blend-mode: normal;
+	--bg-image-aspect-ratio: 2.25;
+	--bg-scale: 1.68;
+	--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
+	--bg-gradient-size: calc(var(--bg-scale) * 100%);
+	--bg-color: #fff;
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -43,6 +56,40 @@ body {
 	line-height: 1.7;
 }
 
+.dark {
+	@apply bg-dark text-light;
+	--bg-image-main: url('/bg-main-dark.jpg');
+	--bg-color: #343434;
+	--bg-blend-mode: color;
+	--bg-image-main-curves: none;
+}
+
+.fancy-bg {
+	min-height: 100%;
+	isolation: isolate;
+	background:
+		/*noise*/
+		url('/noise.png') top center/220px repeat,
+		/*footer*/ var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
+		/*header1*/ var(--bg-image-main-curves) top center/var(--bg-gradient-size) no-repeat,
+		/*header2*/ var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
+		/*base*/ var(--bg-color);
+	background-blend-mode: /*noise*/
+		overlay,
+		/*footer*/ var(--bg-blend-mode),
+		/*header1*/ var(--bg-svg-blend-mode),
+		/*header2*/ var(--bg-blend-mode),
+		/*base*/ normal;
+}
+@media (forced-colors: active) {
+	/* Deactivate custom backgrounds for high contrast users. */
+	.backgrounds {
+		background: none;
+		background-blend-mode: none;
+		--bg-gradient-size: none;
+	}
+}
+
 h1,
 h2,
 h3,
@@ -64,23 +111,20 @@ h4 {
 	@apply font-size-base;
 }
 h5 {
-	font-size: 1.25em;
+	@apply font-size-sm;
 }
 strong,
 b {
-	font-weight: 700;
+	@apply font-bold
 }
 a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
+	@apply text-primary hover:text-primary-500 transition-colors duration-300 ease-in-out;
 }
 p {
-	margin-bottom: 1em;
+	@apply mb-4
 }
 .prose p {
-	margin-bottom: 2em;
+	@apply mb-8
 }
 textarea {
 	width: 100%;

@@ -1,3 +1,6 @@
+---
+const { icon } = Astro.props
+---
 <h2 class="mb-0">
   <a
     href="/"
@@ -12,7 +15,7 @@
       src="/logo.svg"
       alt="TresJS logo"
     >
-    TresJS
+    {!icon && 'TresJS' }
   </a>
 </h2>
 
