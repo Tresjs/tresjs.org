@@ -18,15 +18,6 @@
 	--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
 	--bg-gradient-size: calc(var(--bg-scale) * 100%);
 	--bg-color: #fff;
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -52,18 +43,27 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 16;
+	font-size: 1rem;
 	line-height: 1.7;
 }
 
 .dark {
 	@apply bg-dark text-light;
 	--bg-image-main: url('/bg-main-dark.jpg');
-	--bg-color: #343434;
+	--bg-color: #222222;
 	--bg-blend-mode: color;
 	--bg-image-main-curves: none;
-}
 
+}
+.simpler-bg {
+	min-height: 100%;
+	isolation: isolate;
+	background-image: url('/noise.png'), var(--bg-image-main-curves), linear-gradient(to top, var(--bg-color) 10%, rgba(255, 255, 255, 0) 100%), var(--bg-image-main);
+	background-repeat: repeat, no-repeat, no-repeat, no-repeat; /* No repeat for gradient, repeat for image */
+	background-position: top center/220px, top center/var(--bg-gradient-size), bottom center, top center/var(--bg-gradient-size); /* Center for gradient, bottom for image */
+	background-size: auto, cover, cover, cover; /* Cover for gradient, auto (default) for image */
+	background-blend-mode: overlay, overlay, normal, var(--bg-blend-mode);
+}
 .fancy-bg {
 	min-height: 100%;
 	isolation: isolate;
@@ -124,7 +124,7 @@ p {
 	@apply mb-4
 }
 .prose p {
-	@apply mb-8
+	@apply mb-8 text-base;
 }
 textarea {
 	width: 100%;
@@ -139,13 +139,14 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
 }
 .astro-code {
+	@apply font-mono text-sm sm:text-base;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
 code {
+	
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;

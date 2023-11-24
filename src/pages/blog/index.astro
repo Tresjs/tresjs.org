@@ -5,9 +5,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Footer from '../../components/Footer.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.publishedDate.valueOf() - b.data.publishedDate.valueOf()
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
@@ -18,7 +19,7 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<BaseLayout>
-		<header class="w-full py-40 sm:py-48 border-b border-gray-200 text-gray-600">
+		<header class="w-full py-40 sm:py-48 border-b border-gray-200 text-gray-600 dark:text-light">
 			<div class="container mx-auto">
 				<h1 class="text-4xl font-bold">Blog</h1>
 				<p>Yup.. expect more post soon 😊</p>
@@ -36,12 +37,12 @@ const posts = (await getCollection('blog')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<div class="bg-white p-4 shadow-lg rounded-lg">
+								<div class="bg-white dark:bg-dark p-4 shadow-lg rounded-lg">
 									<a href={`/blog/${post.slug}/`} class="text-gray-500 dark:text-light hover:text-primary transition-color duration-400 ease-in prose">
 										<img width={720} height={360} src={post.data.heroImage} alt="" />
 										<h3 class="title">{post.data.title}</h4>
 											<p class="date">
-											<FormattedDate date={post.data.publishedDate} />
+											<FormattedDate date={post.data.pubDate} />
 										</p>
 									</a>
 								</div>
@@ -51,6 +52,7 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
+		<Footer />
 	</BaseLayout>
 	</body>
 </html>

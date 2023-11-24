@@ -10,25 +10,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.4",
+    "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/vue": "^3.0.4",
+    "@octokit/graphql": "^7.0.2",
     "@tresjs/cientos": "^3.6.0",
     "@tresjs/core": "^3.5.0",
     "@tresjs/leches": "^0.13.0",
     "@tresjs/post-processing": "0.7.0",
     "@vueuse/core": "^10.6.1",
-    "astro": "^3.5.3",
+    "astro": "^3.5.6",
+    "gsap": "^3.12.2",
     "three": "^0.158.0",
     "vue": "^3.3.8"
   },
   "devDependencies": {
     "@iconify-json/bi": "^1.1.20",
     "@iconify-json/carbon": "^1.1.21",
-    "@iconify-json/logos": "^1.1.37",
-    "@types/three": "^0.158.2",
-    "unocss": "^0.57.4",
+    "@iconify-json/logos": "^1.1.38",
+    "@types/three": "^0.158.3",
+    "unocss": "^0.57.7",
     "unplugin-auto-import": "^0.16.7"
   }
 }

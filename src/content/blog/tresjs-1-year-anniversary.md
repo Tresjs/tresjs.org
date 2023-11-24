@@ -1,32 +1,30 @@
 ---
 title: 'TresJS 1 Year Anniversary'
 description: 'Lorem ipsum dolor sit amet'
-publishedDate: 'Nov 28 2023'
+pubDate: 'Nov 28 2023'
 author: alvaro-saburido
-heroImage: '/blog/tres-1-year-anniversary.webp'
+heroImage: '/blog/anniversary/tres-1-year-anniversary.webp'
 ---
 
-This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
+A year ago, I was learning how to use React Three Fiber, a custom renderer with the power of creating 3D scenes declarately with React components and it blowed my mind 🤯. 
 
-## Why MDX?
+Then, I did what I do best, complain in twitter 😅 😂:
 
-MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+![Tweet complaining about the lack of a 3D framework on VueJS](/blog/anniversary/the-spark.png)
 
-If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+Yep, that was the panorama for VueJS developers like me back then. There were some initiatives like TroisJS, a manual wrapper of ThreeJS for VueJS that became unmantained and Lunchbox, who were the firsts to try to create a renderer. But, it was not enough for me, inspired by Pmndrs work and Thretle for Svelte I decided to create a renderer for VueJS, and that's how TresJS was born.
 
-## Example
+I started with a simple idea, provide the vue community with a ecosystem that would allow you to create 3D scenes declaratively with VueJS components and that was easy to mantain and extend.
 
-Here is how you import and use a UI component inside of MDX.  
-When you open this page in the browser, you should see the clickable button below.
+![](/blog/anniversary/the-confirmation-tweet.png)
 
-import HeaderLink from '../../components/HeaderLink.astro';
+For us it was important to solve the biggest problems of previous solutions:
 
-<HeaderLink href="#" onclick="alert('clicked!')">
-	Embedded component in MDX
-</HeaderLink>
+- Keep it up to date with ThreeJS which constantly updates
+- A good DX, we wanted to make it easy to use and learn
+- Performant, even with reactivity. 
+- Extendable, we wanted to make it easy to create new components and extend the core library with community-driven packages.
+  
 
-## More Links
+Although v1 was a decent solution 😄 and we managed to achieve some of the goals, it has some limitations that would only be solved by using [Vue's Custom Renderer API](https://vuejs.org/api/custom-renderer.html).
 
-- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
-- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
-- **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.

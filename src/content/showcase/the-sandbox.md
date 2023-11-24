@@ -1,7 +1,8 @@
 ---
 title: The Sandbox
 date: '16-11-2023'
-thumbnail: /showcase/the-sandbox.gif
+thumbnail: /showcase/the-sandbox.png
+video: /showcase/the-sandbox.mp4
 website: https://www.sandbox.game/
 author: Marcin Dekier
 author_link: https://twitter.com/DekierMarcin

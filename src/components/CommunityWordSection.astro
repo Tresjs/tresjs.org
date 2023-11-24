@@ -9,7 +9,6 @@ const testimonials = await Promise.all(items.map(async (item) => {
     render: await item.render()
   };
 }));
-console.log(testimonials);
 ---
 
 <section class="bg-grid min-h-screen snap-start text-gray-500 flex justify-center items-center pt-16">
@@ -18,7 +17,7 @@ console.log(testimonials);
       Take the word from the <strong class="text-primary">community</strong>.
     </h2>
 
-    <div class="masonry mb-32">
+    <div class="masonry">
       {testimonials.map(({data, render}) => (
         <div class="masonry-item mb-12">
           <TestimonialCard {...data}>
@@ -27,7 +26,7 @@ console.log(testimonials);
         </div>
       ))}
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center my-32">
       <a class="btn bg-purple hover:bg-purple-600 animate animate-pulse-alt hover:text-primary transition-all ease-in-out" href="https://discord.gg/WYj3pjpPUK">
        <i class="i-bi-discord text-white mr-2"></i> Join the Discord
       </a>
@@ -46,11 +45,10 @@ console.log(testimonials);
   }
 
   .bg-grid {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0) 90%), url('bg-grid.png');
+    background-image: linear-gradient(to bottom, var(--bg-color) 60%, rgba(255, 255, 255, 0) 90%), url('bg-grid.png');
     background-repeat: no-repeat, repeat; /* No repeat for gradient, repeat for image */
     background-size: cover, auto; /* Cover for gradient, auto (default) for image */
   }
-
   
   @media (max-width: 1024px) {
     .masonry {

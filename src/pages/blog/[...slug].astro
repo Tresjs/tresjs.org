@@ -13,7 +13,6 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const author = await getEntry('authors',post.data.author);
-console.log(author);
 const { Content } = await post.render();
 ---
 

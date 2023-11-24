@@ -1,21 +1,21 @@
 ---
 import ScrollButton from "./ScrollButton.vue";
-
+import InitCommand from "./InitCommand.vue";
 ---
 
 <div class="w-full min-h-screen snap-start flex justify-end items-center">
   <div class="mx-auto container">
     <div class="w-full md:w-1/2">
-      <h2 class="important-text-4xl text-gray-500 dark:text-light mb-8 opacity-0 animate-fade-in animate-delay-1s animate-forwards">
+      <h2 class="important-text-4xl text-gray-500 dark:text-light mt-32 sm:mt-0 mb-8 opacity-0 animate-fade-in animate-delay-1s animate-forwards">
         Create awesome 3D experiences with <strong class="text-primary">Vue</strong>.
       </h2>
-      <div class="flex gap-4">
-        <code class="bg-dark rounded p-4 text-sm text-gray-500 text-light opacity-0 animate-fade-in animate-delay-1.5s animate-forwards">
-          npx create tresjs
-        </code>
-        <button class="bg-primary rounded p-4 text-white text-light opacity-0 animate-fade-in animate-delay-2s animate-forwards">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <InitCommand client:only />
+     
+        <a href="https://tresjs.org/guide/" target="_blank" 
+          class="bg-primary text-center hover:bg-teal-400 rounded p-4 text-white text-light opacity-0 animate-fade-in animate-delay-2s animate-forwards">
           Start 🎉
-        </button>
+        </a>
       </div>
     </div>
     <ScrollButton client:only />

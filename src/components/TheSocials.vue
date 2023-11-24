@@ -8,7 +8,7 @@ const socials = [
   {
     name: 'GitHub',
     icon: 'i-carbon-logo-github',
-    url: 'https://tresjs.org/',
+    url: 'https://github.com/tresjs/tres',
   },
   {
     name: 'Discord',
@@ -19,7 +19,7 @@ const socials = [
 </script>
 
 <template>
-  <ul class="hidden sm:inline-flex items-center justify-end gap-4">
+  <ul class="inline-flex items-center justify-end gap-4">
     <li>
       <button
         title="Toggle dark mode"

@@ -6,12 +6,12 @@ type Props = HTMLAttributes<'a'>;
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+const isActive = href !== '/' ? pathname.includes(href) : pathname === href;
 ---
 
 <li>
   <a
-    class="text-gray-400 dark:text-gray-200 rounded-full px-4 py-1 inline-block hover:bg-teal-100 hover:text-gray-500 transition-colors duration-200 ease-in-out"
+    class="text-gray-400 dark:text-gray-200 rounded-full px-4 py-1 inline-block hover:bg-primary hover:text-light transition-colors duration-200 ease-in-out"
     href={href} class:list={[className, { 'bg-primary text-white': isActive }]} {...props}>
     <slot />
   </a>

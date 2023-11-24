@@ -5,11 +5,27 @@ import TheNav from './TheNav.astro';
 import MobileNav from './MobileNav.vue';
 ---
 
+<script>
+	function onScroll() {
+  const isScrolled = window.scrollY > 400;
+
+	if(isScrolled) {
+		document.querySelector('header')?.classList.add('bg-white dark:bg-dark');
+	} else {
+		document.querySelector('header')?.classList.remove('bg-white dark:bg-dark');
+	}
+}
+	// Clean up
+	window.addEventListener('scroll', onScroll);
+</script>
+
 <header class="p-4 fixed w-full z-20">
 	<nav class="mx-auto container flex justify-between items-center">
 		<TheLogo />
 		<TheNav />
-		<TheSocials client:only />
+		<div class="hidden sm:block">
+			<TheSocials client:only />
+		</div>
 		<MobileNav client:only />
 	</nav>
 </header>

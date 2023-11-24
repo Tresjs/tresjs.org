@@ -1,7 +1,8 @@
 ---
 title: The Aviator
 date: '16-11-2023'
-thumbnail: /showcase/the-aviator.gif
+thumbnail: /showcase/the-aviator.png
+video: /showcase/the-aviator.mp4
 demo: https://tres-the-aviator.enpitsulin.xyz/
 author: enpitsulin
 author_link: https://twitter.com/enpitsulin

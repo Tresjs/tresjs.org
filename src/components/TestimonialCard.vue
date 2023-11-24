@@ -9,7 +9,7 @@ defineProps<{
 <template>
 <div class="bg-white dark:bg-dark 
     rounded-xl border border-2 border-gray-100 dark:border-gray-700 
-    w-full p-4 shadow-xl dark:shadow-gray-700 text-gray-500 dark:text-light">
+    w-full p-4 shadow-xl dark:shadow-dark-800 text-gray-500 dark:text-light">
     <header class="w-full flex">
       <img :src="avatar" alt="avatar" class="w-12 h-12 rounded-full mr-4" />
       <div class="flex flex-col justify-center mb-8">
