@@ -58,7 +58,7 @@ body {
 .simpler-bg {
 	min-height: 100%;
 	isolation: isolate;
-	background-image: url('/noise.png'), var(--bg-image-main-curves), linear-gradient(to top, var(--bg-color) 10%, rgba(255, 255, 255, 0) 100%), var(--bg-image-main);
+	background-image: url('/noise.png'), var(--bg-image-main-curves), linear-gradient(to top, var(--bg-color) 50%, rgba(255, 255, 255, 0) 100%), var(--bg-image-main);
 	background-repeat: repeat, no-repeat, no-repeat, no-repeat; /* No repeat for gradient, repeat for image */
 	background-position: top center/220px, top center/var(--bg-gradient-size), bottom center, top center/var(--bg-gradient-size); /* Center for gradient, bottom for image */
 	background-size: auto, cover, cover, cover; /* Cover for gradient, auto (default) for image */
@@ -124,7 +124,7 @@ p {
 	@apply mb-4
 }
 .prose p {
-	@apply mb-8 text-base;
+	@apply mb-8 text-lg line-height-8;
 }
 textarea {
 	width: 100%;
@@ -145,10 +145,9 @@ img {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-code {
-	
+:not(pre)> code {
+	@apply important-bg-gray-200 dark:important-bg-gray-700 text-gray-900 rounded-sm px-1;
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
 }
 pre {

@@ -10,9 +10,12 @@ import MobileNav from './MobileNav.vue';
   const isScrolled = window.scrollY > 400;
 
 	if(isScrolled) {
-		document.querySelector('header')?.classList.add('bg-white dark:bg-dark');
+		document.querySelector('header')?.classList.add('bg-white');
+		document.querySelector('header')?.classList.add('dark:bg-dark');
+
 	} else {
-		document.querySelector('header')?.classList.remove('bg-white dark:bg-dark');
+		document.querySelector('header')?.classList.remove('bg-white');
+		document.querySelector('header')?.classList.remove('dark:bg-dark');
 	}
 }
 	// Clean up

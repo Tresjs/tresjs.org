@@ -1,13 +1,17 @@
 <script lang="ts" setup>
 import { useDark, useToggle } from '@vueuse/core'
+import { useGithub } from '../composables/useGithub';
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const isHover = ref(false)
+const { getRepos, repos } = useGithub()
+await getRepos()
 
 const socials = [
   {
-    name: 'GitHub',
-    icon: 'i-carbon-logo-github',
+    name: 'X',
+    icon: 'i-bi-twitter-x',
     url: 'https://github.com/tresjs/tres',
   },
   {
@@ -19,7 +23,27 @@ const socials = [
 </script>
 
 <template>
-  <ul class="inline-flex items-center justify-end gap-4">
+  <ul class="inline-flex items-center justify-end gap-4 ">
+    <li>
+      <a
+        class="
+        block px-2 py-1 w-16
+        bg-transparent hover:bg-gray-600 dark:hover:bg-light
+        rounded border border-dark dark:border-light
+        text-gray-600 dark:text-light hover:text-light dark:hover:text-dark text-sm font-medium
+        transition-colors duration-200 ease-in-out"
+        href="https://github.com/Tresjs/tres"
+        target="_blank"
+        @mouseenter="isHover = true"
+        @mouseleave="isHover = false"
+        >
+          <i
+            class="i-carbon-logo-github mr-1"
+          />
+          <i v-show="isHover" class="i-carbon-star-filled text-yellow ml-1" />
+          <span v-show="!isHover">{{ repos[0].stargazers_count }}</span>
+        </a>
+    </li>
     <li>
       <button
         title="Toggle dark mode"
@@ -36,6 +60,7 @@ const socials = [
         />
       </button>
     </li>
+
     <li
       v-for="{ icon, url } in socials"
       :key="icon"
@@ -43,7 +68,7 @@ const socials = [
       <a
         :href="url"
         target="_blank"
-        class="text-gray-600 dark:text-light text-xl hover:text-gray-500 transition-colors duration-200 ease-in-out"
+        class="text-gray-600 dark:text-light text-base hover:text-gray-500 transition-colors duration-200 ease-in-out"
         :class="icon"
       />
     </li>

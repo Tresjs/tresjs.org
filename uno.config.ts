@@ -34,8 +34,27 @@ export default defineConfig({
           'height': '1px',
           'border': 'none',
           'background': 'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0))',
-
-        }
+        },
+        ':not(pre)>code': {
+          padding: '0.25rem 0.5rem !important',
+          'font-size': '0.865rem !important',
+        },
+        'code::after': {
+          content: 'none',
+        },
+        'code::before': {
+          content: 'none',
+        },
+        a: {
+          color: '#82DBC5',
+          'text-decoration': 'none',
+          transition: 'color 400ms ease-in-out',
+        },
+        'a:hover': {
+          color: '#82DBC5',
+          'text-decoration': 'underline',
+          transition: 'color 400ms ease-in-out',
+        },
       }
     }),
   ],
