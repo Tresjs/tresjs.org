@@ -2,21 +2,21 @@ import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		description: z.string(),
 		author: z.string(),
 		// Transform string to Date object
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
+		heroImage: image(),
 	}),
 });
 
 const authors = defineCollection({
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		name: z.string(),
-		avatar: z.string(),
+		avatar: image(),
 		handle: z.string(),
 		website: z.string().url(),
 	}),
