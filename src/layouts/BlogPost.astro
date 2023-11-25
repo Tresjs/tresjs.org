@@ -38,13 +38,15 @@ const { title, description, pubDate, updatedDate, heroImage, author } = Astro.pr
 							&& <Image 
 							widths={[240, 540, 720, 1920]}
   						sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1920px`}
-							width={1020}
+							width={1920}
 							height={510}
-							src={heroImage} 
+							loading="eager"
+							src={heroImage}
+							class="rounded-lg shadow-lg object-cover"
 							alt="Blog post hero image"
 							/>
 						}
-						<header class="bg-white dark:bg-dark py-8 w-full prose text-gray-600 dark:text-light rounded-lg md:-mt-40  mx-auto text-center z-10">
+						<header class="md:bg-white dark:md:bg-dark py-8 w-full prose text-gray-600 dark:text-light md:rounded-lg md:-mt-40  mx-auto text-center z-10">
 							<div class="title">
 								<div class="date">
 									<FormattedDate date={pubDate} />

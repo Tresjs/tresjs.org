@@ -1,7 +1,7 @@
 ---
 name: Evan you
 subtitle: Creator of @vuejs, @vite_js
-avatar: https://pbs.twimg.com/profile_images/1630207820359700480/a3pHtm6T_400x400.jpg
+avatar: ../assets/avatars/evanyou.jpg
 twitter: youyuxi
 
 ---

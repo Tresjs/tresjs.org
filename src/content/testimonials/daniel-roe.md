@@ -1,7 +1,7 @@
 ---
 name: Daniel Roe
 subtitle: Nuxt core team lead
-avatar: https://pbs.twimg.com/profile_images/1683238929959473152/Ljd6hJgD_400x400.jpg
+avatar: ../assets/avatars/danielroe.jpg
 twitter: danielcroe
 
 ---

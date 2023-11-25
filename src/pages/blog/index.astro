@@ -1,7 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -39,7 +39,7 @@ const posts = (await getCollection('blog')).sort(
 							<li>
 								<div class="bg-white dark:bg-dark p-4 shadow-lg rounded-lg">
 									<a href={`/blog/${post.slug}/`} class="text-gray-500 dark:text-light hover:text-primary transition-color duration-400 ease-in prose">
-										<img width={720} height={360} src={post.data.heroImage} alt="" />
+										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
 										<h3 class="title">{post.data.title}</h4>
 											<p class="date">
 											<FormattedDate date={post.data.pubDate} />

@@ -1,7 +1,7 @@
 ---
 name: Verekia
 subtitle: MiniMana.io | 🧑‍💻 https://WebGameDev.com
-avatar: https://pbs.twimg.com/profile_images/690952622455537665/av6UkGfd_400x400.jpg
+avatar: ../assets/avatars/verekia.jpg
 twitter: verekia
 ---
 

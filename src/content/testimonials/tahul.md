@@ -1,7 +1,7 @@
 ---
 name: Yaël Guilloux (Tahul)
 subtitle: Author of pinceau.dev
-avatar: https://pbs.twimg.com/profile_images/1629111849219239936/0AUS2dfv_400x400.jpg
+avatar: ../assets/avatars/tahul.jpg
 twitter: yaeeelglx
 ---
 

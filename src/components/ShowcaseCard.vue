@@ -1,12 +1,10 @@
 <script setup lang="ts">
 defineProps<{
   title: string
-  avatar: string
-  video: string
-  thumbnail: string
+  video?: string
   status: string
-  repo: string
-  demo: string
+  repo?: string
+  demo?: string
   author: string
   authorLink: string
 }>()
@@ -32,7 +30,9 @@ const isHover = ref(false)
             <source :src="video" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <img v-else :src="thumbnail" :alt="`${title} by ${author}`" />
+          <template v-else :src="thumbnail">
+            <slot name="thumbnail" />
+          </template>
           </TransitionGroup>
         </span>
         <h3 class="font-bold text-2xl">{{title}}</h3>
@@ -48,9 +48,6 @@ const isHover = ref(false)
         </div>
       </footer>
     </div>
-    <img class="w-16 h-16 rounded-full shadow-xl dark:shadow-gray-800 border border-dark" 
-      :src="avatar" 
-      :alt="author"
-    >
+    <slot name="avatar" />
   </div>
 </template>

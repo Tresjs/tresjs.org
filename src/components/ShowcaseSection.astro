@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import ShowcaseCard  from './ShowcaseCard.vue';
+import { Image } from 'astro:assets';
 
 const showcaseEntries = await getCollection('showcase');
+
 ---
 
 <section class="min-h-screen snap-start text-gray-500 flex justify-center items-center py-16">
@@ -26,19 +28,21 @@ const showcaseEntries = await getCollection('showcase');
       animate-delay-1s
       animate-forwards"
     >
+ 
       {showcaseEntries.map(({data}) => (
         <ShowcaseCard
           client:load
           author={data.author} 
-          avatar={data.avatar}
           title={data.title}
-          thumbnail={data.thumbnail}
           authorLink={data.author_link}
           repo={data.repo}
           demo={data.demo}
           status={data.status}
           video={data.video}
-        />
+        >
+          <Image slot="thumbnail" src={data.thumbnail} width={320} height={200} class="w-full aspect-video" alt={data.title} />
+          <Image slot="avatar" src={data.avatar} width={64} height={64} class="w-16 h-16 rounded-full shadow-xl dark:shadow-gray-800 border border-gray-200" alt={data.author} />
+        </ShowcaseCard>
       ))}
     </div>
   </div>

@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.4.2",
     "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
@@ -22,6 +23,7 @@
     "@vueuse/core": "^10.6.1",
     "astro": "^3.5.6",
     "gsap": "^3.12.2",
+    "lite-youtube-embed": "^0.3.0",
     "three": "^0.158.0",
     "vue": "^3.3.8"
   },

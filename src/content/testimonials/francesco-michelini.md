@@ -1,7 +1,7 @@
 ---
 name: Francesco Michelini
 subtitle: Freelance Creative Developer / @AWWWARDS judge 
-avatar: https://pbs.twimg.com/profile_images/1181609510139498498/g2vubijw_400x400.jpg
+avatar: ../assets/avatars/francesco.jpg
 twitter: fra_michelini
 ---
 

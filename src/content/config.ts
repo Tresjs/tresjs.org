@@ -22,4 +22,28 @@ const authors = defineCollection({
 	}),
 });
 
-export const collections = { blog, authors };
+const showcase = defineCollection({
+	schema: ({ image }) => z.object({
+		title: z.string(),
+		date: z.coerce.date(),
+		repo: z.string().url().optional(),
+		thumbnail: image(),
+		avatar: image(),
+		_video: z.string().optional(),
+		demo: z.string().url().optional(),
+		author: z.string(),
+		author_link: z.string().url().optional(),
+		status: z.enum(['Soon', 'Published']),
+	}),
+});
+
+const testimonials = defineCollection({
+	schema: ({ image }) => z.object({
+		name: z.string(),
+		subtitle: z.string(),
+		avatar: image(),
+		twitter: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, authors, showcase, testimonials };

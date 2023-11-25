@@ -1,5 +1,6 @@
 ---
 import { graphql } from "@octokit/graphql";
+import { Image } from 'astro:assets';
 
 const graphqlWithAuth = graphql.defaults({
   headers: {
@@ -24,7 +25,6 @@ try {
   }
 `);
 
-console.log(data);
 } catch (error) {
   console.log(error);
 }
@@ -48,7 +48,7 @@ console.log(data);
         <div class="grid grid-cols-4 gap-8 ">
           { data.user.sponsors.nodes.map((sponsor) => (
             <div class="flex flex-col items-center">
-              <img class="rounded-full w-16 h-16 shadow-lg" src={sponsor.avatarUrl} alt={sponsor.login} />
+              <Image width={64} height={64} class="rounded-full w-16 h-16 shadow-lg" src={sponsor.avatarUrl} alt={sponsor.login} />
 
             </div>
           ))}
