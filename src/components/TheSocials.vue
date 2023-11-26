@@ -12,7 +12,7 @@ const socials = [
   {
     name: 'X',
     icon: 'i-bi-twitter-x',
-    url: 'https://github.com/tresjs/tres',
+    url: 'https://x.com/tresjs_dev',
   },
   {
     name: 'Discord',
