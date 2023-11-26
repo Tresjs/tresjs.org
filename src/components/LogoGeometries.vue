@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGLTF, Levioso } from '@tresjs/cientos';
 import { toRefs, watch } from 'vue';
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 
 const props = defineProps<{
   progress?: number

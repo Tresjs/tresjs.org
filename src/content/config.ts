@@ -29,7 +29,7 @@ const showcase = defineCollection({
 		repo: z.string().url().optional(),
 		thumbnail: image(),
 		avatar: image(),
-		_video: z.string().optional(),
+		video: z.string().optional(),
 		demo: z.string().url().optional(),
 		author: z.string(),
 		author_link: z.string().url().optional(),

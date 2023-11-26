@@ -2,7 +2,7 @@
 title: The Aviator
 date: Nov 16 2023
 thumbnail: ../assets/showcase/the-aviator.png
-video: ../assets/showcase/the-aviator.mp4
+_video: ../assets/showcase/the-aviator.mp4
 demo: https://tres-the-aviator.enpitsulin.xyz/
 author: enpitsulin
 author_link: https://twitter.com/enpitsulin

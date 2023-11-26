@@ -5,11 +5,11 @@ import sitemap from '@astrojs/sitemap';
 import { templateCompilerOptions } from '@tresjs/core';
 import AutoImport from 'unplugin-auto-import/astro';
 import vue from "@astrojs/vue";
-
+import visualizer from 'rollup-plugin-visualizer';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://tresjs.org',
   integrations: [mdx(), sitemap(), UnoCSS({
     injectReset: true
   }), vue(templateCompilerOptions), AutoImport({
@@ -25,5 +25,14 @@ export default defineConfig({
     // presets
     'vue'],
     dts: true //
-  })]
+  })],
+  vite: {
+    plugins: [
+      visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true
+      })
+    ]
+  }
 });

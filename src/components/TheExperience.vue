@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { TresCanvas } from '@tresjs/core'
-import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import { EffectComposer, Noise, DepthOfField } from '@tresjs/post-processing'
+import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import LogoGeometries from './LogoGeometries.vue';
 import ScrollCtrls from './ScrollCtrls.vue'
 
