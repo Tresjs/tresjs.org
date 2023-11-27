@@ -22,7 +22,10 @@ const socials = [
 <template>
 <div class="inline-flex sm:hidden">
   <div class="relative">
-    <button class="p-2 inline-flex border-2 border-transparent dark:text-light rounded hover:border-gray-400" @click="showMenu = !showMenu">
+    <button 
+      aria-label="Mobile navigation menu"
+      :aria-expanded="showMenu" 
+      class="p-2 inline-flex border-2 border-transparent dark:text-light rounded hover:border-gray-400" @click="showMenu = !showMenu">
       <i class="i-bi-list"></i>
     </button>
     <Transition name="fade">

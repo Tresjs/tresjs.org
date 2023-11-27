@@ -118,7 +118,7 @@ b {
 	@apply font-bold
 }
 a {
-	@apply text-primary hover:text-primary-500 transition-colors duration-300 ease-in-out;
+	@apply text-primary-300 hover:text-primary-500 transition-colors duration-300 ease-in-out;
 }
 p {
 	@apply mb-4

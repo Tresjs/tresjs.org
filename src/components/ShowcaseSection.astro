@@ -10,7 +10,7 @@ const showcaseEntries = await getCollection('showcase');
 <section class="min-h-screen snap-start text-gray-500 flex justify-center items-center py-16">
   <div class="container mx-auto dark:text-light">
     <h2 class="important-text-4xl mb-8 opacity-0 animate-fade-in animate-delay-1s animate-forwards">
-      Showcase your <strong class="text-primary">work</strong>.
+      Showcase your <strong class="text-primary-300">work</strong>.
     </h2>
     <p class="opacity-0 animate-fade-in animate-delay-1.25s animate-forwards">
       Be part of the a big community of creators and 3D entusiasts
@@ -44,6 +44,13 @@ const showcaseEntries = await getCollection('showcase');
           <Image slot="avatar" src={data.avatar} width={64} height={64} class="w-16 h-16 rounded-full shadow-xl dark:shadow-gray-800 border border-gray-200" alt={data.author} />
         </ShowcaseCard>
       ))}
+    </div>
+    <div class="flex justify-center my-32">
+      <a class="btn-primary hover:scale-110 animate-fade-in animate-delay-1s animate-forwards transition-all ease-in-out"
+        target="_blank"
+        href="https://playground.tresjs.org/">
+        Discover more
+      </a>
     </div>
   </div>
 </section>

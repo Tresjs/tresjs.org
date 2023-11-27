@@ -23,7 +23,7 @@ const socials = [
 </script>
 
 <template>
-  <ul class="inline-flex items-center justify-end gap-4 ">
+  <ul class="inline-flex items-center justify-end gap-4">
     <li>
       <a
         class="
@@ -41,7 +41,7 @@ const socials = [
             class="i-carbon-logo-github mr-1"
           />
           <i v-show="isHover" class="i-carbon-star-filled text-yellow ml-1" />
-          <span v-show="!isHover">{{ repos[0].stargazers_count }}</span>
+          <span v-show="!isHover && repos[0]">{{ repos[0]?.stargazers_count }}</span>
         </a>
     </li>
     <li>

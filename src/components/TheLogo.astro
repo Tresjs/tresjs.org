@@ -1,20 +1,22 @@
 ---
+import Logo from '/logo.svg?raw'
 const { icon } = Astro.props
 ---
 <h2 class="mb-0">
   <a
     href="/"
     class="
-    rounded-full p-2 inline-flex items-baseline
-    text-lg text-gray-600 dark:text-light font-bold"
+    rounded-full p-2 inline-flex gap-4 items-baseline
+    text-lg text-gray-600 hover:text-gray-700 dark:text-light dark:hover:text-light font-bold"
   >
-    <img
+    <Fragment set:html={Logo}/>
+    <!-- <img
       width="44"
       height="10"
       class="w-50px mr-4"
       src="/logo.svg"
       alt="TresJS logo"
-    >
+    > -->
     {!icon && 'TresJS' }
   </a>
 </h2>
