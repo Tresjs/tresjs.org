@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRenderLoop } from '@tresjs/core';
 import { useGLTF, Levioso } from '@tresjs/cientos';
 import { toRefs, watch } from 'vue';
 import { gsap } from 'gsap'
@@ -13,11 +14,11 @@ const cube = nodes['Cube']
 const sphere = nodes['Sphere']
 
 triangle.position.set(-4, 4, 0)
-triangle.scale.set(0,0,0)
+triangle.scale.set(0, 0, 0)
 cube.position.set(0, 2, 0)
-cube.scale.set(0,0,0)
+cube.scale.set(0, 0, 0)
 sphere.position.set(4, 0, 0)
-sphere.scale.set(0,0,0)
+sphere.scale.set(0, 0, 0)
 
 const leviosoRange = [-0.005, 0.005] as [number, number]
 
@@ -26,18 +27,9 @@ const { progress } = toRefs(props)
 watch(progress, (value) => {
   cube.rotation.x = value * 100
   cube.rotation.y = value * 20
-  cube.position.x = - value * 120
-  cube.position.z = value * 140
 
   triangle.rotation.x = - value * 100
   triangle.rotation.y = value * 20
-  triangle.position.x = -4  -value * 50
-  triangle.position.z = - value * 150
-  triangle.position.y = 4 + value * 200
-
-  sphere.position.x = 4 + value * 1200
-  sphere.position.z = - value * 750
-  sphere.position.y = - value * 50
 }, {
   immediate: true
 })
@@ -68,16 +60,33 @@ onMounted(() => {
     ease: 'elastic.out', // Easing function for smoother animation
   })
 })
+
+const smoothFactor = 0.15
+const { onLoop } = useRenderLoop()
+
+onLoop(() => {
+  cube.position.x += (- progress?.value * 120 - cube.position.x) * smoothFactor
+  cube.position.z += (progress?.value * 140 - cube.position.z) * smoothFactor
+
+  sphere.position.x += (4 + progress?.value * 1200 - sphere.position.x) * smoothFactor
+  sphere.position.z += (- progress?.value * 750 - sphere.position.z) * smoothFactor
+  sphere.position.y += (- progress?.value * 50 - sphere.position.y) * smoothFactor
+
+  triangle.position.x += (-4 - progress?.value * 50 - triangle.position.x) * smoothFactor
+  triangle.position.z += (- progress?.value * 150 - triangle.position.z) * smoothFactor
+  triangle.position.y += (4 + progress?.value * 200 - triangle.position.y) * smoothFactor
+
+})
 </script>
 
 <template>
-  <Levioso :speed="progress > 0 ? 0: 1" :range="leviosoRange">
+  <Levioso :speed="progress > 0 ? 0 : 1" :range="leviosoRange">
     <primitive :object="triangle" />
   </Levioso>
-  <Levioso :speed="progress > 0 ? 0: 1" :range="leviosoRange">
+  <Levioso :speed="progress > 0 ? 0 : 1" :range="leviosoRange">
     <primitive :object="cube" />
   </Levioso>
-  <Levioso :speed="progress > 0 ? 0: 1" :range="leviosoRange">
+  <Levioso :speed="progress > 0 ? 0 : 1" :range="leviosoRange">
     <primitive :object="sphere" />
   </Levioso>
 </template>
