@@ -7,7 +7,9 @@ const { repos } = useGithub()
 const totalStars = ref(0)
 const totalPRs = ref(0)
 const totalCommits = ref(0)
-
+const startgazersCount = repos.value.reduce((acc, repo) => {
+  return acc + repo.stargazers_count
+}, 0)
 gsap.to(
   totalStars,
   {
@@ -16,9 +18,7 @@ gsap.to(
     onUpdate: () => {
       totalStars.value = Math.floor(totalStars.value)
     },
-    value: repos.value.reduce((acc, repo) => {
-      return acc + repo.stargazers_count
-    }, 0)
+    value: startgazersCount || 1136
   }
 )
 
