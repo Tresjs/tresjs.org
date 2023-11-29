@@ -41,7 +41,7 @@ const socials = [
             class="i-carbon-logo-github mr-3"
           />
           <i v-show="isHover" class="i-carbon-star-filled text-yellow ml-1" />
-          <span v-show="!isHover && repos[0]">{{ repos[0]?.stargazers_count || 834 }}</span>
+          <span v-show="!isHover">{{ repos[0]?.stargazers_count || 834 }}</span>
         </a>
     </li>
     <li>
