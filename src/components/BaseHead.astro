@@ -35,7 +35,6 @@ const ogImage = image.src || new URL(image, Astro.url) ;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="keywords" content="threejs, vuejs, renderer, vue, three, 3D"/>
-
 <!-- Fathom - beautiful, simple website analytics -->
 <script src="https://cdn.usefathom.com/script.js" data-site="OWBUVCJK" defer></script>
 <!-- / Fathom -->
@@ -47,9 +46,11 @@ const ogImage = image.src || new URL(image, Astro.url) ;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:alt" content="TresJS = Build 3D with Vue" />
+<meta property="og:locale" content="en">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="tresjs_dev" />
 <meta name="twitter:url" content={Astro.url} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
