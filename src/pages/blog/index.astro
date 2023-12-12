@@ -22,7 +22,6 @@ const posts = (await getCollection('blog')).sort(
 		<header class="w-full px-6 py-40 sm:py-48 border-b border-gray-200 text-gray-600 dark:text-light">
 			<div class="container mx-auto">
 				<h1 class="text-4xl font-bold">Blog</h1>
-				<p>Yup.. expect more post soon 😊</p>
 			</div>
 		</header>
 		<main class="flex h-full">
@@ -33,17 +32,19 @@ const posts = (await getCollection('blog')).sort(
 				</div>
 			</aside> -->
 			<section class="container mx-auto py-8">
-				<ul class="grid grid-cols-1 md:grid-cols-4">
+				<ul class="grid grid-cols-1 md:grid-cols-4 gap-8">
 					{
 						posts.map((post) => (
 							<li>
-								<div class="bg-white dark:bg-dark p-4 shadow-lg rounded-lg">
+								<div class="bg-white dark:bg-dark shadow-lg rounded-lg overflow-hidden">
 									<a href={`/blog/${post.slug}/`} class="text-gray-500 dark:text-light hover:text-primary transition-color duration-400 ease-in prose">
-										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-										<h3 class="title">{post.data.title}</h4>
-											<p class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
+										<Image class="aspect-video" width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+										<div class="p-4">
+											<h3 class="title min-h-[59px]">{post.data.title}</h4>
+												<p class="text-xs">
+													<FormattedDate date={post.data.pubDate} />
+												</p>
+										</div>
 									</a>
 								</div>
 							</li>
