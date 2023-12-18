@@ -2,4 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'TresJS';
-export const SITE_DESCRIPTION = 'Declarative ThreeJS using Vue Components';
+export const SITE_DESCRIPTION = 'Declarative Three.js using Vue Components';
