@@ -18,7 +18,7 @@ const isHover = ref(false)
       rounded-xl border border-2 border-gray-100 dark:border-gray-700 
       w-full p-4 shadow-xl dark:shadow-dark-800  text-gray-500 dark:text-light"
     >
-      <img v-if="status === 'Soon'" src="/soon.png" class="w-32 absolute -top-8 right-0 sm:-right-8 z-2" alt="Soon">
+      <img v-if="status === 'Soon'" src="../assets/soon.png" class="w-32 absolute -top-8 right-0 sm:-right-8 z-2" alt="Soon">
       <a :href="demo"
         @mouseenter="isHover = true"
         @mouseleave="isHover = false"
