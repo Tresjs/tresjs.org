@@ -33,7 +33,7 @@ const socials = [
         <ul>
           <li><a href="http://docs.tresjs.org/" target="_blank" class="block dark:text-light px-4 py-2 hover:bg-gray-100">Docs</a></li>
           <li><a href="/blog" class="block dark:text-light px-4 py-2 hover:bg-gray-100">Blog</a></li>
-          <li><a href="/playground" class="block dark:text-light px-4 py-2 hover:bg-gray-100">Playground</a></li>
+          <li><a href="https://play.tresjs.org/" target="_blank" class="block dark:text-light px-4 py-2 hover:bg-gray-100">Playground</a></li>
           <hr>
           <br>
           <li>
