@@ -142,8 +142,6 @@ img {
 }
 .astro-code {
 	@apply font-mono text-sm sm:text-base;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
 }
 :not(pre)> code {
 	@apply important-bg-gray-200 dark:important-bg-gray-700 text-gray-900 rounded-sm px-1;
