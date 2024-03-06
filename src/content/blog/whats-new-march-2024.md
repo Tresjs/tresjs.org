@@ -1,5 +1,5 @@
 ---
-title: What's new in Tres - March 2024
+title: What's new in TresJS - March 2024
 description: Leap into the latest updates on TresJS ecosystem.
 pubDate: March 4 2024
 author: alvaro-saburido
