@@ -27,7 +27,7 @@ const socials = [
     <li>
       <a
         class="
-        block px-2 py-1
+        flex items-center w-23 h-7 px-2 py-1
         bg-transparent hover:bg-gray-600 dark:hover:bg-light
         rounded border border-dark dark:border-light
         text-gray-600 dark:text-light hover:text-light dark:hover:text-dark text-sm font-medium
@@ -38,7 +38,7 @@ const socials = [
         @mouseleave="isHover = false"
         >
           <i
-            class="i-carbon-logo-github mr-3"
+            class="i-carbon-logo-github mr-3 shrink-0"
           />
           <i v-show="isHover" class="i-carbon-star-filled text-yellow ml-1" />
           <span v-show="!isHover">{{ repos[0]?.stargazers_count || 1174 }}</span>
