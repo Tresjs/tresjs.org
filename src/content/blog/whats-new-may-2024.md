@@ -18,41 +18,41 @@ While in the core the V4 is cooking, in Cientos we aren't resting and so we have
 
 Now we can select the [MouseParallax](https://cientos.tresjs.org/guide/abstractions/mouse-parallax.html) effect so that it is applied for a specific canvas or for the whole viewport.
 
-Made by [https://github.com/Tresjs/cientos/commits?author=emavitta-remago](https://github.com/Tresjs/cientos/commits?author=andretchen0)
+Made by [emavitta-remago](https://github.com/Tresjs/cientos/commits?author=andretchen0)
 
 ### Fit component
 
-`Fit` uniformly scales and positions its children as a group.
+[Fit](https://cientos.tresjs.org/guide/staging/fit.html) uniformly scales and positions its children as a group.
 
 Thanks to [andretchen0](https://github.com/Tresjs/cientos/commits?author=andretchen0)
 
 ### Positional audio
 
-This is an object specifically designed for controlling sounds in a scene graph space. This allows us to create a more immersive user experience for the simulation of various audio environments.
+The [Positional audio](https://cientos.tresjs.org/guide/abstractions/positional-audio.html) is specifically designed for controlling sounds in a scene graph space. This allows us to create a more immersive user experience for the simulation of various audio environments.
 
-Special thanks to [damienmontastier] (https://github.com/Tresjs/cientos/commits?author=damienmontastier)
+Special thanks to [damienmontastier](https://github.com/Tresjs/cientos/commits?author=damienmontastier)
 
 ### LightFormer
 
-Now you can use Light Formers in combination with your [Environment](https://cientos.tresjs.org/guide/staging/environment.html) component.
+Now you can use [Light Formers](https://cientos.tresjs.org/guide/staging/environment.html#lightformer) in combination with your [Environment](https://cientos.tresjs.org/guide/staging/environment.html) component.
 
-Great job by [https://github.com/Tresjs/cientos/commits?author=hawk86104]
+Great job by [hawk86104](https://github.com/Tresjs/cientos/commits?author=hawk86104)
 
 ### Holographic Material
 
-Try our new `Holographic Material` (originally developed by [Anderson mancini](https://github.com/ektogamat)) to add holographic effect to your meshes.
+Try our new [Holographic Material](https://cientos.tresjs.org/guide/materials/holographic-material.html) (originally developed by [Anderson mancini](https://github.com/ektogamat)) to add holographic effect to your meshes.
 
 Port by [JaimeTorrealba](https://github.com/Tresjs/cientos/commits?author=JaimeTorrealba)
 
 ### ocean component
 
-With the new `Ocean` component, it's easier than ever add water to your scenes.
+With the new [Ocean](https://cientos.tresjs.org/guide/staging/ocean.html) component, it's easier than ever add water to your scenes.
 
 Made by [JaimeTorrealba](https://github.com/Tresjs/cientos/commits?author=JaimeTorrealba)
 
 ### roundedBox
 
-This new shape was added to `Cientos`, the `roundedBox`.
+This new shape was added to `Cientos`, the [roundedBox](https://cientos.tresjs.org/guide/shapes/rounded-box.html).
 
 Made by [JaimeTorrealba](https://github.com/Tresjs/cientos/commits?author=JaimeTorrealba)
 
@@ -65,7 +65,9 @@ Added by [whereiswolf](https://github.com/Tresjs/cientos/commits?author=whereisw
 ## More Enhancements
 
 Component list view, a new way of displaying the several components in cientos, KUDOS for [andretchen0](https://github.com/Tresjs/cientos/commits?author=andretchen0).
+
 Update and fix lint by [alvarosabu](https://github.com/Tresjs/cientos/commits?author=alvarosabu).
+
 UseDracoLoader auto disposes in useGLTF, thanks to [hawk86104](https://github.com/Tresjs/cientos/commits?author=hawk86104).
 
 ## Fix
