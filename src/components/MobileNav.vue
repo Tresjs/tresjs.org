@@ -10,7 +10,7 @@ const socials = [
   {
     name: 'GitHub',
     icon: 'i-carbon-logo-github',
-    url: 'https://tresjs.org/',
+    url: 'https://github.com/Tresjs/tres',
   },
   {
     name: 'Discord',
