@@ -19,7 +19,7 @@ pnpm add @tresjs/cientos@latest
 
 ## What's hot in Cientos v4 🌶️ ?
 
-### Updated to the latest core version 🥳
+### Updated to the latest core version
 
 Cientos v4 is now compatible with the latest version of the core `@tresjs/core` v4. This means that you can now enjoy all the new features and improvements of the core while using Cientos.
 
