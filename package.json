@@ -10,31 +10,31 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astro-community/astro-embed-youtube": "^0.5.2",
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.4",
-    "@astrojs/vue": "^4.1.0",
+    "@astro-community/astro-embed-youtube": "^0.5.5",
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/vue": "^4.5.2",
     "@octokit/graphql": "^8.1.1",
-    "@tresjs/cientos": "^3.8.0",
-    "@tresjs/core": "^3.9.0",
+    "@tresjs/cientos": "^4.0.3",
+    "@tresjs/core": "^4.3.1",
     "@tresjs/leches": "^0.14.0",
     "@tresjs/post-processing": "0.7.1",
-    "@vueuse/core": "^10.9.0",
-    "astro": "^4.7.1",
+    "@vueuse/core": "^11.2.0",
+    "astro": "^4.16.8",
     "gsap": "^3.12.5",
-    "lite-youtube-embed": "^0.3.2",
-    "three": "^0.164.1",
-    "vue": "^3.4.26"
+    "lite-youtube-embed": "^0.3.3",
+    "three": "^0.170.0",
+    "vue": "^3.5.12"
   },
   "devDependencies": {
-    "@iconify-json/bi": "^1.1.23",
-    "@iconify-json/carbon": "^1.1.27",
-    "@iconify-json/logos": "^1.1.42",
-    "@iconify-json/ph": "^1.1.10",
-    "@types/three": "^0.160.0",
+    "@iconify-json/bi": "^1.2.1",
+    "@iconify-json/carbon": "^1.2.4",
+    "@iconify-json/logos": "^1.2.3",
+    "@iconify-json/ph": "^1.2.1",
+    "@types/three": "^0.169.0",
     "rollup-plugin-visualizer": "^5.12.0",
-    "unocss": "^0.58.3",
-    "unplugin-auto-import": "^0.17.3"
+    "unocss": "^0.63.6",
+    "unplugin-auto-import": "^0.18.3"
   }
 }
