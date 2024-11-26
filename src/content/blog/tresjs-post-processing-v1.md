@@ -1,7 +1,7 @@
 ---
 title: 'TresJS Post-processing v1'
 description: 'The post-processing library for TresJS is finally here!'
-pubDate: 'Oct 18 2024'
+pubDate: 'Nov 26 2024'
 author: alvaro-saburido
 heroImage: '../assets/blog/tresjs-post-processing-v1/tresjs-post-processing.png'
 ---
