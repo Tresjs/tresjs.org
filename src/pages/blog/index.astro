@@ -19,19 +19,19 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<BaseLayout>
-		<header class="w-full px-6 py-40 sm:py-48 border-b border-gray-200 text-gray-600 dark:text-light">
+		<header class="w-full px-6 py-24 sm:py-48 border-b border-gray-200 text-gray-600 dark:text-light">
 			<div class="container mx-auto">
 				<h1 class="text-4xl font-bold">Blog</h1>
 			</div>
 		</header>
-		<main class="flex h-full">
+		<main>
 			<!-- <aside class="border-l-0 border-t-0 border-b-0 border-r-1 border-gray-200 h-full w-1/3 p-8">
 				<div class="mx-auto pl-8">
 					<h2>Popular Posts</h2>
 					{}
 				</div>
 			</aside> -->
-			<section class="container mx-auto py-8">
+			<section class="container mx-auto py-8 sm:py-32 ">
 				<ul class="grid grid-cols-1 md:grid-cols-4 gap-8">
 					{
 						posts.map((post) => (
