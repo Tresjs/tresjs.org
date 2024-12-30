@@ -46,4 +46,15 @@ const testimonials = defineCollection({
 	}),
 });
 
-export const collections = { blog, authors, showcase, testimonials };
+const section = defineCollection({
+	schema: () => z.object({
+		link : z.string().url(),
+	}),
+});
+
+const block = defineCollection({
+	schema: () => z.object({
+	}),
+});
+
+export const collections = { blog, authors, showcase, testimonials, section, block };
