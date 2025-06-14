@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { MathUtils } from 'three'
-import { useDark } from '@vueuse/core'
 
 const colors = {
   TEAL: '#7fdac6',
@@ -17,7 +16,15 @@ const PI = Math.PI
 
 const { clamp } = MathUtils
 
-const isDark = useDark()
+const colorMode = useColorMode()
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
+  }
+})
 
 const pyramidRef = ref()
 const boxRef = ref()

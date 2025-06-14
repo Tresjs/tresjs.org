@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useDark } from '@vueuse/core'
 import { MathUtils, Vector3, Euler, BoxGeometry, CylinderGeometry, SphereGeometry, MeshToonMaterial  } from 'three'
 
 const colors = {
@@ -38,7 +37,15 @@ const sphereGeometry = new SphereGeometry()
 const cubeGeometry = new BoxGeometry()
 const pyramidGeometry = new CylinderGeometry(0, 0.6, 1)
 
-const isDark = useDark()
+const colorMode = useColorMode()
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
+  }
+})
 
 const mainMaterial = new MeshToonMaterial({
   color: isDark.value ? colors.DARK : colors.LIGHT,

@@ -9,10 +9,13 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/ui',
+    '@nuxt/ui-pro',
     '@nuxt/devtools',
     '@tresjs/nuxt',
   ],
+  uiPro: {
+    license: process.env.NUXT_UI_PRO_LICENSE
+  },
   fonts: {
     families: [
       { name: 'Manrope', provider: 'google', weights: ['500', '600', '800'] },

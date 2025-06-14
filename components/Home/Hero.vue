@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { useDark, useClipboard  } from '@vueuse/core'
+import { useClipboard  } from '@vueuse/core'
+const colorMode = useColorMode()
 
-const isDark = useDark()
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? 'dark' : 'light'
+  }
+})
 const { copy, copied } = useClipboard()
 
 const isInstallCommandHover = ref(false)
@@ -14,16 +22,16 @@ const colors = {
 
 <template>
  <div class="px-8">
-  <div class="border-x border-dashed border-gray-300/50 py-16 mx-auto max-w-(--ui-container)">
+  <div class="border-x border-dashed border-gray-200 dark:border-gray-800 py-16 mx-auto max-w-(--ui-container)">
     <div class="intro relative w-full h-[600px]">
-      <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 rotate-90 font-mono">WebGL</span>
+      <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">WebGL</span>
       <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />
       <div class="absolute top-0 left-0 w-full h-full">
         <TresCanvas :clear-color="isDark ? colors.DARK : colors.LIGHT">
           <HomeHeroExperience />
         </TresCanvas>
       </div>
-      <div class="bg-gradient-to-b from-90% from-white to-transparent absolute top-0 left-0 w-full pb-16 pt-4 flex flex-col  justify-center items-center">
+      <div class="bg-gradient-to-b from-90% from-white dark:from-default to-transparent absolute top-0 left-0 w-full pb-16 pt-4 flex flex-col  justify-center items-center">
         <h1 class="text-4xl font-display font-extrabold mb-8">Build Interactive 3D experiences with <span class="text-primary-400">Vue</span></h1>
         <div class="flex gap-4 justify-center items-center mb-8">
           <UButton to="https://docs.tresjs.org/" color="neutral" size="lg" icon="lucide-rocket">
@@ -59,7 +67,7 @@ const colors = {
   left: -32px;
   width: 100vw;
   height: 1px;
-  background: linear-gradient(to right, var(--ui-border), var(--ui-border) 50%, transparent 0, transparent);
+  background: linear-gradient(to right, var(--ui-line-color), var(--ui-line-color) 50%, transparent 0, transparent);
   background-size: var(--ui-line-gap) var(--ui-line-width);
   z-index: 1;
 }
@@ -72,7 +80,7 @@ const colors = {
   left: -32px;
   width: 100vw;
   height: 1px;
-  background: linear-gradient(to right, var(--ui-border), var(--ui-border) 50%, transparent 0, transparent);
+  background: linear-gradient(to right, var(--ui-line-color), var(--ui-line-color) 50%, transparent 0, transparent);
   background-size: var(--ui-line-gap) var(--ui-line-width);
 }
 
