@@ -15,6 +15,7 @@
   --ui-line-gap: 5px;
   --ui-line-width: 1px;
   --ui-line-offset: 172px;
+  --ui-line-color: var(--color-gray-200);
 
   /* Teal Palette */
   --color-teal-50: #f2fbf8;
@@ -43,8 +44,13 @@
   --color-yellow-950: #451003;
 }
 
+.dark {
+  --ui-line-color: var(--color-gray-800);
+}
+
 .pattern-bg {
   background-image: var(--ui-pattern-bg);
   background-size: 10px 10px;
   background-attachment: fixed;
 }
+
