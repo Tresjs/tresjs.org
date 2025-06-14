@@ -13,8 +13,9 @@ const colors = {
 </script>
 
 <template>
-  <UContainer class="border-x border-dashed border-gray-300/50 py-16 !px-0">
-    <div class="relative w-full intro h-[600px]">
+ <div class="px-8">
+  <div class="border-x border-dashed border-gray-300/50 py-16 mx-auto max-w-(--ui-container)">
+    <div class="intro relative w-full h-[600px]">
       <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 rotate-90 font-mono">WebGL</span>
       <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />
       <div class="absolute top-0 left-0 w-full h-full">
@@ -44,7 +45,8 @@ const colors = {
         </div>
       </div>
     </div>
-  </UContainer>
+  </div>
+ </div>
 </template>
 
 <style scoped>
@@ -53,21 +55,37 @@ const colors = {
   content: "";
   position: absolute;
   top: 0;
-  left: calc(var(--ui-line-offset) / 2 * -1);
-  width: calc(100% + var(--ui-line-offset));
+  /* Mobile styles: simplified positioning */
+  left: -32px;
+  width: 100vw;
   height: 1px;
   background: linear-gradient(to right, var(--ui-border), var(--ui-border) 50%, transparent 0, transparent);
   background-size: var(--ui-line-gap) var(--ui-line-width);
   z-index: 1;
 }
+
 .intro::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: calc(var(--ui-line-offset) / 2 * -1);
-  width: calc(100% + var(--ui-line-offset));
+  /* Mobile styles: simplified positioning */
+  left: -32px;
+  width: 100vw;
   height: 1px;
   background: linear-gradient(to right, var(--ui-border), var(--ui-border) 50%, transparent 0, transparent);
-  background-size: var(--ui-line-gap) var(--ui-line-width)
+  background-size: var(--ui-line-gap) var(--ui-line-width);
+}
+
+/* From mobile up (sm breakpoint and larger): use calculated values */
+@media (min-width: 640px) {
+  .intro::before {
+    left: calc(var(--ui-line-offset) / 2 * -1);
+    width: calc(100% + var(--ui-line-offset));
+  }
+  
+  .intro::after {
+    left: calc(var(--ui-line-offset) / 2 * -1);
+    width: calc(100% + var(--ui-line-offset));
+  }
 }
 </style>
