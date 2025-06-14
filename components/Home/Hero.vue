@@ -25,10 +25,10 @@ const colors = {
       <div class="bg-gradient-to-b from-90% from-white to-transparent absolute top-0 left-0 w-full py-16 flex flex-col  justify-center items-center">
         <h1 class="text-4xl font-display font-bold mb-8">Build Interactive 3D experiences with <span class="text-primary-400">Vue</span></h1>
         <div class="flex gap-4 justify-center items-center mb-8">
-          <UButton to="/docs" color="neutral" size="lg" icon="lucide-rocket">
+          <UButton to="https://docs.tresjs.org/" color="neutral" size="lg" icon="lucide-rocket">
             Get Started
           </UButton>
-          <UButton to="/playground" color="neutral" variant="subtle" size="lg">
+          <UButton to="https://play.tresjs.org/" color="neutral" variant="subtle" size="lg">
             Playground
           </UButton>
         </div>
