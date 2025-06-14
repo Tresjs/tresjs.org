@@ -23,8 +23,8 @@ const colors = {
           <HomeHeroExperience />
         </TresCanvas>
       </div>
-      <div class="bg-gradient-to-b from-90% from-white to-transparent absolute top-0 left-0 w-full py-16 flex flex-col  justify-center items-center">
-        <h1 class="text-4xl font-display font-bold mb-8">Build Interactive 3D experiences with <span class="text-primary-400">Vue</span></h1>
+      <div class="bg-gradient-to-b from-90% from-white to-transparent absolute top-0 left-0 w-full pb-16 pt-4 flex flex-col  justify-center items-center">
+        <h1 class="text-4xl font-display font-extrabold mb-8">Build Interactive 3D experiences with <span class="text-primary-400">Vue</span></h1>
         <div class="flex gap-4 justify-center items-center mb-8">
           <UButton to="https://docs.tresjs.org/" color="neutral" size="lg" icon="lucide-rocket">
             Get Started

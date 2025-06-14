@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   ],
   fonts: {
     families: [
-      { name: 'Manrope', provider: 'google' },
+      { name: 'Manrope', provider: 'google', weights: ['500', '600', '800'] },
       { name: 'Inter', provider: 'google' },
     ],
   },
