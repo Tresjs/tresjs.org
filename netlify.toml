@@ -4,6 +4,10 @@
   command = "pnpm run generate"
   publish = "dist"
 [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+[[redirects]]
   from = "/guide/*"
   to = "https://docs.tresjs.org/guide/:splat"
   status = 301

@@ -26,5 +26,10 @@
   },
   "devDependencies": {
     "@tresjs/nuxt": "^4.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
   }
 }
