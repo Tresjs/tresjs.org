@@ -50,6 +50,9 @@ const items = computed<NavigationMenuItem[]>(() => [
         />
       </UTooltip>
     </template>
+    <template #body>
+      <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+    </template>
   </UHeader>
   <!-- <header class="bg-(--ui-bg)/75 backdrop-blur border-b border-(--ui-border) h-(--ui-header-height) sticky top-0 z-50">
     <UContainer class="h-full flex items-center justify-between">
