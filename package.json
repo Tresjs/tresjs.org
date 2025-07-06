@@ -20,6 +20,7 @@
     "better-sqlite3": "^11.10.0",
     "eslint": "^9.0.0",
     "nuxt": "^3.17.5",
+    "nuxt-og-image": "^5.1.8",
     "typescript": "^5.6.3",
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"

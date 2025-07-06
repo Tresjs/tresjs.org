@@ -22,7 +22,7 @@ const colors = {
 
 <template>
  <div class="px-8">
-  <div class="border-x border-dashed border-gray-200 dark:border-gray-800 py-16 mx-auto max-w-(--ui-container)">
+  <div class="border-x border-dashed border-gray-200 dark:border-default py-16 mx-auto max-w-(--ui-container)">
     <div class="intro relative w-full h-[600px]">
       <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">WebGL</span>
       <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />

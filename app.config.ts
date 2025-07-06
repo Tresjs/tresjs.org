@@ -11,5 +11,9 @@ export default defineAppConfig({
         body: 'p-2 sm:p-3'
       }
     }
+  },
+  site: {
+    name: 'TresJS | The solution for 3D with Vue',
+    url: 'https://tresjs.org',
   }
 })

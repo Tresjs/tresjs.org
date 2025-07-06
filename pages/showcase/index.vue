@@ -1,9 +1,14 @@
 <script setup lang="ts">
-useHead({
-  title: 'Showcase',
-  meta: [
-    { name: 'description', content: 'Showcase of projects built with TresJS, the declarative ThreeJS framework for Vue' },
-  ],
+useSeoMeta({
+  title: 'Showcase | TresJS',
+  description: 'Showcase of projects built with TresJS, the declarative ThreeJS framework for Vue',
+  ogTitle: 'Showcase',
+  ogDescription: 'Showcase of projects built with TresJS, the declarative ThreeJS framework for Vue',
+  ogImage: '/social/og-showcase.png',
+  twitterTitle: 'Showcase',
+  twitterDescription: 'Showcase of projects built with TresJS, the declarative ThreeJS framework for Vue',
+  twitterImage: '/social/og-showcase.png',
+  twitterCard: 'summary_large_image',
 })
 
 const { data: showcase } = await useAsyncData('showcase', () =>

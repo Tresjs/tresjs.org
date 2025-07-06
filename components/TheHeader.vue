@@ -6,17 +6,13 @@ const route = useRoute()
 const items = computed<NavigationMenuItem[]>(() => [
   {
     label: 'Docs',
-    to: '/getting-started',
-    active: route.path.startsWith('/getting-started')
+    to: 'https://docs.tresjs.org/',
+    target: '_blank'
   },
   {
     label: 'Showcase',
     to: '/showcase',
     active: route.path.startsWith('/showcase')
-  },
-  {
-    label: 'Roadmap',
-    to: '/roadmap'
   },
   {
     label: 'Releases',

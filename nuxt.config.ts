@@ -22,4 +22,12 @@ export default defineNuxtConfig({
       { name: 'Inter', provider: 'google' },
     ],
   },
+  nitro: {
+    prerender: {
+      routes: [
+        '/',
+      ],
+      crawlLinks: true,
+    },
+  },
 })
