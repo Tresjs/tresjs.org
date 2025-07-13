@@ -30,5 +30,19 @@ export default defineContentConfig({
         repo: z.string(),
       }),
     }),
+    blog: defineCollection({
+      type: 'page',
+      source: 'blog/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        date: z.string(),
+        thumbnail: z.string(),
+        category: z.string(),
+        description: z.string(),
+        url: z.string(),
+        author: z.union([z.string(), z.array(z.string())]),
+        status: z.string(),
+      }),
+    }),
   }
 })

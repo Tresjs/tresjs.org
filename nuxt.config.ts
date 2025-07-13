@@ -4,14 +4,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/styles/main.css'],
   modules: [
-    '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/ui-pro',
+    '@nuxt/content',
     '@nuxt/devtools',
     '@tresjs/nuxt',
+    'motion-v/nuxt'
   ],
   uiPro: {
     license: process.env.NUXT_UI_PRO_LICENSE
@@ -21,6 +22,15 @@ export default defineNuxtConfig({
       { name: 'Manrope', provider: 'google', weights: ['500', '600', '800'] },
       { name: 'Inter', provider: 'google' },
     ],
+  },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'catppuccin-frappe',
+        },
+      },
+    }
   },
   nitro: {
     prerender: {

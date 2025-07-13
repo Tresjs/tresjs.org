@@ -5,6 +5,11 @@ const route = useRoute()
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
+    label: 'Blog',
+    to: '/blog',
+    active: route.path.startsWith('/blog')
+  },
+  {
     label: 'Docs',
     to: 'https://docs.tresjs.org/',
     target: '_blank'
