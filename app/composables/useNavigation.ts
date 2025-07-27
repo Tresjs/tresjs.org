@@ -41,6 +41,7 @@ const _useFooterLinks = () => {
       children: [
         {
           label: 'Team',
+          to: '/team'
         },
         {
           label: 'Design Kit',

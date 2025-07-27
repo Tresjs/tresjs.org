@@ -27,9 +27,6 @@ export const github = {
                     pronouns
                     location
                     websiteUrl
-                    sponsorsListing {
-                      url
-                    }
                     socialAccounts(first: 10) {
                       edges {
                         node {
@@ -38,6 +35,12 @@ export const github = {
                           url
                         }
                       }
+                    }
+                    contributionsCollection {
+                      totalCommitContributions
+                      totalIssueContributions
+                      totalPullRequestContributions
+                      totalPullRequestReviewContributions
                     }
                   }
                 }
@@ -50,21 +53,36 @@ export const github = {
         }
       }
     })
-    return team.data.organization.team.members.nodes.map((member) => ({
-      name: member.name as string,
-      login: member.login as string,
-      avatarUrl: member.avatarUrl as string,
-      location: member.location as string | undefined,
-      websiteUrl: member.websiteUrl as string | undefined,
-      sponsorsListing: member.sponsorsListing?.url as string | undefined,
-      socialAccounts: Object.fromEntries(member.socialAccounts?.edges.map((edge: any) => [
-        edge.node.provider.toLowerCase(),
-        {
-          displayName: edge.node.displayName,
-          url: edge.node.url
+    return team.data.organization.team.members.nodes.map((member) => {
+      const contributions = member.contributionsCollection
+      const score = (contributions.totalCommitContributions * 2) + 
+                   (contributions.totalPullRequestContributions * 5) + 
+                   (contributions.totalIssueContributions * 1) + 
+                   (contributions.totalPullRequestReviewContributions * 3)
+
+      return {
+        name: member.name as string,
+        login: member.login as string,
+        avatarUrl: member.avatarUrl as string,
+        location: member.location as string | undefined,
+        websiteUrl: member.websiteUrl as string | undefined,
+        sponsorsUrl: `https://github.com/sponsors/${member.login}`,
+        socialAccounts: Object.fromEntries(member.socialAccounts?.edges.map((edge: any) => [
+          edge.node.provider.toLowerCase(),
+          {
+            displayName: edge.node.displayName,
+            url: edge.node.url
+          }
+        ]) || []) as Record<string, { displayName: string, url: string }>,
+        score,
+        contributions: {
+          commits: contributions.totalCommitContributions,
+          pullRequests: contributions.totalPullRequestContributions,
+          issues: contributions.totalIssueContributions,
+          reviews: contributions.totalPullRequestReviewContributions
         }
-      ]) || []) as Record<string, { displayName: string, url: string }>
-    }))
+      }
+    })
   },
   async fetchOrgsContributors(orgs: string[]) {
     const contributors = await $fetch(`https://api.github.com/orgs/${orgs.join(',')}/members?per_page=100`, {
