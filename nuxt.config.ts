@@ -17,6 +17,9 @@ export default defineNuxtConfig({
   uiPro: {
     license: process.env.NUXT_UI_PRO_LICENSE
   },
+  image: {
+    format: ['webp', 'avif'],
+  },
   fonts: {
     families: [
       { name: 'Manrope', provider: 'google', weights: ['500', '600', '800'] },
@@ -40,4 +43,10 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
+  icon: {
+    customCollections: [{
+      prefix: 'tres',
+      dir: './app/assets/icons'
+    }]
+  }
 })
