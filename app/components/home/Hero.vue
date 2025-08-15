@@ -47,8 +47,8 @@ const colors = {
           :class="{ 'text-gray-500': isInstallCommandHover }" 
           @mouseenter="isInstallCommandHover = true" 
           @mouseleave="isInstallCommandHover = false"
-          @click="copy('npm install @tresjs/core')"
-        >~ npm install @tresjs/core</span>
+          @click="copy('npx create-tres@latest')"
+        >~ npx create-tres@latest</span>
           <UIcon :name="isInstallCommandHover ? (copied ? 'lucide-check' : 'lucide-copy') : ''" class="w-4 h-4" />
         </div>
       </div>
