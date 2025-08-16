@@ -21,6 +21,7 @@ useSeoMeta({
 <template>
   <div>
     <HomeHero />
+    <HomeDiagramSection />
   </div>
 </template>
 
