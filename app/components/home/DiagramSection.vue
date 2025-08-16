@@ -70,7 +70,9 @@ const connectorStrokeProps = computed(() => {
   const rendererRectPerimeter = (123 + 24) * 2 // Custom renderer label rectangle perimeter
   const objectsRectPerimeter = (88 + 24) * 2   // 3D Objects label rectangle perimeter
   
+  // Start renderer rectangle from bottom-right (50% around perimeter)
   const rendererDashOffset = rendererRectPerimeter * (1 - labelProgress)
+  // Start objects rectangle from bottom-left (75% around perimeter)  
   const objectsDashOffset = objectsRectPerimeter * (1 - labelProgress)
   
   return {
