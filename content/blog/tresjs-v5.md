@@ -234,10 +234,74 @@ This change brings **better performance**, **more predictable event handling**, 
 ## 💔 Breaking Changes & Migration
 
 ### Removed Composables
-- **`useSeek`**: Deprecated and removed (use native Three.js animation APIs)
+
+We've removed several composables that were either not true composables or have been replaced with better alternatives:
+
+- **`useTresReady`**: Use `@ready` event on `TresCanvas` instead
+- **`useSeek`**: Use `useGraph` or manual traversal functions
+- **`useTresEventManager`**: Removed in favor of the new event system
+- **`useRaycaster`**: Use native Three.js raycasting or the new event system
+- **`useRenderLoop`**: Use `useLoop` composable or `@loop` event on `TresCanvas`
+- **`useLogger`**: Removed for simpler debugging approach
+- **`useCamera`**: Use `useTres()` to access camera
 - **`useTexture`**: Moved to `@tresjs/cientos` for better organization
 
-### Event Renaming
+#### Migration Examples
+
+**Replace `useTresReady`:**
+```vue
+<!-- ❌ Old v4 syntax -->
+<script setup>
+const { isReady } = useTresReady()
+</script>
+
+<!-- ✅ New v5 syntax -->
+<script setup>
+const onReady = (context) => {
+  console.log('Renderer is ready:', context.renderer.instance)
+}
+</script>
+
+<template>
+  <TresCanvas @ready="onReady">
+    <!-- Your 3D scene -->
+  </TresCanvas>
+</template>
+```
+
+**Replace `useSeek`:**
+```vue
+<script setup>
+// ❌ Old v4 syntax
+const { seek } = useSeek()
+const body = seek(car, 'name', 'Octane_Body_0')
+
+// ✅ New v5 syntax - use useGraph
+const { state: model } = useLoader(GLTFLoader, '/model.glb')
+const scene = computed(() => model.value?.scene)
+const { nodes } = useGraph(scene)
+const body = computed(() => nodes.value?.Octane_Body_0)
+</script>
+```
+
+**Replace `useRenderLoop`:**
+```vue
+<script setup>
+// ❌ Old v4 syntax
+const { onLoop } = useRenderLoop()
+onLoop(({ delta, elapsedTime }) => {
+  // Animation logic
+})
+
+// ✅ New v5 syntax
+const { onBeforeRender } = useLoop()
+onBeforeRender(({ delta, elapsedTime }) => {
+  // Animation logic
+})
+</script>
+```
+
+### TresCanvas Event Renaming
 Update your event handlers:
 ```vue
 <!-- Before (v4) -->
