@@ -106,20 +106,71 @@ const createWebGPURenderer = (ctx: TresRendererSetupContext) => {
 
 ### 🔄 Enhanced Composables API
 
-We've completely refactored our composables system for better reliability and type safety:
+We've completely refactored our composables system to become **true Vue composables** (thanks to [Alexander Lichter's video](https://www.youtube.com/watch?v=N0QrFKBZuqA) 😅) with proper reactive state management. The biggest motivation was that many of our previous "composables" weren't actually composables but utility functions wrapping Three.js APIs.
 
-#### Improved `useLoader`
-```typescript
-// New initialValue support
-const { scene, progress, error } = await useLoader(GLTFLoader, '/model.gltf', {
-  initialValue: defaultScene // Prevent flickering during load
+#### Completely Refactored `useLoader`
+
+The `useLoader` composable has been transformed from a simple utility function into a true Vue composable based on `useAsyncData`, providing:
+
+- **Reactive state management** with loading, error, and progress tracking
+- **Better Vue integration** with proper composable patterns  
+- **Automatic cleanup** and disposal of 3D objects
+- **Enhanced TypeScript support** and developer experience
+- **Dynamic path loading** - change the model path reactively
+
+```vue
+<script setup>
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+
+// ❌ Old v4 syntax - returned a promise
+// const gltf = await useLoader(GLTFLoader, '/models/duck.gltf')
+
+// ✅ New v5 syntax - returns reactive state object
+const { state: model, isLoading, error, progress } = useLoader(
+  GLTFLoader, 
+  '/models/duck.gltf'
+)
+
+// Watch for loading state changes reactively
+watch(isLoading, (loading) => {
+  if (loading) console.log('Loading model...')
 })
 
-// Better loading state management
-if (progress.value < 100) {
-  // Show loading indicator
-}
+// Track loading progress
+watch(progress, (prog) => {
+  console.log(`Loading: ${prog.percentage}%`)
+})
+</script>
+
+<template>
+  <!-- Reactive loading states in template -->
+  <primitive v-if="model" :object="model.scene" />
+</template>
 ```
+
+#### Impact on Cientos Composables
+
+This breaking change also affects Cientos composables like [`useGLTF`](https://deploy-preview-563--cientos-tresjs.netlify.app/guide/loaders/use-gltf.html) and `useFBX`, which now follow the same reactive pattern:
+
+```vue
+<script setup>
+import { useGLTF } from '@tresjs/cientos'
+
+// ✅ New reactive state pattern in Cientos
+const { state, nodes, materials, isLoading, progress } = useGLTF('/model.glb', { 
+  draco: true 
+})
+</script>
+
+<template>
+  <primitive v-if="state" :object="state.scene" />
+</template>
+```
+
+These Cientos composables now provide the same reactive benefits:
+- **Reactive loading states** with `isLoading` and `progress`
+- **Structured access** to `nodes` and `materials` based on `useGraph` composable 
+- **Consistent API** across the TresJS ecosystem
 
 #### Streamlined Event System
 - **Renamed events** for clarity:
