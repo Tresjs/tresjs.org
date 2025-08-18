@@ -172,24 +172,64 @@ These Cientos composables now provide the same reactive benefits:
 - **Structured access** to `nodes` and `materials` based on `useGraph` composable 
 - **Consistent API** across the TresJS ecosystem
 
-#### Streamlined Event System
-- **Renamed events** for clarity:
-  - `onAfterRender` → `onRender`
-  - `onBeforeRender` → `onBeforeLoop`
-- **Better performance** with optimized event handling
-- **More intuitive** API that matches the actual execution flow
+### Enhanced Event System
+
+We've completely revamped the event system based on the pmndrs ecosystem standards, bringing significant improvements:
+
+#### Key Changes
+
+- **New event system** based on the `@pmndrs/pointer-events` package for battle-tested reliability
+- **First-intersected-only behavior**: Only the first intersected element will trigger pointer events, improving performance with complex scenes
+- **Native DOM event names**: Pointer events now follow exact DOM standards (e.g., `@pointerdown` instead of `@pointer-down`)
+- **Removed `useTresEventManager`**: The composable has been removed in favor of the new system
+
+#### Migration Required
+
+**Update pointer event names:**
+```vue
+<!-- ❌ Old v4 syntax -->
+<TresMesh @pointer-down="handlePointerDown">
+  <TresBoxGeometry />
+  <TresMeshBasicMaterial />
+</TresMesh>
+
+<!-- ✅ New v5 syntax -->
+<TresMesh @pointerdown="handlePointerDown">
+  <TresBoxGeometry />
+  <TresMeshBasicMaterial />
+</TresMesh>
+```
+
+**Handle overlapping elements differently:**
+```vue
+<!-- ❌ Old behavior: multiple overlapping objects could trigger events -->
+<TresMesh @click="handleClick">
+  <TresBoxGeometry />
+  <TresMeshBasicMaterial />
+</TresMesh>
+<TresMesh @click="handleClick"> <!-- This might not trigger if behind first mesh -->
+  <TresBoxGeometry />
+  <TresMeshBasicMaterial />
+</TresMesh>
+
+<!-- ✅ New behavior: use parent handler for overlapping elements -->
+<TresGroup @click="handleGroupClick">
+  <TresMesh>
+    <TresBoxGeometry />
+    <TresMeshBasicMaterial />
+  </TresMesh>
+  <TresMesh>
+    <TresBoxGeometry />
+    <TresMeshBasicMaterial />
+  </TresMesh>
+</TresGroup>
+```
+
+This change brings **better performance**, **more predictable event handling**, and **consistency with web standards**.
 
 ### 🛠️ Developer Experience Improvements
 
-#### Enhanced DevTools
-- **Performance metrics tracking** in development
-- **Better debugging** with improved error messages
-- **Real-time monitoring** of render performance
 
-#### Improved Type Safety
-- **Stronger TypeScript integration** across all composables
-- **Better IntelliSense** support in your IDE
-- **Fewer runtime errors** with compile-time checks
 
 ## 💔 Breaking Changes & Migration
 
@@ -213,24 +253,6 @@ Update your event handlers:
 >
 ```
 
-### Module Loading
-Ensure your bundler supports ESM:
-```javascript
-// ✅ Works in v5
-import { TresCanvas } from '@tresjs/tres'
-
-// ❌ No longer supported
-const { TresCanvas } = require('@tresjs/tres')
-```
-
-## 🚀 Performance Improvements
-
-TresJS v5 brings significant performance enhancements:
-
-- **Optimized render loop** with better frame timing
-- **Improved memory management** with smarter resource disposal
-- **Faster component initialization** through architectural improvements
-- **Better Three.js integration** with updated to v0.177.0
 
 ## 🌐 Ecosystem Updates
 
@@ -261,7 +283,7 @@ pnpm add @tresjs/tres@^5.0.0
 pnpm add @tresjs/cientos@latest # for useTexture and other utilities
 ```
 
-Check out our [migration guide](https://tres.tresjs.org/migration/v5) for step-by-step instructions on updating your existing projects.
+Check out our [migration guide](https://docs.tresjs.org/getting-started/upgrade-guide) for step-by-step instructions on updating your existing projects.
 
 ## 🙏 Community & Contributors
 
@@ -271,4 +293,4 @@ Join our [Discord community](https://discord.gg/UCr96AQmWn) to share your v5 cre
 
 ---
 
-*Ready to build the future of web 3D with TresJS v5? [Get started today](https://tres.tresjs.org/guide/getting-started) and experience the next generation of declarative Three.js development!*
+*Ready to build the future of web 3D with TresJS v5? [Get started today](https://docs.tresjs.org/guide/getting-started) and experience the next generation of declarative Three.js development!*
