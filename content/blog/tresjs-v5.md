@@ -1,6 +1,6 @@
 ---
-title: 'TresJS v5: The Future is Here 🚀'
-description: 'Introducing TresJS v5 with ESM-only architecture, WebGPU support, and enhanced developer experience'
+title: 'Announcing Tres 5.0'
+description: 'Introducing Tres 5.0 with ESM-only architecture, experimentalWebGPU support, and enhanced developer experience'
 date: '2025-08-15'
 category: 'release'
 author: [alvarosabu, tino-koch]
@@ -9,9 +9,48 @@ thumbnail: '/blog/tresjs-v5/tresjs-v5-thumbnail.png'
 
 After months of development since March 21st, we're thrilled to announce TresJS v5! This major release represents a significant evolution of the declarative Three.js framework for Vue, bringing modern architecture, enhanced performance, and cutting-edge WebGPU support.
 
-## 🎯 What's New in TresJS v5
+## 🎯 What's New?
 
-TresJS v5 is our most ambitious release yet, focusing on developer experience, performance, and future-proofing the framework for the next generation of web graphics.
+Tres 5 is our most ambitious release yet, it's all about making your developer experience better, increasing performance, and future-proofing the framework for the next generation of web graphics in Vue.
+
+- **Start a Tres project quickly**: with the new `create-tres` CLI tool, you can start a new Tres project in seconds.
+- **ESM-Only Architecture**: We've made the bold decision to embrace the future by going **ESM-only**.
+- **WebGPU Native Support**: The future of web graphics is here! TresJS v5 introduces **experimental WebGPU support**
+- **Completly refactor composables**: We've completely refactored our composables system for better reliability and type safety.
+
+### 🚀 New way to start a Tres project
+
+![Tres 5.0 CLI](/blog/tresjs-v5/create-tres.png)
+
+We've created a new CLI tool to help you scaffold a new Tres project with the best practices and the most popular packages.
+
+::code-group
+```bash [npm]
+npx create-tres my-tres-project
+```
+
+```bash [yarn]
+yarn create tres my-tres-project
+```
+
+```bash [pnpm]
+pnpm create tres my-tres-project
+```
+::
+
+The CLI provides an **interactive wizard** that guides you through:
+
+::prose-list
+- 🎯 **Template selection**: Choose between Vue + Vite or Nuxt
+- 📦 **Ecosystem packages**: Select from TresJS ecosystem packages (Cientos, Post-processing, Leches)
+- 🔧 **TypeScript support**: Type safe development with TypeScript
+- 📏 **ESLint integration**: Code quality with TresJS ESLint config
+::
+
+::prose-note
+This is the **recommended approach** for new projects as it handles all the configuration automatically and lets you choose exactly what you need.
+::
+
 
 ### 🌟 ESM-Only Architecture
 
@@ -22,9 +61,13 @@ We've made the bold decision to embrace the future by going **ESM-only**. This m
 - **Modern JavaScript standards** alignment
 - **Better compatibility** with modern build tools
 
-> **Breaking Change**: UMD builds are no longer supported. If you're using TresJS in a legacy environment, you'll need to update your build pipeline.
+::prose-warning
+**Breaking Change**: UMD builds are no longer supported. If you're using TresJS in a legacy environment, you'll need to update your build pipeline.
+::
 
-### ⚡ WebGPU Native Support
+### ⚡ WebGPU Native Support 
+
+<UBadge color="primary" variant="soft">Experimental</UBadge>
 
 The future of web graphics is here! TresJS v5 introduces **experimental WebGPU support**, bringing:
 
