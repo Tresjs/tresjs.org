@@ -76,11 +76,32 @@ The future of web graphics is here! TresJS v5 introduces **experimental WebGPU s
 - **Future-ready architecture** for upcoming web standards
 - **Seamless fallback** to WebGL when WebGPU isn't available
 
-```vue
-<TresCanvas webgpu>
-  <TresPerspectiveCamera :position="[0, 0, 5]" />
-  <!-- Your WebGPU-powered scene -->
-</TresCanvas>
+```vue [basic-webgpu.vue]
+<script setup lang="ts">
+import { TresCanvas } from '@tresjs/core'
+import { WebGPURenderer } from 'three/webgpu'
+import type { TresRendererSetupContext } from '@tresjs/core'
+
+// Create WebGPU renderer factory
+const createWebGPURenderer = (ctx: TresRendererSetupContext) => {
+  const renderer = new WebGPURenderer({
+    canvas: toValue(ctx.canvas),
+    // WebGPU specific configuration
+    alpha: true,
+    antialias: true,
+  })
+  return renderer
+}
+</script>
+
+<template>
+  <TresCanvas :renderer="createWebGPURenderer">
+    <TresPerspectiveCamera :position="[3, 3, 3]" />
+    <TresBoxGeometry :args="[1, 1, 1]" />
+    <TresMeshBasicMaterial color="hotpink" />
+    <!-- Your 3D scene here -->
+  </TresCanvas>
+</template>
 ```
 
 ### 🔄 Enhanced Composables API
