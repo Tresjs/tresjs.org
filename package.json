@@ -18,11 +18,13 @@
     "@nuxt/icon": "1.15.0",
     "@nuxt/image": "1.10.0",
     "@nuxt/ui-pro": "^3.3.0",
+    "@tresjs/cientos": "5.0.0-next.7",
     "@vueuse/core": "^13.5.0",
     "better-sqlite3": "^12.2.0",
     "eslint": "^9.32.0",
     "motion-v": "^1.6.1",
     "nuxt": "^4.0.1",
+    "tailwindcss": "^4.1.12",
     "typescript": "^5.8.3",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"

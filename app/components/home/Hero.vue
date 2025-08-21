@@ -8,7 +8,7 @@ const { copy, copied } = useClipboard()
 
 const isInstallCommandHover = ref(false)
 
-
+const { data: page } = useAsyncData('index', () => queryCollection('index').first())
 </script>
 
 <template>
@@ -23,19 +23,22 @@ const isInstallCommandHover = ref(false)
         </TresCanvas>
       </div>
       <div class="bg-gradient-to-b from-90% from-white dark:from-default to-transparent absolute top-0 left-0 w-full pb-16 pt-4 flex flex-col  justify-center items-center">
-        <h1 class="text-4xl  tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold mb-8 text-center">Build Interactive 3D experiences with <span class="text-primary-400">Vue</span></h1>
+        <h1 class="text-4xl  tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold mb-8 text-center">
+          <LazyMDC v-if="page?.hero.title" :value="page.hero.title" :cache-key="`index-hero-title`" hydrate-on-idle />
+        </h1>
         <div class="flex flex-col gap-4 justify-center items-center mb-8 blueprint relative w-full">
-          <p class="text-center text-gray-500 dark:text-gray-400 py-8 max-w-2xl mx-auto">
+          <!-- <p class="text-center text-gray-500 dark:text-gray-400 py-8 max-w-2xl mx-auto">
             TresJS is a <strong>declarative, component-driven approach</strong> layer on top of Three.js and WebGL that makes creative coding intuitive and fun.
-          </p>
+          </p> -->
+          <LazyMDC v-if="page?.hero.body" class="text-center text-gray-500 dark:text-gray-400 py-8 max-w-2xl mx-auto" :value="page.hero.body" :cache-key="`index-hero-body`" hydrate-on-idle />
         </div>
         <div class="flex gap-4 justify-center items-center mb-8">
-          <UButton to="https://docs.tresjs.org/" color="neutral" size="lg" icon="lucide-rocket">
-            Get Started
-          </UButton>
-          <UButton to="https://play.tresjs.org/" color="neutral" variant="subtle" size="lg">
-            Playground
-          </UButton>
+            <UButton to="https://docs.tresjs.org/" color="neutral" size="lg" icon="lucide-rocket">
+              Get Started
+            </UButton>
+            <UButton to="https://play.tresjs.org/" color="neutral" variant="subtle" size="lg">
+              Playground
+            </UButton>
         </div>
         <div class="flex gap-2 justify-start items-center px-8">
           <span
