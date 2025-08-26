@@ -121,9 +121,8 @@ const connectorStrokeProps = computed(() => {
 </script>
 
 <template>
-    {{ scrollY }}
-  <div class="px-8">
-    <div class="min-h-screen border-x border-dashed border-gray-200 dark:border-default py-32 mx-auto max-w-(--ui-container)">
+  <div class="hidden md:block px-8">
+    <div class="border-x border-dashed border-gray-200 dark:border-default py-32 mx-auto max-w-(--ui-container)">
       <div class="blueprint relative w-full h-[300px] bi-color-bg">
         <span class="absolute top-[60px] left-[-75px] text-sm text-gray-300 dark:text-gray-600 -rotate-90 font-mono">What is TresJS?</span>
         <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />

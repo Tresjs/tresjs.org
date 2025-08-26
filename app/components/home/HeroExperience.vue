@@ -6,5 +6,5 @@
   <HomeImagotype />
   <HomeBrownianDistributionGroup />
   <TresDirectionalLight :position="[0, 8, 4]" :intensity="0.7" cast-shadow />
-  <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow />
+  <TresDirectionalLight :position="[0, 2, 4]" :intensity="1.2" cast-shadow />
 </template>

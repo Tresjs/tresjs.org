@@ -1,5 +1,90 @@
 hero:
-  title: 'Build Interactive 3D experiences with <span class="text-primary-400">Vue</span>'
+  title: Build Interactive 3D experiences with
+  titleHighlight: Vue
   body: TresJS is a **declarative, component-driven approach** layer on top of Three.js and WebGL that makes creative coding intuitive and fun.
-  ctas:
+  ctas: 
+    - label: Get Started
+      color: neutral
+      to: https://docs.tresjs.org/
+      size: lg
+      variant: solid
+      icon: lucide-rocket
+    - label: Playground
+      color: neutral
+      variant: subtle
+      to: https://play.tresjs.org/
+      size: lg
+scenes:
+  tabs:
+    - title: Declarative
+      descriptionTitle: 'Declarative <span class="text-primary-400">Scenes</span>'
+      description: TresJS enables you to utilise all capabilities of Three.js declaratively by using Vue components and let <TresCanvas /> manage the rest. Utilise the lifecycle of Vue components to engage with events and manage state transitions.
+      icon: i-lucide-leaf
+      content: |
+        ::code-tree{defaultValue="app.vue" class="lg:rounded-r-none lg:border-r-0 dark:[--ui-border-muted:var(--color-gray-800)]"}
+        ```vue [app.vue]
+        <script setup lang="ts">
+        import { TresCanvas } from '@tresjs/core'
+        const boxRef = ref<Mesh>()
+
+        function onRender() {
+          if (boxRef.value) {
+            boxRef.value.rotation.y +=  0.01
+            boxRef.value.rotation.x +=  0.01
+          }
+        }
+        </script>
+
+        <template>
+          <TresCanvas @render="onRender">
+            <TresPerspectiveCamera />
+            <TresMesh ref="boxRef" :position="[0, 1, 0]">
+              <TresBoxGeometry :args="[1, 1, 1]" />
+              <TresMeshNormalMaterial />
+            </TresMesh>
+          </TresCanvas>
+        </template>
+        ```
+        ::
+    - title: DX Focused
+      icon: i-lucide-milestone
+      descriptionTitle: <span class="text-primary-400">DX</span>-Focused Ecosystem
+      description: Expand the core capabilities with packages like cientos and post-processing to reduce the 🍝 code for tasks like handling 3D Models or adding camera controls.
+      content: |
+        ::code-tree{defaultValue="app.vue" class="lg:rounded-r-none lg:border-r-0 dark:[--ui-border-muted:var(--color-gray-800)]"}
+        ```vue [app.vue]
+        <script setup lang="ts">
+        import { TresCanvas } from '@tresjs/core'
+        </script>
+
+        <template>
+          <TresCanvas >
+            <TresPerspectiveCamera />
+            <ArtificerCharacter />
+          </TresCanvas>
+        </template>
+        ```
+
+        ```vue [ArtificerCharacter.vue]
+        <script setup lang="ts">
+          import { useGLTF } from '@tresjs/cientos'
+          const { state: model, nodes } = useGLTF('/artificer/Artificer.glb')
+          const animations = computed(() => model.value?.animations || [])
+
+          const rig = computed(() => {
+            return nodes.value?.Engineer_Rig
+          })
+
+          const { actions } = useAnimations(animations, rig)
+
+          watch(actions, (newActions) => {
+            if(!newActions) return
+            newActions.Running_A?.play()
+          })
+          </script>
+          <template>
+            <primitive v-if="rig" :object="rig" />
+          </template>
+        ```
+        ::
     

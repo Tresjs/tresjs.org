@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { parseMdc } from './helpers/mdc-parser.mjs'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
@@ -33,6 +36,23 @@ export default defineNuxtConfig({
           theme: 'catppuccin-frappe',
         },
       },
+    }
+  },
+  hooks: {
+    'content:file:afterParse': async ({ file, content }) => {
+      if (file.id === 'index/index.yml') {
+        // @ts-expect-error -- TODO: fix this
+        for (const tab of content.scenes.tabs) {
+          tab.content = await parseMdc(tab.content)
+        }
+        // @ts-expect-error -- TODO: fix this
+        delete content.meta.body
+      }
+    }
+  },
+  mdc: {
+    highlight: {
+      noApiRoute: false
     }
   },
   nitro: {

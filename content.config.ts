@@ -8,7 +8,25 @@ export default defineContentConfig({
       schema: z.object({
         hero: z.object({
           title: z.string(),
+          titleHighlight: z.string(),
           body: z.string(),
+          ctas: z.array(z.object({
+            label: z.string(),
+            color: z.string(),
+            variant: z.string(),
+            size: z.string(),
+            icon: z.string(),
+          })),
+        }),
+        scenes: z.object({
+          tabs: z.array(z.object({
+            title: z.string(),
+            descriptionTitle: z.string(),
+            descriptionHighlight: z.string(),
+            description: z.string(),
+            icon: z.string(),
+            content: z.string(),
+          })),
         }),
       }),
     }),

@@ -101,6 +101,13 @@
   background-size: var(--ui-line-gap) var(--ui-line-width);
 }
 
+.breakout {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  max-width: 100vw;
+}
+
 /* From mobile up (sm breakpoint and larger): use calculated values */
 @media (min-width: 640px) {
   .blueprint::before {
