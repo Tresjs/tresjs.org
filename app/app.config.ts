@@ -20,6 +20,11 @@ export default defineAppConfig({
         }
       }
     },
+    changelogVersions: {
+      slots: {
+        container: 'flex flex-col gap-y-32 sm:gap-y-12 lg:gap-y-16'
+      }
+    },
     changelogVersion: {
       slots: {
         date: 'font-mono text-xs text-toned truncate',
