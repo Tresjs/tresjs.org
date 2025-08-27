@@ -17,7 +17,7 @@ const items = computed(() => showcase.value || [])
             Build with  <br> the community
           </h2>
         </header>
-        <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">Showcase</span>
+        <span class="absolute top-[-20px] left-[5px] text-sm text-gray-300 dark:text-gray-600 font-mono">Showcase</span>
         <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -right-3 text-gray-300 z-10" />
         <div class="flex-1 w-full bg-gray-100">
           <UCarousel
