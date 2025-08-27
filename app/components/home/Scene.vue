@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import type { Mesh } from 'three';
 
-const props = defineProps<{
+defineProps<{
   scene: string
 }>()
-
-watch(props.scene, (newScene) => {
-  console.log(newScene)
-})
 
 const boxRef = ref<Mesh>()
 
@@ -20,8 +16,8 @@ function onRender() {
 </script>
 <template>
 <TresCanvas :clear-alpha="0" :antialias="false" alpha @render="onRender">
-  <TresPerspectiveCamera v-if="scene === 'declarative'" :position="[5.5,5.5,5.5]" :look-at="[0, 1, 0]" />
-  <TresPerspectiveCamera v-else-if="scene === 'dx-focused'" :position="[2,1,3]" :look-at="[0, 1, 0]" />
+  <HomeCameraController :scene="scene" />
+
   <TresAmbientLight :intensity="1" />
   <TresDirectionalLight :position="[5, 10, 5]" :intensity="2" />
   <TresDirectionalLight :position="[-5, 5, 0]" :intensity="1.2" color="blue"  />

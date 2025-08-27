@@ -21,8 +21,8 @@ useSeoMeta({
 <template>
   <div>
     <HomeHero />
-    <HomeDiagramSection />
-    <HomeScenesTabSection />
+    <LazyHomeDiagramSection />
+    <LazyHomeScenesTabSection />
   </div>
 </template>
 
