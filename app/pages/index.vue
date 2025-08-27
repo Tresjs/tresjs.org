@@ -23,6 +23,7 @@ useSeoMeta({
     <HomeHero />
     <LazyHomeDiagramSection />
     <LazyHomeScenesTabSection />
+    <LazyHomeShowcaseSection />
   </div>
 </template>
 

@@ -23,7 +23,7 @@ const activeTabDescription = computed(() => tabs.value?.find(tab => tab.value ==
           <HomeScene :scene="activeTab" />
         </div>
         <div id="scenes-description" class="px-2 sm:p-8">
-          <h2 class="text-3xl tracking-tighter text-balance sm:text-4xl lg:text-5xl font-display font-extrabold mb-8 text-left sm:w-1/2" v-html="activeTabDescription?.descriptionTitle"/>
+          <h2 class="text-3xl tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold mb-8 text-left sm:w-1/2" v-html="activeTabDescription?.descriptionTitle"/>
           <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-lg">{{ activeTabDescription?.description }}</p>
         </div>
       </div>
