@@ -15,7 +15,7 @@ function onRender() {
 }
 </script>
 <template>
-<TresCanvas :clear-alpha="0" :antialias="false" alpha @render="onRender">
+<TresCanvas class="!pointer-events-none" :clear-alpha="0" :antialias="false" alpha @render="onRender">
   <HomeCameraController :scene="scene" />
 
   <TresAmbientLight :intensity="1" />
