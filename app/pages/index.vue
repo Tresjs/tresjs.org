@@ -24,6 +24,7 @@ useSeoMeta({
     <LazyHomeDiagramSection />
     <LazyHomeScenesTabSection />
     <LazyHomeShowcaseSection />
+    <LazyHomeTestimonialsSection />
   </div>
 </template>
 

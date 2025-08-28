@@ -72,5 +72,16 @@ export default defineContentConfig({
         status: z.string(),
       }),
     }),
+    testimonials: defineCollection({
+      type: 'page',
+      source: 'testimonials/**/*.md',
+      schema: z.object({
+        name: z.string(),
+        subtitle: z.string(),
+        avatar: z.string(),
+        content: z.string(),
+        date: z.string(),
+      }),
+    }),
   }
 })

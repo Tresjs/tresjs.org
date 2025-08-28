@@ -11,9 +11,9 @@ const strokeColor = computed(()=> isDark.value ? colors.DARK_STROKE : colors.LIG
 
 // Calculate scroll progress for animation
 const scrollProgress = computed(() => {
-  // Start animation after scrolling 200px and complete it after scrolling 800px (extended for 5-step sequence)
-  const startOffset = 200
-  const endOffset = 800
+  // Start animation after scrolling 400px and complete it after scrolling 12000px (extended for 5-step sequence)
+  const startOffset = 400
+  const endOffset = 1200
   const rawProgress = Math.max(0, Math.min(1, (scrollY.value - startOffset) / (endOffset - startOffset)))
   
   // Apply easing function for smoother animation (ease-out cubic)
