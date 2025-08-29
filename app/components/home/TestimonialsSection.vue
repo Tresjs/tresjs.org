@@ -69,16 +69,6 @@ useIntersectionObserver(
                         <p class="text-xs text-gray-500">{{ testimonial.subtitle }}</p>
                       </div>
                     </div>
-                    <UButton
-                      v-if="(testimonial as any).twitter"
-                      :to="`https://twitter.com/${(testimonial as any).twitter}`"
-                      variant="ghost"
-                      color="neutral"
-                      icon="i-lucide-twitter"
-                      size="xs"
-                      target="_blank"
-                      class="rounded-full"
-                    />
                   </div>
                 </template>
               </UPageCard>
