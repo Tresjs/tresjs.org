@@ -81,6 +81,7 @@ export default defineContentConfig({
         avatar: z.string(),
         content: z.string(),
         date: z.string(),
+        twitter: z.string().optional(),
       }),
     }),
   }

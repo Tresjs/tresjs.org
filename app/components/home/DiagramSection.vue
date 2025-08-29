@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useDarkMode } from '~/composables/useDarkMode'
 import { useWindowScroll } from '@vueuse/core'
 

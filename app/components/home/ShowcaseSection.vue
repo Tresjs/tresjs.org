@@ -14,8 +14,8 @@ const isVisible = ref(false)
 
 useIntersectionObserver(
   target,
-  ([{ isIntersecting }]) => {
-    if (isIntersecting && !isVisible.value) {
+  ([entry]) => {
+    if (entry?.isIntersecting && !isVisible.value) {
       isVisible.value = true
     }
   },
@@ -32,7 +32,7 @@ useIntersectionObserver(
       <div class="blueprint relative w-full">
          <header class="blueprint relative">
           <h2 class="px-8 py-16 w-full sm:w-1/2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold">
-            Build with  <br> the community
+            Built with  <br> <span class="text-primary-400">Tres</span>
           </h2>
         </header>
         <span class="absolute top-[-20px] left-[5px] text-sm text-gray-300 dark:text-gray-600 font-mono">Showcase</span>
