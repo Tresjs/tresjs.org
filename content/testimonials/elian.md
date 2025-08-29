@@ -1,7 +1,7 @@
 ---
 name: Elian
 subtitle: Community Engineer at @astrodotbuild
-avatar: ../assets/avatars/elian.jpg
+avatar: /avatars/elian.jpg
 twitter: ElianCodes
 ---
 

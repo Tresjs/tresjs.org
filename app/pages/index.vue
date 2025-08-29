@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 useHead({
   title: 'TresJS | Build Interactive 3D experiences with Vue',
 })

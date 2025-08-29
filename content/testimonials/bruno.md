@@ -1,7 +1,7 @@
 ---
 name: Bruno Simon
 subtitle: Author of Three.js Journey
-avatar: ../assets/avatars/bruno.jpg
+avatar: /avatars/bruno.jpg
 twitter: bruno_simon
 ---
 

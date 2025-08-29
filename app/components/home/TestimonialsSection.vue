@@ -1,13 +1,41 @@
 <script setup lang="ts">
+import { useIntersectionObserver, useBreakpoints } from '@vueuse/core'
+import { Motion } from 'motion-v'
+
 const { data: testimonials } = await useAsyncData('testimonials', () =>
   queryCollection('testimonials').all()
 )
 
 const items = computed(() => testimonials.value || [])
+
+const target = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
+
+// Detect mobile breakpoint
+const breakpoints = useBreakpoints({
+  mobile: 768,
+})
+const isMobile = breakpoints.smaller('mobile')
+
+// Reactive options for intersection observer
+const observerOptions = computed(() => ({
+  threshold: isMobile.value ? 0.3 : 0.5, // 0.1 for mobile, 0.5 for desktop
+  rootMargin: isMobile.value ? '100px' : '50px' // More buffer for mobile
+}))
+
+useIntersectionObserver(
+  target,
+  ([entry]) => {
+    if (entry && entry.isIntersecting && !isVisible.value) {
+      isVisible.value = true
+    }
+  },
+  observerOptions.value
+)
 </script>
 
 <template>
-  <div class="px-8 ">
+  <div ref="target" class="px-8">
     <div class="border-x border-dashed border-gray-200 dark:border-default py-16 md:py-32 mx-auto max-w-(--ui-container)">
       <div class="blueprint relative w-full">
          <header class="blueprint relative">
@@ -22,8 +50,8 @@ const items = computed(() => testimonials.value || [])
               v-for="(testimonial, index) in items"
               :key="testimonial.path"
               :initial="{ opacity: 0, y: 20 }"
-              :animate="{ opacity: 1, y: 0 }"
-              :transition="{ duration: 0.5, delay: index * 0.1 }"
+              :animate="isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }"
+              :transition="{ duration: 0.5, delay: isVisible ? index * 0.1 : 0 }"
             >
               <UPageCard class="h-full" spotlight>
                 <template #description>

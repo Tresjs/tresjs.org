@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useIntersectionObserver } from '@vueuse/core'
+
 const { data: page } = useAsyncData('home-scenes', () => queryCollection('index').first())
 
 const tabs = computed(() => page.value?.scenes.tabs.map(tab => ({
@@ -13,11 +15,26 @@ const activeTab = ref('declarative')
 
 const activeTabDescription = computed(() => tabs.value?.find(tab => tab.value === activeTab.value))
 
+const target = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
+
+useIntersectionObserver(
+  target,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting && !isVisible.value) {
+      isVisible.value = true
+    }
+  },
+  {
+    threshold: 0.2,
+    rootMargin: '100px'
+  }
+)
 </script>
 <template>
-<div class="relative px-8">
+<div ref="target" class="relative px-8">
   <div class="min-h-screen border-x border-dashed border-gray-200 dark:border-default py-16 sm:pt-96 mx-auto max-w-(--ui-container)">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div v-if="isVisible" class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <div class="relative w-full aspect-video  rounded-lg">
         <div class="sm:absolute sm:-top-56 sm:-right-32 w-full sm:w-[350px] aspect-video sm:aspect-square">
           <HomeScene :scene="activeTab" />
@@ -51,6 +68,12 @@ const activeTabDescription = computed(() => tabs.value?.find(tab => tab.value ==
             </template>
           </UTabs>
         </UPageCard>
+      </div>
+    </div>
+    <div v-else class="min-h-screen flex items-center justify-center">
+      <div class="flex items-center gap-2 text-gray-500">
+        <div class="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        Loading interactive scenes...
       </div>
     </div>
   </div>

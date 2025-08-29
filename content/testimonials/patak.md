@@ -1,7 +1,7 @@
 ---
 name: Matias Capeletto (Patak)
 subtitle: Vite, Vitest core team member
-avatar: ../assets/avatars/patak.jpg
+avatar: /avatars/patak.jpg
 twitter: patak_dev
 ---
 
