@@ -18,6 +18,12 @@ export default defineAppConfig({
         slots: {
           base: 'group font-mono text-sm/6 border border-muted bg-gray-600 dark:bg-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none'
         }
+      },
+      codeTree: {
+        slots: {
+          root: 'bg-default m-0',
+          content: '[&>div>pre]:rounded-r-none'
+        }
       }
     },
     changelogVersions: {
@@ -30,12 +36,6 @@ export default defineAppConfig({
         date: 'font-mono text-xs text-toned truncate',
       }
     },
-    codeTree: {
-      slots: {
-        root: 'bg-default m-0',
-        content: '[&>div>pre]:rounded-r-none'
-      }
-    }
   },
   content: {
     markdown: {
