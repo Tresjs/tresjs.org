@@ -17,7 +17,7 @@ const randomIcon = computed(() => {
         <UContainer>
           <UFooterColumns :columns="footerLinks">
             <template #right>
-              <NewsletterForm />
+             <!--  <NewsletterForm /> -->
             </template>
           </UFooterColumns>
         </UContainer>
