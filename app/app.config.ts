@@ -29,6 +29,12 @@ export default defineAppConfig({
       slots: {
         date: 'font-mono text-xs text-toned truncate',
       }
+    },
+    codeTree: {
+      slots: {
+        root: 'bg-default m-0',
+        content: '[&>div>pre]:rounded-r-none'
+      }
     }
   },
   content: {

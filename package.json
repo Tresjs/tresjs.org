@@ -17,7 +17,7 @@
     "@nuxt/fonts": "0.11.4",
     "@nuxt/icon": "1.15.0",
     "@nuxt/image": "1.10.0",
-    "@nuxt/ui-pro": "^3.3.0",
+    "@nuxt/ui-pro": "^3.3.2",
     "@nuxtjs/mdc": "^0.17.2",
     "@tresjs/cientos": "5.0.0-next.7",
     "@vueuse/core": "^13.5.0",
