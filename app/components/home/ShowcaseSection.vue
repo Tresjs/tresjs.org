@@ -37,7 +37,7 @@ useIntersectionObserver(
         </header>
         <span class="absolute top-[-20px] left-[5px] text-sm text-gray-300 dark:text-gray-600 font-mono">Showcase</span>
         <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -right-3 text-gray-300 z-10" />
-        <div v-if="isVisible" class="flex-1 w-full bg-gray-100">
+        <div v-if="isVisible" class="flex-1 w-full bg-gray-100 dark:bg-neutral-800">
           <UCarousel
             ref="carousel"
             v-slot="{ item }"
