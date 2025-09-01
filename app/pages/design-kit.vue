@@ -26,9 +26,10 @@ useSeoMeta({
          Brand <span class="text-primary-300">Assets</span> 
         </h2>
       </div>
-      <div class="p-8 bg-neutral-100 dark:bg-neutral-800 relative after:w-[200vw] after:absolute after:bottom-0 after:h-px after:border-t after:border-dashed after:border-gray-200 dark:after:border-default  after:-left-[100vw]">
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 ">
-          <UPageCard 
+      <div class="p-8 bg-neutral-50 dark:bg-neutral-800 relative after:w-[200vw] after:absolute after:bottom-0 after:h-px after:border-t after:border-dashed after:border-gray-200 dark:after:border-default  after:-left-[100vw]">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+          <UPageCard
+            class="w-full sm:w-[calc(40%-1rem)]"
             :title="'Isotypes'"
             description="Download the TresJS isotypes in various formats."
             icon="i-tres-favicon"
@@ -43,6 +44,46 @@ useSeoMeta({
               <DesignKitCard
                 name="Light"
                 path="isotype-light"
+                background="bg-neutral-800"
+                :full="true"
+              />
+            </div>
+          </UPageCard>
+          <UPageCard
+            :title="'Color Palette'"
+            class="w-full sm:w-[calc(60%)]"
+            description=""
+          >
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <DesignKitCard
+                name="Dark"
+                path="logotype-dark"
+                background="bg-white"
+                :full="true"
+              />
+              <DesignKitCard
+                name="Light"
+                path="logotype-light"
+                background="bg-neutral-800"
+                :full="true"
+              />
+            </div>
+          </UPageCard>
+          <UPageCard
+            :title="'Logos'"
+            description="Download the TresJS logos in various formats."
+             class="w-full"
+          >
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <DesignKitCard
+                name="Dark"
+                path="logo-dark"
+                background="bg-white"
+                :full="true"
+              />
+              <DesignKitCard
+                name="Light"
+                path="logo-light"
                 background="bg-neutral-800"
                 :full="true"
               />
