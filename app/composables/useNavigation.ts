@@ -45,6 +45,7 @@ const _useFooterLinks = () => {
         },
         {
           label: 'Design Kit',
+          to: '/design-kit'
         }
       ]
     }
