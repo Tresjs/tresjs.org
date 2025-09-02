@@ -11,7 +11,22 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-
+const colorPalettes = [
+  {
+    name: 'Tres teal',
+    main: '#82dbc5',
+    tint: '#d3f4ea',
+    shade: '#2ba189',
+    hex: '#82DBC5'
+  },
+  {
+    name: 'Cientos yellow',
+    main: '#fbb03b',
+    tint: '#feeac7',
+    shade: '#f47a0c',
+    hex: '#FBB03B'
+  }
+]
 </script>
 <template>
   <div class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center [--gutter-width:2.5rem] lg:grid-cols-[var(--gutter-width)_minmax(0,var(--ui-container))_var(--gutter-width)] overflow-hidden">
@@ -55,6 +70,19 @@ useSeoMeta({
             description=""
           >
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <DesignKitPalette 
+                v-for="palette in colorPalettes" 
+                :key="palette.name" 
+                :color="palette" 
+              />
+            </div>
+          </UPageCard>
+          <UPageCard
+            :title="'Logos'"
+            description="Download the TresJS logos in various formats."
+             class="w-full"
+          >
+             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
               <DesignKitCard
                 name="Dark"
                 path="logotype-dark"
@@ -67,23 +95,15 @@ useSeoMeta({
                 background="bg-neutral-800"
                 :full="true"
               />
-            </div>
-          </UPageCard>
-          <UPageCard
-            :title="'Logos'"
-            description="Download the TresJS logos in various formats."
-             class="w-full"
-          >
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
               <DesignKitCard
-                name="Dark"
-                path="logo-dark"
+                name="Bi-color Dark"
+                path="logotype-bicolor-dark"
                 background="bg-white"
                 :full="true"
               />
               <DesignKitCard
-                name="Light"
-                path="logo-light"
+                name="Bi-color Light"
+                path="logotype-bicolor-light"
                 background="bg-neutral-800"
                 :full="true"
               />

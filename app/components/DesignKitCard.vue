@@ -6,6 +6,17 @@ defineProps<{
   background: string,
   full?: boolean
 }>()
+
+const toast = useToast()
+
+function handleDownload(format: string, name: string) {
+  toast.add({
+    title: `${format.toUpperCase()} downloaded!`,
+    description: `${name} ${format.toUpperCase()} file`,
+    icon: 'i-heroicons-arrow-down-tray',
+    color: 'info'
+  })
+}
 </script>
 <template>
   <div class="w-full">
@@ -27,6 +38,7 @@ defineProps<{
           download
           external
           aria-label="Download svg"
+          @click="handleDownload('svg', name)"
         />
         <UButton
           variant="link"
@@ -36,6 +48,7 @@ defineProps<{
           download
           external
           aria-label="Download png"
+          @click="handleDownload('png', name)"
         />
       </div>
     </div>
