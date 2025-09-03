@@ -79,5 +79,9 @@ export default defineNuxtConfig({
     serverBundle: {
       collections: ['heroicons', 'simple-icons', 'lucide']
     }
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/blog/rss.xml': { prerender: true },
   }
 })

@@ -16,6 +16,17 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/atom+xml',
+      title: 'TresJS Blog RSS',
+      href: 'https://tresjs.org/blog/rss.xml'
+    }
+  ]
+})
+
 /**
  * Extracts the slug from a blog post's path
  * @param blogPost - The blog post object containing the path
