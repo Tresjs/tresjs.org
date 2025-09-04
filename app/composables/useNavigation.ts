@@ -48,6 +48,21 @@ const _useFooterLinks = () => {
           to: '/design-kit'
         }
       ]
+    },
+    {
+      label: 'Ecosystem',
+      children: [
+        {
+          label: 'cientos',
+          to: 'https://cientos.tresjs.org/',
+          target: '_blank'
+        },
+        {
+          label: 'postprocessing',
+          to: 'https://post-processing.tresjs.org/',
+          target: '_blank'
+        }
+      ]
     }
   ])
 
