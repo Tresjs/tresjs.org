@@ -32,8 +32,8 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.66",
     "@tresjs/nuxt": "^4.1.0-next.1",
-    "icons.json": "link:@iconify-json/lucide/icons.json",
     "shiki": "^3.11.0",
     "tailwind-scrollbar": "^4.0.2"
   },

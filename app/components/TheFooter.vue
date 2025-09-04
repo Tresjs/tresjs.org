@@ -17,6 +17,10 @@ const randomIcon = computed(() => {
         <UContainer>
           <UFooterColumns :columns="footerLinks">
             <template #right>
+              <div class="flex flex-col gap-4">
+                <p class="text-sm">Built with <UIcon name="i-logos-nuxt-icon"/></p>
+                <a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" > </a>
+              </div>
              <!--  <NewsletterForm /> -->
             </template>
           </UFooterColumns>

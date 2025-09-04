@@ -1,5 +1,6 @@
 import { createSharedComposable } from '@vueuse/core'
 import type { NavigationMenuItem } from '@nuxt/ui'
+import type { FooterColumn } from '@nuxt/ui-pro'
 
 function _useHeaderLinks() {
   const route = useRoute()
@@ -35,7 +36,7 @@ function _useHeaderLinks() {
 export const useHeaderLinks = createSharedComposable(_useHeaderLinks)
 
 const _useFooterLinks = () => {
-  const footerLinks = computed<NavigationMenuItem[]>(() => [
+  const footerLinks = computed<FooterColumn[]>(() => [
     {
       label: 'Community',
       children: [
@@ -46,6 +47,21 @@ const _useFooterLinks = () => {
         {
           label: 'Design Kit',
           to: '/design-kit'
+        }
+      ]
+    },
+    {
+      label: 'Ecosystem',
+      children: [
+        {
+          label: 'cientos',
+          to: 'https://cientos.tresjs.org/',
+          target: '_blank'
+        },
+        {
+          label: 'postprocessing',
+          to: 'https://post-processing.tresjs.org/',
+          target: '_blank'
         }
       ]
     }
