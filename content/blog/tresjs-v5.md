@@ -16,7 +16,7 @@ Tres 5 is our most ambitious release yet, it's all about making your developer e
 - **Start a Tres project quickly**: with the new `create-tres` CLI tool, you can start a new Tres project in seconds.
 - **ESM-Only Architecture**: We've made the bold decision to embrace the future by going **ESM-only**.
 - **WebGPU Native Support**: The future of web graphics is here! TresJS v5 introduces **experimental WebGPU support**
-- **Completly refactor composables**: We've completely refactored our composables system for better reliability and type safety.
+- **Completely refactor composables**: We've completely refactored our composables system for better reliability and type safety.
 
 ### 🚀 New way to start a Tres project
 
