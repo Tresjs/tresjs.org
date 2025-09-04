@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   },
   image: {
     format: ['webp', 'avif'],
+    domains: ['avatars.githubusercontent.com'],
     screens: {
       xs: 320,
       sm: 640,
