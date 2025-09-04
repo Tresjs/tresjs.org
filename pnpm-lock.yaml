@@ -66,12 +66,12 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.18(typescript@5.8.3))
     devDependencies:
+      '@iconify-json/lucide':
+        specifier: ^1.2.66
+        version: 1.2.66
       '@tresjs/nuxt':
         specifier: ^4.1.0-next.1
         version: 4.1.0-next.1(change-case@5.4.4)(jwt-decode@4.0.0)(magicast@0.3.5)(postcss@8.5.6)(rollup@4.45.1)(three@0.177.0)(typescript@5.8.3)(vite@7.0.6(@types/node@24.0.1)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.42.0)(yaml@2.8.0))(vue@3.5.18(typescript@5.8.3))(webpack@5.100.2(esbuild@0.25.6))(zod@3.25.76)
-      icons.json:
-        specifier: link:@iconify-json/lucide/icons.json
-        version: link:@iconify-json/lucide/icons.json
       shiki:
         specifier: ^3.11.0
         version: 3.11.0
@@ -887,6 +887,9 @@ packages:
 
   '@iconify-json/heroicons@1.2.2':
     resolution: {integrity: sha512-qoW4pXr5kTTL6juEjgTs83OJIwpePu7q1tdtKVEdj+i0zyyVHgg/dd9grsXJQnpTpBt6/VwNjrXBvFjRsKPENg==}
+
+  '@iconify-json/lucide@1.2.66':
+    resolution: {integrity: sha512-TrhmfThWY2FHJIckjz7g34gUx3+cmja61DcHNdmu0rVDBQHIjPMYO1O8mMjoDSqIXEllz9wDZxCqT3lFuI+f/A==}
 
   '@iconify/collections@1.0.566':
     resolution: {integrity: sha512-rilPX42tJve3z/HUQdZBrMLH/d8OZlMw+D+nMsxsiC/Miyws/WGq8DtV2w9jGGZBd6HJ+VQ3prIIV7UWhV+2ug==}
@@ -8006,6 +8009,10 @@ snapshots:
   '@humanwhocodes/retry@0.4.3': {}
 
   '@iconify-json/heroicons@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/lucide@1.2.66':
     dependencies:
       '@iconify/types': 2.0.0
 
