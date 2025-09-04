@@ -69,7 +69,7 @@ export default defineContentConfig({
         description: z.string(),
         url: z.string(),
         author: z.union([z.string(), z.array(z.string())]),
-        status: z.string(),
+        draft: z.boolean().optional(),
       }),
     }),
     testimonials: defineCollection({

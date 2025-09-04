@@ -44,6 +44,9 @@ importers:
       eslint:
         specifier: ^9.32.0
         version: 9.32.0(jiti@2.4.2)
+      feed:
+        specifier: ^5.1.0
+        version: 5.1.0
       motion-v:
         specifier: ^1.6.1
         version: 1.6.1(@vueuse/core@13.5.0(vue@3.5.18(typescript@5.8.3)))(react@19.1.0)(vue@3.5.18(typescript@5.8.3))
@@ -66,6 +69,9 @@ importers:
       '@tresjs/nuxt':
         specifier: ^4.1.0-next.1
         version: 4.1.0-next.1(change-case@5.4.4)(jwt-decode@4.0.0)(magicast@0.3.5)(postcss@8.5.6)(rollup@4.45.1)(three@0.177.0)(typescript@5.8.3)(vite@7.0.6(@types/node@24.0.1)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.42.0)(yaml@2.8.0))(vue@3.5.18(typescript@5.8.3))(webpack@5.100.2(esbuild@0.25.6))(zod@3.25.76)
+      icons.json:
+        specifier: link:@iconify-json/lucide/icons.json
+        version: link:@iconify-json/lucide/icons.json
       shiki:
         specifier: ^3.11.0
         version: 3.11.0
@@ -3756,10 +3762,6 @@ packages:
     resolution: {integrity: sha512-HqD3yTBfnBxIrbnM1DoD6Pcq8NECnh8d4As1Qgh0z5Gg3jRRIqijury0CL3ghu/edArpUYiYqQiDUQBIs4np3Q==}
     engines: {node: '>=10.0.0'}
 
-  enhanced-resolve@5.18.1:
-    resolution: {integrity: sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==}
-    engines: {node: '>=10.13.0'}
-
   enhanced-resolve@5.18.3:
     resolution: {integrity: sha512-d4lC8xfavMeBjzGr2vECC3fsGXziXZQyJxD868h2M/mBI3PwAuODxAkLkq5HYuvrPYcUtiLzsTo8U3PgX3Ocww==}
     engines: {node: '>=10.13.0'}
@@ -4054,6 +4056,10 @@ packages:
 
   fecha@4.2.3:
     resolution: {integrity: sha512-OP2IUU6HeYKJi3i0z4A19kHMQoLVs4Hc+DPqqxI2h/DPZHTm/vjsfC6P0b4jCMy14XizLBqvndQ+UilD7707Jw==}
+
+  feed@5.1.0:
+    resolution: {integrity: sha512-qGNhgYygnefSkAHHrNHqC7p3R8J0/xQDS/cYUud8er/qD9EFGWyCdUDfULHTJQN1d3H3WprzVwMc9MfB4J50Wg==}
+    engines: {node: '>=20', pnpm: '>=10'}
 
   fetch-blob@3.2.0:
     resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
@@ -7246,6 +7252,10 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+
+  xml-js@1.6.11:
+    resolution: {integrity: sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==}
+    hasBin: true
 
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
@@ -11634,11 +11644,6 @@ snapshots:
 
   engine.io-parser@5.2.3: {}
 
-  enhanced-resolve@5.18.1:
-    dependencies:
-      graceful-fs: 4.2.11
-      tapable: 2.2.2
-
   enhanced-resolve@5.18.3:
     dependencies:
       graceful-fs: 4.2.11
@@ -12043,6 +12048,10 @@ snapshots:
       picomatch: 4.0.3
 
   fecha@4.2.3: {}
+
+  feed@5.1.0:
+    dependencies:
+      xml-js: 1.6.11
 
   fetch-blob@3.2.0:
     dependencies:
@@ -15884,7 +15893,7 @@ snapshots:
       acorn-import-phases: 1.0.4(acorn@8.15.0)
       browserslist: 4.25.1
       chrome-trace-event: 1.0.4
-      enhanced-resolve: 5.18.1
+      enhanced-resolve: 5.18.3
       es-module-lexer: 1.7.0
       eslint-scope: 5.1.1
       events: 3.3.0
@@ -15963,6 +15972,10 @@ snapshots:
   ws@8.17.1: {}
 
   ws@8.18.3: {}
+
+  xml-js@1.6.11:
+    dependencies:
+      sax: 1.4.1
 
   xml-name-validator@4.0.0: {}
 
