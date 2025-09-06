@@ -1,6 +1,6 @@
 ---
 title: 'Announcing Tres 5.0'
-description: 'Introducing Tres 5.0 with ESM-only architecture, experimentalWebGPU support, and enhanced developer experience'
+description: 'Introducing Tres 5.0 with experimentalWebGPU support, reimagined event system and enhanced developer experience'
 date: '2025-09-23'
 category: 'release'
 author: [alvarosabu, tino-koch]
