@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ShowcaseItem } from '~/types/showcase'
+import type { ShowcaseCollectionItem } from '@nuxt/content';
 
 defineProps<{
-  item: ShowcaseItem
+  item: ShowcaseCollectionItem
 }>()
 </script>
 <template>

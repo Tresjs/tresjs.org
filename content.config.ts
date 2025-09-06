@@ -2,6 +2,34 @@ import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
+    index: defineCollection({
+      type: 'data',
+      source: 'index.yml',
+      schema: z.object({
+        hero: z.object({
+          title: z.string(),
+          titleHighlight: z.string(),
+          body: z.string(),
+          ctas: z.array(z.object({
+            label: z.string(),
+            color: z.string(),
+            variant: z.string(),
+            size: z.string(),
+            icon: z.string(),
+          })),
+        }),
+        scenes: z.object({
+          tabs: z.array(z.object({
+            title: z.string(),
+            descriptionTitle: z.string(),
+            descriptionHighlight: z.string(),
+            description: z.string(),
+            icon: z.string(),
+            content: z.string(),
+          })),
+        }),
+      }),
+    }),
     authors: defineCollection({
       type: 'page',
       source: 'authors/**/*.md',
@@ -41,7 +69,19 @@ export default defineContentConfig({
         description: z.string(),
         url: z.string(),
         author: z.union([z.string(), z.array(z.string())]),
-        status: z.string(),
+        draft: z.boolean().optional(),
+      }),
+    }),
+    testimonials: defineCollection({
+      type: 'page',
+      source: 'testimonials/**/*.md',
+      schema: z.object({
+        name: z.string(),
+        subtitle: z.string(),
+        avatar: z.string(),
+        content: z.string(),
+        date: z.string(),
+        twitter: z.string().optional(),
       }),
     }),
   }

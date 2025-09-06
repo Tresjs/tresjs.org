@@ -16,6 +16,17 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/atom+xml',
+      title: 'TresJS Blog RSS',
+      href: 'https://tresjs.org/blog/rss.xml'
+    }
+  ]
+})
+
 /**
  * Extracts the slug from a blog post's path
  * @param blogPost - The blog post object containing the path
@@ -57,6 +68,8 @@ const { data: formattedBlog } = await useAsyncData('formatted-blog',
           description: `@${author?.github}`,
           avatar: {
             src: author?.avatar,
+            provider: 'none',
+            loading: 'lazy',
           },
           to: author?.website,
           target: '_blank'
@@ -102,7 +115,7 @@ useInfiniteScroll(
 </script>
 <template>
   <div
-    class="grid min-h-[calc(100vh-var(--ui-header-height))] max-h-[calc(100vh-var(--ui-header-height))] overflow-hidden grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center [--gutter-width:2.5rem] lg:grid-cols-[var(--gutter-width)_minmax(0,var(--ui-container))_var(--gutter-width)]"
+    class="grid min-h-[calc(100vh-var(--ui-header-height))] lg:max-h-[calc(100vh-var(--ui-header-height))] lg:overflow-hidden grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center [--gutter-width:2.5rem] lg:grid-cols-[var(--gutter-width)_minmax(0,var(--ui-container))_var(--gutter-width)]"
   >
     <div class="hidden lg:block col-start-1 row-span-full row-start-1 pattern-bg border-r border-solid border-gray-100 dark:border-default"/>
     <div class="row-span-full row-start-1">
@@ -110,7 +123,7 @@ useInfiniteScroll(
         <h1 class="mx-4 text-lg font-mono font-medium">Blog</h1>
       </header>
       <div class="relative before:absolute before:top-0 before:h-px before:w-[200vw] before:border-t before:border-dashed before:border-gray-200 dark:before:border-default before:-left-[100vw]">
-        <div class="h-[calc(100vh-var(--ui-header-height))] flex gap-8 justify-between items-stretch">
+        <div class="lg:h-[calc(100vh-var(--ui-header-height))] flex gap-8 justify-between items-stretch">
           <div class="w-1/4 hidden lg:block border-r border-solid border-gray-200 dark:border-default">
             <div class="p-4 prose prose-sm dark:prose-invert mx-auto">
               <h2 class="text-lg font-medium">
@@ -126,7 +139,7 @@ useInfiniteScroll(
           <div class="w-full h-full border-l border-solid border-gray-200 dark:border-default">
             <div
               ref="blogPosts"
-              class="relative px-4 pt-8 mx-auto max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent dark:scrollbar-thumb-gray-800 blog-gradient-after"
+              class="relative px-4 pt-8 mx-auto lg:max-h-[80vh] lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-200 lg:scrollbar-track-transparent dark:scrollbar-thumb-gray-800 blog-gradient-after"
 
             >
               <UChangelogVersions class="mb-20">

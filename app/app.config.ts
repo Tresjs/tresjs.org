@@ -16,20 +16,35 @@ export default defineAppConfig({
     prose: {
       pre: {
         slots: {
-          base: 'group font-mono text-sm/6 border border-muted bg-gray-600 dark:bg-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none'
+          base: 'group font-mono text-sm/6 border border-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none'
         }
+      },
+      codeTree: {
+        slots: {
+          root: 'bg-default m-0',
+          content: '[&>div>pre]:rounded-r-none'
+        }
+      }
+    },
+    changelogVersions: {
+      slots: {
+        container: 'flex flex-col gap-y-32 sm:gap-y-12 lg:gap-y-16'
       }
     },
     changelogVersion: {
       slots: {
         date: 'font-mono text-xs text-toned truncate',
       }
-    }
+    },
   },
   content: {
     markdown: {
       highlight: {
-        theme: 'catppuccin-frappe',
+        theme: {
+          default: 'catppuccin-latte',
+          light: 'catppuccin-latte',
+          dark: 'catppuccin-frappe',
+        },
       },
     },
   },

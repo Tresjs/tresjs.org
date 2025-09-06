@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { parseMdc } from './helpers/mdc-parser.mjs'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
@@ -19,6 +22,15 @@ export default defineNuxtConfig({
   },
   image: {
     format: ['webp', 'avif'],
+    domains: ['avatars.githubusercontent.com'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    }
   },
   fonts: {
     families: [
@@ -30,9 +42,30 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
-          theme: 'catppuccin-frappe',
+          theme: {
+            default: 'catppuccin-latte',
+            light: 'catppuccin-latte',
+            dark: 'catppuccin-frappe',
+          }
         },
       },
+    }
+  },
+  hooks: {
+    'content:file:afterParse': async ({ file, content }) => {
+      if (file.id === 'index/index.yml') {
+        // @ts-expect-error -- TODO: fix this
+        for (const tab of content.scenes.tabs) {
+          tab.content = await parseMdc(tab.content)
+        }
+        // @ts-expect-error -- TODO: fix this
+        delete content.meta.body
+      }
+    }
+  },
+  mdc: {
+    highlight: {
+      noApiRoute: false
     }
   },
   nitro: {
@@ -47,6 +80,13 @@ export default defineNuxtConfig({
     customCollections: [{
       prefix: 'tres',
       dir: './app/assets/icons'
-    }]
+    }],
+    serverBundle: {
+      collections: ['heroicons', 'simple-icons', 'lucide']
+    }
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/blog/rss.xml': { prerender: true },
   }
 })
