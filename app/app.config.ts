@@ -16,7 +16,7 @@ export default defineAppConfig({
     prose: {
       pre: {
         slots: {
-          base: 'group font-mono text-sm/6 border border-muted bg-gray-600 dark:bg-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none'
+          base: 'group font-mono text-sm/6 border border-muted rounded-md px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none'
         }
       },
       codeTree: {
@@ -40,7 +40,11 @@ export default defineAppConfig({
   content: {
     markdown: {
       highlight: {
-        theme: 'catppuccin-frappe',
+        theme: {
+          default: 'catppuccin-latte',
+          light: 'catppuccin-latte',
+          dark: 'catppuccin-frappe',
+        },
       },
     },
   },

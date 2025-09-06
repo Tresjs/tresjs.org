@@ -1,5 +1,5 @@
 //const validTeams = ['core',]
-export default cachedEventHandler(async (event) => {
+export default cachedEventHandler(async () => {
   const core = await github.fetchTeam('tresjs', 'core')
   const mantainers = await github.fetchTeam('tresjs', 'mantainers')
   return {

@@ -196,9 +196,10 @@ const bundledLangs = {
 
 }
 const bundledThemes = {
+  'catppuccin-latte': () => import('shiki/themes/catppuccin-latte.mjs').then(r => r.default),
   'catppuccin-frappe': () => import('shiki/themes/catppuccin-frappe.mjs').then(r => r.default),
 }
-const options = { theme: { light: 'catppuccin-frappe', default: 'catppuccin-frappe', dark: 'catppuccin-frappe' } }
+const options = { theme: { light: 'catppuccin-latte', default: 'catppuccin-latte', dark: 'catppuccin-frappe' } }
 let configs
 export function getMdcConfigs() {
   if (!configs) {
@@ -222,7 +223,8 @@ export async function parseMdc(content) {
       highlighter,
       langs: ['js', 'vue'],
       theme: {
-        default: 'catppuccin-frappe',
+        default: 'catppuccin-latte',
+        light: 'catppuccin-latte',
         dark: 'catppuccin-frappe'
       }
     }

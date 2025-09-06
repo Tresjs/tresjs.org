@@ -42,7 +42,11 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
-          theme: 'catppuccin-frappe',
+          theme: {
+            default: 'catppuccin-latte',
+            light: 'catppuccin-latte',
+            dark: 'catppuccin-frappe',
+          }
         },
       },
     }

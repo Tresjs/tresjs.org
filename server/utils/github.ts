@@ -1,3 +1,39 @@
+interface GitHubMember {
+  name: string
+  login: string
+  avatarUrl: string
+  pronouns?: string
+  location?: string
+  websiteUrl?: string
+  socialAccounts?: {
+    edges: Array<{
+      node: {
+        displayName: string
+        provider: string
+        url: string
+      }
+    }>
+  }
+  contributionsCollection: {
+    totalCommitContributions: number
+    totalIssueContributions: number
+    totalPullRequestContributions: number
+    totalPullRequestReviewContributions: number
+  }
+}
+
+interface GitHubTeamResponse {
+  data: {
+    organization: {
+      team: {
+        members: {
+          nodes: GitHubMember[]
+        }
+      }
+    }
+  }
+}
+
 export const github = {
   async fetchTeam(org: string, teamName: string) {
     if (!process.env.NUXT_GITHUB_TOKEN) {
@@ -7,7 +43,7 @@ export const github = {
       })
     }
 
-    const team = await $fetch<{ data: { organization: { team: { members: { nodes: any[] } } } } }>(`https://api.github.com/graphql`, {
+    const team = await $fetch<GitHubTeamResponse>(`https://api.github.com/graphql`, {
       method: 'POST',
       headers: {
         'Accept': 'application/vnd.github.v3+json',
@@ -67,7 +103,7 @@ export const github = {
         location: member.location as string | undefined,
         websiteUrl: member.websiteUrl as string | undefined,
         sponsorsUrl: `https://github.com/sponsors/${member.login}`,
-        socialAccounts: Object.fromEntries(member.socialAccounts?.edges.map((edge: any) => [
+        socialAccounts: Object.fromEntries(member.socialAccounts?.edges.map((edge) => [
           edge.node.provider.toLowerCase(),
           {
             displayName: edge.node.displayName,
