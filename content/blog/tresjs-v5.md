@@ -1,7 +1,7 @@
 ---
 title: 'Announcing Tres 5.0'
 description: 'Introducing Tres 5.0 with ESM-only architecture, experimentalWebGPU support, and enhanced developer experience'
-date: '2025-08-15'
+date: '2025-09-23'
 category: 'release'
 author: [alvarosabu, tino-koch]
 thumbnail: '/blog/tresjs-v5/tresjs-v5-thumbnail.png'
@@ -317,6 +317,37 @@ Update your event handlers:
 >
 ```
 
+## Ready for Nuxt 4 with brand new devtools!
+
+Along with TresJS v5, we're excited to announce full support for Nuxt 4, including a brand new TresJS Devtools extension for Nuxt devtools completely remade from the ground up.
+
+::code-group
+```bash [npm]
+npx nuxi@latest module add tresjs
+```
+```bash [pnpm]
+pnpx nuxi@latest module add tresjs
+```
+::
+
+![TresJS Devtools for Nuxt 4](/blog/tresjs-v5/tresjs-nuxt-devtools.png)
+
+### Inspect and debug your scene
+
+- **Scene graph visualization**: Explore your 3D scene hierarchy
+- **Real-time property editing**: Modify object properties on the fly
+- **Copy values**: Easily copy object properties for use in your code
+
+![TresJS Devtools Scene Graph](/blog/tresjs-v5/tresjs-devtools-scene-graph.png)
+
+### Real-time performance monitoring
+
+- **FPS counter**: Monitor your application's frame rate
+- **Memory usage**: Keep an eye on memory consumption
+- **Draw calls**: Analyze rendering performance
+
+![TresJS Devtools Performance](/blog/tresjs-v5/tresjs-devtools-performance.png)
+
 
 ## 🌐 Ecosystem Updates
 
@@ -341,7 +372,7 @@ Ready to upgrade? Here's how:
 
 ```bash
 # Update TresJS
-pnpm add @tresjs/tres@^5.0.0
+pnpm add @tresjs/tres@latest
 
 # Update your dependencies
 pnpm add @tresjs/cientos@latest # for useTexture and other utilities

@@ -68,7 +68,6 @@ const { data: formattedBlog } = await useAsyncData('formatted-blog',
           description: `@${author?.github}`,
           avatar: {
             src: author?.avatar,
-            provider: 'none',
             loading: 'lazy',
           },
           to: author?.website,
