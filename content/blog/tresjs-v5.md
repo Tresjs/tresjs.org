@@ -389,3 +389,12 @@ Join our [Discord community](https://discord.gg/UCr96AQmWn) to share your v5 cre
 ---
 
 *Ready to build the future of web 3D with TresJS v5? [Get started today](https://docs.tresjs.org/guide/getting-started) and experience the next generation of declarative Three.js development!*
+
+---
+
+::card{variant="subtle"}
+  ::div{class="w-2/3"}
+    In the loving memory of our friend [Serdar Yerdelen](https://github.com/justserdar), we want to dedicate this release to him, the most genuine and gentle soul in our community, you will be deeply missed.
+  ::
+  ::img{src="https://avatars.githubusercontent.com/u/67746033?v=4" class="rounded-full w-12 h-12"}
+::
