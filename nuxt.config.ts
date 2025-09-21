@@ -15,7 +15,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/devtools',
     '@tresjs/nuxt',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxt/scripts'
   ],
   uiPro: {
     license: process.env.NUXT_UI_PRO_LICENSE
@@ -88,5 +89,14 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/blog/rss.xml': { prerender: true },
-  }
+  },
+  $production: {
+    scripts: {
+      registry: {
+        fathomAnalytics: {
+          site: 'OWBUVCJK',
+        },
+      },
+    },
+  },
 })
