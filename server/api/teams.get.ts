@@ -1,5 +1,13 @@
 //const validTeams = ['core',]
 export default cachedEventHandler(async () => {
+  // Force error if token is missing or empty
+  if (!process.env.NUXT_GITHUB_TOKEN) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'NUXT_GITHUB_TOKEN environment variable is required but not configured'
+    })
+  }
+
   try {
     const core = await github.fetchTeam('tresjs', 'core')
     const mantainers = await github.fetchTeam('tresjs', 'mantainers')
@@ -8,12 +16,12 @@ export default cachedEventHandler(async () => {
       mantainers: mantainers.sort((a, b) => b.score - a.score)
     }
   } catch (error) {
-    // Return empty teams if GitHub API fails (e.g., missing token during build)
-    console.warn('Failed to fetch teams from GitHub:', error instanceof Error ? error.message : String(error))
-    return {
-      core: [],
-      mantainers: []
-    }
+    // Log the actual error for debugging
+    console.error('Failed to fetch teams from GitHub:', error instanceof Error ? error.message : String(error))
+    throw createError({
+      statusCode: 500,
+      statusMessage: `GitHub API Error: ${error instanceof Error ? error.message : String(error)}`
+    })
   }
 }, {
   name: 'teams',

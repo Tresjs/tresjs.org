@@ -16,11 +16,14 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-const { data: team } = await useAsyncData('team', () => $fetch('/api/teams'))
+const { data: team, error } = await useAsyncData('team', () => $fetch('/api/teams'))
 
-// Debug: log team data to console
+// Debug: log team data and errors to console
 if (import.meta.client) {
   console.log('Team data:', team.value)
+  if (error.value) {
+    console.error('Team API error:', error.value)
+  }
 }
 </script>
 <template>
@@ -100,7 +103,11 @@ if (import.meta.client) {
           </UPageCard>
         </div>
         <div v-else class="text-center py-8">
-          <p class="text-gray-500">Loading team members...</p>
+          <div v-if="error" class="text-red-500">
+            <p class="font-semibold">Error loading team members</p>
+            <p class="text-sm mt-2">{{ error.data?.message || error.message || 'Failed to load team data' }}</p>
+          </div>
+          <p v-else class="text-gray-500">Loading team members...</p>
         </div>
       </div>
 
