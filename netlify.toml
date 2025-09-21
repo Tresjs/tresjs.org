@@ -1,8 +1,12 @@
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
 [build]
+  command = "pnpm run generate"
   publish = "dist"
-  command = "pnpm run build"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 [[redirects]]
   from = "/guide/*"
   to = "https://docs.tresjs.org/guide/:splat"

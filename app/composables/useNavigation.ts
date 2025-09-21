@@ -1,0 +1,75 @@
+import { createSharedComposable } from '@vueuse/core'
+import type { NavigationMenuItem } from '@nuxt/ui'
+import type { FooterColumn } from '@nuxt/ui-pro'
+
+function _useHeaderLinks() {
+  const route = useRoute()
+
+  const headerLinks = computed<NavigationMenuItem[]>(() => [
+    {
+      label: 'Blog',
+      to: '/blog',
+      active: route.path.startsWith('/blog')
+    },
+    {
+      label: 'Docs',
+      to: 'https://docs.tresjs.org/',
+      target: '_blank'
+    },
+    {
+      label: 'Showcase',
+      to: '/showcase',
+      active: route.path.startsWith('/showcase')
+    },
+    {
+      label: 'Releases',
+      to: 'https://github.com/Tresjs/tres/releases',
+      target: '_blank'
+    }
+  ])
+
+  return {
+    headerLinks
+  }
+}
+
+export const useHeaderLinks = createSharedComposable(_useHeaderLinks)
+
+const _useFooterLinks = () => {
+  const footerLinks = computed<FooterColumn[]>(() => [
+    {
+      label: 'Community',
+      children: [
+        {
+          label: 'Team',
+          to: '/team'
+        },
+        {
+          label: 'Design Kit',
+          to: '/design-kit'
+        }
+      ]
+    },
+    {
+      label: 'Ecosystem',
+      children: [
+        {
+          label: 'cientos',
+          to: 'https://cientos.tresjs.org/',
+          target: '_blank'
+        },
+        {
+          label: 'postprocessing',
+          to: 'https://post-processing.tresjs.org/',
+          target: '_blank'
+        }
+      ]
+    }
+  ])
+
+  return {
+    footerLinks
+  }
+}
+
+export const useFooterLinks = createSharedComposable(_useFooterLinks)
