@@ -17,6 +17,11 @@ useSeoMeta({
 })
 
 const { data: team } = await useAsyncData('team', () => $fetch('/api/teams'))
+
+// Debug: log team data to console
+if (import.meta.client) {
+  console.log('Team data:', team.value)
+}
 </script>
 <template>
   <div class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center [--gutter-width:2.5rem] lg:grid-cols-[var(--gutter-width)_minmax(0,var(--ui-container))_var(--gutter-width)] overflow-hidden">
@@ -37,7 +42,7 @@ const { data: team } = await useAsyncData('team', () => $fetch('/api/teams'))
       <!-- Core Team Section -->
       <div class="px-2 mt-8">
         <h3 class="mb-6 text-2xl font-semibold">Core Team</h3>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div v-if="team?.core?.length" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <UPageCard v-for="member in team?.core" :key="member.login" spotlight class="text-center">
             <div class="flex flex-col items-center space-y-4">
               <img 
@@ -93,6 +98,9 @@ const { data: team } = await useAsyncData('team', () => $fetch('/api/teams'))
               </div>
             </div>
           </UPageCard>
+        </div>
+        <div v-else class="text-center py-8">
+          <p class="text-gray-500">Loading team members...</p>
         </div>
       </div>
 
