@@ -88,6 +88,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { prerender: true },
+    '/team': { prerender: true },
     '/blog/rss.xml': { prerender: true },
   },
   $production: {
