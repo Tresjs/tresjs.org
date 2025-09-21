@@ -105,7 +105,7 @@ if (import.meta.client) {
         <div v-else class="text-center py-8">
           <div v-if="error" class="text-red-500">
             <p class="font-semibold">Error loading team members</p>
-            <p class="text-sm mt-2">{{ error.data?.message || error.message || 'Failed to load team data' }}</p>
+            <p class="text-sm mt-2">{{ (error as any)?.data?.message || (error as any)?.message || 'Failed to load team data' }}</p>
           </div>
           <p v-else class="text-gray-500">Loading team members...</p>
         </div>
