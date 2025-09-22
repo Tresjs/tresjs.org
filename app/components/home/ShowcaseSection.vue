@@ -31,7 +31,7 @@ useIntersectionObserver(
     <div class="border-x border-dashed border-gray-200 dark:border-default py-16 md:py-32 mx-auto max-w-(--ui-container)">
       <div class="blueprint relative w-full">
          <header class="blueprint relative">
-          <h2 class="px-8 py-16 w-full sm:w-1/2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold">
+          <h2 class="px-2 py-16 w-full sm:w-1/2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl font-display font-extrabold">
             Built with  <br> <span class="text-primary-400">Tres</span>
           </h2>
         </header>
