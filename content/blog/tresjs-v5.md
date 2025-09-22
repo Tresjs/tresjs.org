@@ -396,5 +396,5 @@ Join our [Discord community](https://discord.gg/UCr96AQmWn) to share your v5 cre
   ::div{class="w-2/3"}
     In the loving memory of our friend [Serdar Yerdelen](https://github.com/justserdar), we want to dedicate this release to him, the most genuine and gentle soul in our community, you will be deeply missed.
   ::
-  ::img{src="https://avatars.githubusercontent.com/u/67746033?v=4" class="rounded-full w-12 h-12"}
+  ::img{src="/blog/tresjs-v5/serdar.png" class="rounded-full w-12 h-12"}
 ::
