@@ -1,7 +1,7 @@
 ---
 title: 'Announcing Tres 5.0'
 description: 'Introducing Tres 5.0 with experimentalWebGPU support, reimagined event system and enhanced developer experience'
-date: '2025-09-23'
+date: '2025-09-22'
 category: 'release'
 author: [alvarosabu, tino-koch]
 thumbnail: '/blog/tresjs-v5/tresjs-v5-thumbnail.png'
