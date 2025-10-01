@@ -130,4 +130,9 @@ This new websites are just the beginning of upcoming changes we are planing for 
 
 **We are looking forward to your feedback on [Twitter](https://x.com/tresjs_dev), [Discord](https://discord.gg/WTpvaxr5) or [GitHub](https://github.com/tresjs/tresjs.org)**.
 
+
+## Big shoutout to the Nuxt UI team
+
+We want to give a big shoutout to the[ Nuxt UI team](https://nuxt.com/blog/nuxt-ui-v4) for their incredible work on the library and for making all the pro components available for free. We are very grateful for their support and for the incredible library they have created.
+
 Thank you for reading this blog post, and happy 3D ✌️
