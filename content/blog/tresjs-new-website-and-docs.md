@@ -1,7 +1,7 @@
 ---
 title: 'New look, new docs, new website'
 description: 'We are trilled to release the new tresjs.org and docs.tresjs.org, powered by Nuxt UI.'
-date: '2025-09-23'
+date: '2025-10-01'
 category: 'announcement'
 author: [alvarosabu, tino-koch]
 thumbnail: '/blog/tresjs-new-website-and-docs/tresjs-new-landing.png'
