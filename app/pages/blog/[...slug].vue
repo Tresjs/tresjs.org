@@ -149,7 +149,7 @@ class="flex justify-center items-center rounded-full border-1 border-dashed bord
       </div>
       <div class="w-full pl-2 pr-4 flex flex-col flex-col-reverse lg:flex-row gap-8">
         <div class="flex-1 pt-8">
-          <ContentRenderer  v-if="formattedBlogPost" class="max-w-3xl" :value="formattedBlogPost" />
+          <ContentRenderer  v-if="formattedBlogPost" class="max-w-4xl" :value="formattedBlogPost" />
         </div>
         <div class="md:border-l md:border-gray-100 dark:md:border-default md:px-8">
           <UContentToc :links="formattedBlogPost?.body?.toc?.links" />
