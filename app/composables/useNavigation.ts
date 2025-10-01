@@ -1,6 +1,5 @@
 import { createSharedComposable } from '@vueuse/core'
-import type { NavigationMenuItem } from '@nuxt/ui'
-import type { FooterColumn } from '@nuxt/ui-pro'
+import type { NavigationMenuItem, FooterColumn } from '@nuxt/ui'
 
 function _useHeaderLinks() {
   const route = useRoute()

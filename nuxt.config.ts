@@ -11,15 +11,13 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/ui-pro',
+    '@nuxt/ui',
     '@nuxt/content',
     '@nuxt/devtools',
     '@tresjs/nuxt',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxt/scripts'
   ],
-  uiPro: {
-    license: process.env.NUXT_UI_PRO_LICENSE
-  },
   image: {
     format: ['webp', 'avif'],
     domains: ['avatars.githubusercontent.com'],
@@ -87,6 +85,16 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { prerender: true },
+    '/team': { prerender: true },
     '/blog/rss.xml': { prerender: true },
-  }
+  },
+  $production: {
+    scripts: {
+      registry: {
+        fathomAnalytics: {
+          site: 'OWBUVCJK',
+        },
+      },
+    },
+  },
 })

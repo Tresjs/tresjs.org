@@ -11,8 +11,6 @@ export default defineAppConfig({
         body: 'p-2 sm:p-3'
       }
     },
-  },
-  uiPro: {
     prose: {
       pre: {
         slots: {

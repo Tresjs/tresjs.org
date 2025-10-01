@@ -18,7 +18,7 @@ const { data: page } = useAsyncData('home-hero', () => queryCollection('index').
       <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">WebGL</span>
       <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />
       <div class="absolute top-0 left-0 w-full h-full">
-        <TresCanvas :clear-color="isDark ? colors.DARK : colors.LIGHT">
+        <TresCanvas class="!pointer-events-none" :clear-color="isDark ? colors.DARK : colors.LIGHT">
           <HomeHeroExperience />
         </TresCanvas>
       </div>

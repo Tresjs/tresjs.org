@@ -38,6 +38,71 @@ const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { au
     authors
   }
 })
+
+useHead({
+  title: `${blogPost?.value?.title}`,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: blogPost?.value?.description,
+    },
+    {
+      hid: 'keywords',
+      property: 'keywords',
+      keywords: blogPost?.value?.tags?.join(', '),
+    },
+    // og
+    {
+      hid: 'og:description',
+      property: 'og:description',
+      content: blogPost?.value?.description,
+    },
+    {
+      hid: 'og:title',
+      property: 'og:title',
+      content: `${blogPost?.value?.title} made with TresJS by @${blogPost?.value?.author}`,
+    },
+    {
+      hid: 'og:type',
+      property: 'og:type',
+      content: 'project',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: blogPost?.value?.thumbnail ?? `/${blogPost?.value?._path?.split('/').pop()}.png`,
+    },
+    {
+      hid: 'og:image:alt',
+      property: 'og:image:alt',
+      content: blogPost?.value?.title,
+    },
+    // Twitter
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:site', content: '@alvarosabu' },
+    {
+      hid: 'twitter:title',
+      property: 'twitter:title',
+      content: `${blogPost?.value?.title} - Tres`,
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content: blogPost?.value?.description,
+    },
+    {
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: blogPost?.value?.thumbnail ?? `/${blogPost?.value?._path?.split('/').pop()}.png`,
+    },
+    {
+      hid: 'twitter:image:alt',
+      name: 'twitter:image:alt',
+      content: blogPost?.value?.title,
+    },
+  ],
+})
 </script>
 
 <template>
@@ -84,7 +149,7 @@ class="flex justify-center items-center rounded-full border-1 border-dashed bord
       </div>
       <div class="w-full pl-2 pr-4 flex flex-col flex-col-reverse lg:flex-row gap-8">
         <div class="flex-1 pt-8">
-          <ContentRenderer  v-if="formattedBlogPost" class="max-w-3xl" :value="formattedBlogPost" />
+          <ContentRenderer  v-if="formattedBlogPost" class="max-w-4xl" :value="formattedBlogPost" />
         </div>
         <div class="md:border-l md:border-gray-100 dark:md:border-default md:px-8">
           <UContentToc :links="formattedBlogPost?.body?.toc?.links" />
