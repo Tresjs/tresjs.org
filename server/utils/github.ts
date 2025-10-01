@@ -43,6 +43,8 @@ export const github = {
       })
     }
 
+    console.log(`Fetching team: ${org}/${teamName}`)
+
     const team = await $fetch<GitHubTeamResponse>(`https://api.github.com/graphql`, {
       method: 'POST',
       headers: {
@@ -89,6 +91,21 @@ export const github = {
         }
       }
     })
+
+    console.log(`Team response for ${org}/${teamName}:`, {
+      hasOrganization: !!team.data.organization,
+      hasTeam: !!team.data.organization?.team,
+      memberCount: team.data.organization?.team?.members?.nodes?.length || 0
+    })
+
+    if (!team.data.organization) {
+      throw new Error(`Organization '${org}' not found`)
+    }
+
+    if (!team.data.organization.team) {
+      throw new Error(`Team '${teamName}' not found in organization '${org}'`)
+    }
+
     return team.data.organization.team.members.nodes.map((member) => {
       const contributions = member.contributionsCollection
       const score = (contributions.totalCommitContributions * 2) + 
