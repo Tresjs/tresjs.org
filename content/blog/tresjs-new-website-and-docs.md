@@ -13,7 +13,7 @@ TresJS has grown a lot since we started in 2022, and tresjs.org has been the mai
 
 ![New TresJS website](/blog/tresjs-new-website-and-docs/tresjs-new-landing.png)
 
-We decided to refactor the website to **Nuxt 4**, and in an effort to have a consistent design language across the TresJS ecosystem, we are leveraging the incredible Nuxt UI
+We decided to refactor the website to **Nuxt 4**, and in an effort to have a consistent design language across the TresJS ecosystem, we are leveraging the incredible [Nuxt UI](https://ui.nuxt.com/)
  library.
 
 ::div{class="grid sm:grid-cols-2 gap-2"}
@@ -63,7 +63,7 @@ Discover the **TresJS Design Kit**.
 
 ## New Docs
 
-We also migrate our documentation from previous [Vitepress](https://vitepress.dev/) to a tailored Nuxt 4 + Nuxt UI customized Docs template. And we have to warn you, we were highly "inspired" (shamelessly copy 😜) by ideas from the Nuxt website.
+We also migrate our documentation from previous [Vitepress](https://vitepress.dev/) to a tailored Nuxt 4 + Nuxt UI v4 customized Docs template. And we have to warn you, we were highly "inspired" (shamelessly copy 😜) by ideas from the Nuxt website.
 
 Like the new navigation where you can easily jump between categories:
 
