@@ -4,31 +4,11 @@
   command = "pnpm run generate"
   publish = "dist"
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-[[redirects]]
-  from = "/guide/*"
-  to = "https://docs.tresjs.org/guide/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/api/*"
-  to = "https://docs.tresjs.org/api/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/examples/*"
-  to = "https://docs.tresjs.org/examples/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/advanced/*"
-  to = "https://docs.tresjs.org/advanced/:splat"
-  status = 301
-  force = true
-[[redirects]]
   from = "/discord"
   to = "https://discord.gg/atuJunqHzc"
   status = 301
   force = true
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
