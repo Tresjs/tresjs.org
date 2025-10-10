@@ -27,3 +27,8 @@
   to = "https://docs.tresjs.org/advanced/:splat"
   status = 301
   force = true
+[[redirects]]
+  from = "/discord"
+  to = "https://discord.gg/atuJunqHzc"
+  status = 301
+  force = true
