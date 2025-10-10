@@ -57,7 +57,7 @@ const randomIcon = computed(() => {
         <UButton
           color="neutral"
           variant="ghost"
-          to="https://discord.gg/rW8mtAQd"
+          to="https://tresjs.org/discord"
           target="_blank"
           icon="i-simple-icons-discord"
         >
