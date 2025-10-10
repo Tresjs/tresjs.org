@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/team': { prerender: true },
     '/blog/rss.xml': { prerender: true },
+    '/discord': { redirect: { to: 'https://discord.gg/atuJunqHzc', statusCode: 301 } },
   },
   $production: {
     scripts: {
