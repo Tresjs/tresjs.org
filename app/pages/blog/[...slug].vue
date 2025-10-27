@@ -7,7 +7,7 @@ const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
 
-const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { authors: { name: string, description: string, avatar: { src: string } }[] }>('formatted-blog-post', async () => {
+const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { authors: { name: string, description: string, avatar: { src: string } }[] }>(`formatted-blog-post-${route.path}`, async () => {
   if (!blogPost.value) return {}
 
   const authorSlugs = Array.isArray(blogPost.value.author)
