@@ -5,7 +5,7 @@ hero:
   ctas: 
     - label: Get Started
       color: neutral
-      to: https://docs.tresjs.org/
+      to: https://docs.tresjs.org/getting-started
       size: lg
       variant: solid
       icon: lucide-rocket
