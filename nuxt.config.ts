@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@tresjs/nuxt',
     'motion-v/nuxt',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    'lenis/nuxt'
   ],
   image: {
     format: ['webp', 'avif'],

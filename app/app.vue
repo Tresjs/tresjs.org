@@ -37,6 +37,8 @@ useHead({
 
 <template>
   <UApp>
+    <LenisScroll />
+
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

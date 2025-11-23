@@ -3,13 +3,15 @@
 
 @import "@nuxt/ui";
 
+@import "lenis/dist/lenis.css";
+
 @theme static {
   --font-display: 'Manrope', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'Geist Mono', monospace;
   --breakpoint-3xl: 1920px;
-  --ui-pattern-fg: color-mix(in oklab,var(--ui-text)5%,transparent);
-  --ui-pattern-bg: repeating-linear-gradient(315deg,var(--ui-pattern-fg)0,var(--ui-pattern-fg)1px,transparent 0,transparent 50%);
+  --ui-pattern-fg: color-mix(in oklab, var(--ui-text)5%, transparent);
+  --ui-pattern-bg: repeating-linear-gradient(315deg, var(--ui-pattern-fg)0, var(--ui-pattern-fg)1px, transparent 0, transparent 50%);
   --ui-pattern-dot-fg: color-mix(in oklab, oklch(0.18 0.04 266.75) 5%, transparent);
   --ui-pattern-dot-bg: radial-gradient(var(--ui-pattern-dot-fg) 1px, transparent 0);
   --ui-header-height: 3rem;
@@ -52,13 +54,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 30px; /* Adjust as needed */
+  height: 30px;
+  /* Adjust as needed */
   pointer-events: none;
   background: linear-gradient(to top, var(--ui-bg, #fff) 10%, transparent 100%);
   z-index: 10;
   transition: opacity 0.2s;
   opacity: 1;
 }
+
 .blog-gradient-after.hide-gradient::after {
   opacity: 0;
 }
@@ -122,10 +126,9 @@
     left: calc(var(--ui-line-offset) / 2 * -1);
     width: calc(100% + var(--ui-line-offset));
   }
-  
+
   .blueprint::after {
     left: calc(var(--ui-line-offset) / 2 * -1);
     width: calc(100% + var(--ui-line-offset));
   }
 }
-
