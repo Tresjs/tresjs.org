@@ -23,7 +23,7 @@ Issue [#1211](https://github.com/Tresjs/tres/issues/1211) highlighted these conc
 
 ## Why tsdown?
 
-[tsdown](https://tsdown.netlify.app/) is a modern TypeScript bundler specifically designed for building libraries. Unlike general-purpose bundlers, it focuses on creating optimal package distributions. Here's why it was the right choice:
+[tsdown](https://tsdown.dev/) is a modern TypeScript bundler specifically designed for building libraries. Unlike general-purpose bundlers, it focuses on creating optimal package distributions. Here's why it was the right choice:
 
 ### Built for Libraries
 
