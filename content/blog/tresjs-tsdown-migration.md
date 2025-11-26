@@ -1,10 +1,10 @@
 ---
 title: 'Building Better: Our Migration to tsdown'
-description: 'How we modernized the TresJS build system by migrating from Vite library mode to tsdown, reducing bundle sizes and simplifying our toolchain'
+description: 'How we modernized the TresJS build system by migrating from Vite library mode to tsdown, reducing bundle sizes and simplifying our toolchain.'
 date: '2025-11-18'
 category: 'engineering'
 author: alvarosabu
-thumbnail: '/blog/tresjs-tsdown-migration/thumbnail.png'
+thumbnail: '/blog/tresjs-tsdown-migration/tresjs-tsdown-migration.png'
 ---
 
 As part of our continuous effort to improve the TresJS ecosystem, we've made a significant change to how we build and distribute our packages. With the [release of v5.1.1](https://github.com/Tresjs/tres/releases/tag/%40tresjs%2Fcore%405.1.1), we've migrated our entire build system from Vite's library mode to [tsdown](https://tsdown.dev/)—a modern TypeScript bundler built on [Rolldown](https://rolldown.rs/).
