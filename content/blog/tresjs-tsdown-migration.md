@@ -25,6 +25,12 @@ Issue [#1211](https://github.com/Tresjs/tres/issues/1211) highlighted these conc
 
 [tsdown](https://tsdown.dev/) is a modern TypeScript bundler specifically designed for building libraries. Unlike general-purpose bundlers, it focuses on creating optimal package distributions. Here's why we chose it:
 
+If you also considering using `tsdown` take this into account:
+
+::prose-note
+`tsdown` will also be the base of the next iteration of Vite's library mode. Thanks to [@TheAlexLichter](https://x.com/TheAlexLichter) for the heads up.
+::
+
 ### Built for Libraries
 
 While Vite excels at building applications with its development server and HMR capabilities, tsdown is purpose-built for library authoring. It handles the specific needs of package distribution:
@@ -47,12 +53,21 @@ tsdown consolidates all of this into a single, focused configuration:
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
-  entry: 'src/index.ts',
-  format: ['esm'],
-  clean: true,
-  dts: true, // Built-in TypeScript declarations
+  entry: {
+    tres: './src/index.ts', // Entry point with custom chunk name
+  },
+  platform: 'neutral', // Platform-agnostic output (no Node.js or browser-specific APIs)
+  fromVite: true, // Enables Vite compatibility mode for seamless migration
+  banner, // License header injection
+  dts: {
+    vue: true, // Generate TypeScript declarations with Vue support
+  },
 })
 ```
+
+::prose-note
+Note: `format: ['esm']` and `clean: true` are tsdown defaults and don't need to be specified.
+::
 
 ### Modern Foundation
 
@@ -80,6 +95,8 @@ And we can already see the results:
 - **v5.1.0** (Vite library mode): 1.2 MB (minified: 334.4 kB)
 - **v5.1.1** (tsdown): 618.7 kB (minified: 165 kB)
 - **Result**: ~50% smaller minified bundle size
+
+The significant reduction is partly because we now only generate ESM with tsdown, whereas with Vite we were also emitting CJS or UMD formats—that accounts for the 50% reduction in total bundle size.
 
 ### For End Users
 
@@ -128,7 +145,7 @@ While we're still gathering comprehensive metrics, early results are promising:
 This migration is part of our broader commitment to making TresJS the best possible developer experience. Some upcoming benefits we're excited about:
 
 ::prose-list
-- **Enhanced tree-shaking**: Rolldown's upcoming JSON tree-shaking will further reduce bundle sizes
+- **Enhanced tree-shaking**: Rolldown's upcoming JSON tree-shaking will further reduce bundle sizes [Rolldown/JSON tree-shaking](https://github.com/rolldown/rolldown/pull/6626)
 - **Faster iteration**: Simplified tooling means we can move faster on new features
 - **Better debugging**: Improved source maps for development
 ::
@@ -173,32 +190,33 @@ export default defineConfig({
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
-  entry: 'src/index.ts',
-  format: ['esm'],
-  clean: true,
-  dts: true,
+  entry: {
+    tres: './src/index.ts', // Entry point with custom chunk name
+  },
+  platform: 'neutral', // Platform-agnostic output (no Node.js or browser-specific APIs)
+  fromVite: true, // Enables Vite compatibility mode for seamless migration
+  banner, // License header injection
+  dts: {
+    vue: true, // Generate TypeScript declarations with Vue support
+  },
 })
 ```
 
+::prose-note
+Note: `format: ['esm']` and `clean: true` are tsdown defaults and don't need to be specified.
+::
+
 The difference is striking—we went from managing multiple plugins and complex configuration to a focused, declarative setup.
 
-### Package Export Updates
+## Acknowledgments
 
-We also updated our package.json exports to align with tsdown's output structure:
+This migration wouldn't have been possible without the incredible work and support from our community:
 
-```json
-{
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  }
-}
-```
+- **[@userquin](https://github.com/userquin)** for the hard work on implementing this migration across the TresJS ecosystem.
+- **[@TheAlexLichter](https://github.com/TheAlexLichter)** for reviewing the article and providing some new insights.
+- **[@sxzz](https://github.com/sxzz) (Kevin)** for creating tsdown and helping with the review.
 
-This ensures optimal compatibility with modern module resolution across different bundlers and environments.
-
+Thank you all for making TresJS better! 🙌
 
 If you encounter any issues with the new build system, please let us know on [GitHub](https://github.com/Tresjs/tres/issues) or join the discussion on our [Discord community](https://discord.gg/UCr96AQmWn).
 
