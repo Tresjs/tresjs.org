@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   css: ['~/assets/styles/main.css'],
+  site: {
+    url: 'https://tresjs.org',
+    name: 'TresJS',
+  },
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
@@ -16,7 +20,8 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@tresjs/nuxt',
     'motion-v/nuxt',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    '@nuxtjs/seo'
   ],
   image: {
     format: ['webp', 'avif'],
