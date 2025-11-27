@@ -52,6 +52,7 @@ const ogImageUrl = computed(() => {
 defineOgImage({
   url: ogImageUrl.value,
   alt: blogPost?.value?.title,
+  extension: 'png',
 })
 
 useSeoMeta({
