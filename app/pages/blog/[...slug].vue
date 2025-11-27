@@ -42,6 +42,8 @@ const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { au
 defineOgImage({
   url: blogPost?.value?.thumbnail ?? `/${blogPost?.value?.path?.split('/').pop()}.png`,
   alt: blogPost?.value?.title,
+  width: 1200,
+  height: 630,
 })
 
 useSeoMeta({
