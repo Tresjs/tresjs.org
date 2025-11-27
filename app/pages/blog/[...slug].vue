@@ -3,6 +3,7 @@ import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
 
 const route = useRoute()
+const siteUrl = useRequestURL()
 const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
@@ -71,7 +72,9 @@ useHead({
     {
       hid: 'og:image',
       property: 'og:image',
-      content: blogPost?.value?.thumbnail ?? `/${blogPost?.value?._path?.split('/').pop()}.png`,
+      content: blogPost?.value?.thumbnail
+        ? (blogPost.value.thumbnail.startsWith('http') ? blogPost.value.thumbnail : `${siteUrl.origin}${blogPost.value.thumbnail}`)
+        : `${siteUrl.origin}/${blogPost?.value?._path?.split('/').pop()}.png`,
     },
     {
       hid: 'og:image:alt',
@@ -94,7 +97,9 @@ useHead({
     {
       hid: 'twitter:image',
       name: 'twitter:image',
-      content: blogPost?.value?.thumbnail ?? `/${blogPost?.value?._path?.split('/').pop()}.png`,
+      content: blogPost?.value?.thumbnail
+        ? (blogPost.value.thumbnail.startsWith('http') ? blogPost.value.thumbnail : `${siteUrl.origin}${blogPost.value.thumbnail}`)
+        : `${siteUrl.origin}/${blogPost?.value?._path?.split('/').pop()}.png`,
     },
     {
       hid: 'twitter:image:alt',
