@@ -3,6 +3,7 @@ import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
 
 const route = useRoute()
+const img = useImage()
 const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
@@ -39,11 +40,18 @@ const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { au
   }
 })
 
+const ogImageUrl = computed(() => {
+  const imagePath = blogPost?.value?.thumbnail ?? `/${blogPost?.value?.path?.split('/').pop()}.png`
+  return img(imagePath, {
+    width: 1200,
+    height: 630,
+    fit: 'cover'
+  })
+})
+
 defineOgImage({
-  url: blogPost?.value?.thumbnail ?? `/${blogPost?.value?.path?.split('/').pop()}.png`,
+  url: ogImageUrl.value,
   alt: blogPost?.value?.title,
-  width: 1200,
-  height: 630,
 })
 
 useSeoMeta({
