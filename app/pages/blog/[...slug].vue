@@ -3,7 +3,6 @@ import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
 
 const route = useRoute()
-const siteUrl = useRequestURL()
 const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
@@ -40,73 +39,24 @@ const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { au
   }
 })
 
-useHead({
-  title: `${blogPost?.value?.title}`,
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: blogPost?.value?.description,
-    },
-    {
-      hid: 'keywords',
-      property: 'keywords',
-      keywords: blogPost?.value?.tags?.join(', '),
-    },
-    // og
-    {
-      hid: 'og:description',
-      property: 'og:description',
-      content: blogPost?.value?.description,
-    },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: `${blogPost?.value?.title} made with TresJS by @${blogPost?.value?.author}`,
-    },
-    {
-      hid: 'og:type',
-      property: 'og:type',
-      content: 'project',
-    },
-    {
-      hid: 'og:image',
-      property: 'og:image',
-      content: blogPost?.value?.thumbnail
-        ? (blogPost.value.thumbnail.startsWith('http') ? blogPost.value.thumbnail : `${siteUrl.origin}${blogPost.value.thumbnail}`)
-        : `${siteUrl.origin}/${blogPost?.value?._path?.split('/').pop()}.png`,
-    },
-    {
-      hid: 'og:image:alt',
-      property: 'og:image:alt',
-      content: blogPost?.value?.title,
-    },
-    // Twitter
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:site', content: '@alvarosabu' },
-    {
-      hid: 'twitter:title',
-      property: 'twitter:title',
-      content: `${blogPost?.value?.title} - Tres`,
-    },
-    {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: blogPost?.value?.description,
-    },
-    {
-      hid: 'twitter:image',
-      name: 'twitter:image',
-      content: blogPost?.value?.thumbnail
-        ? (blogPost.value.thumbnail.startsWith('http') ? blogPost.value.thumbnail : `${siteUrl.origin}${blogPost.value.thumbnail}`)
-        : `${siteUrl.origin}/${blogPost?.value?._path?.split('/').pop()}.png`,
-    },
-    {
-      hid: 'twitter:image:alt',
-      name: 'twitter:image:alt',
-      content: blogPost?.value?.title,
-    },
-  ],
+defineOgImage({
+  url: blogPost?.value?.thumbnail ?? `/${blogPost?.value?.path?.split('/').pop()}.png`,
+  alt: blogPost?.value?.title,
+})
+
+useSeoMeta({
+  title: blogPost?.value?.title,
+  description: blogPost?.value?.description,
+  keywords: blogPost?.value?.tags?.join(', '),
+  ogTitle: `${blogPost?.value?.title} made with TresJS by @${blogPost?.value?.author}`,
+  ogDescription: blogPost?.value?.description,
+  ogType: 'article',
+  ogImageAlt: blogPost?.value?.title,
+  twitterCard: 'summary_large_image',
+  twitterSite: '@alvarosabu',
+  twitterTitle: `${blogPost?.value?.title} - Tres`,
+  twitterDescription: blogPost?.value?.description,
+  twitterImageAlt: blogPost?.value?.title,
 })
 </script>
 
