@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://tresjs.org',
     name: 'TresJS',
+    logo: '/favicon.svg',
   },
   modules: [
     '@nuxt/eslint',

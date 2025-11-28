@@ -15,12 +15,21 @@ useSeoMeta({
   description: 'TresJS is a library for building 3D web applications with Three.js.',
   ogTitle: 'TresJS | The solution for 3D with Vue',
   ogDescription: 'TresJS is a library for building 3D web applications with Three.js.',
+  ogImage: 'https://tresjs.org/social/og-home.png',
   ogUrl: 'https://tresjs.org',
   twitterTitle: 'TresJS | The solution for 3D with Vue',
   twitterDescription: 'TresJS is a library for building 3D web applications with Three.js.',
-  twitterImage: 'https://tresjs.org/og-image.png',
-  twitterCard: 'summary'
+  twitterImage: 'https://tresjs.org/social/og-home.png',
+  twitterCard: 'summary_large_image'
 })
+
+useSchemaOrg([
+  defineOrganization({
+    name: 'TresJS',
+    url: 'https://tresjs.org',
+    logo: 'https://tresjs.org/favicon.svg',
+  }),
+])
 
 useHead({
   meta: [
