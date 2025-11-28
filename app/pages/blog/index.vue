@@ -1,28 +1,34 @@
 <script setup lang="ts">
+import { joinURL } from 'ufo'
 import { USeparator } from '#components';
 import type { BlogCollectionItem, PageCollectionItemBase } from '@nuxt/content';
 import { useInfiniteScroll } from '@vueuse/core'
 import { ref, computed } from 'vue'
 
+const site = useSiteConfig()
+const title = 'Blog'
+const description = 'Latest news from the TresJS ecosystem'
+
 useSeoMeta({
-  title: 'Blog | TresJS',
-  description: 'Latest news from the TresJS ecosystem',
-  ogTitle: 'Blog',
-  ogDescription: 'Latest news from the TresJS ecosystem',
-  ogImage: '/social/og-blog.png',
-  twitterTitle: 'Blog',
-  twitterDescription: 'Latest news from the TresJS ecosystem',
-  twitterImage: '/social/og-blog.png',
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: joinURL(site.url, '/social/og-blog.png'),
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: joinURL(site.url, '/social/og-blog.png'),
   twitterCard: 'summary_large_image',
 })
 
 useHead({
+  title,
   link: [
     {
       rel: 'alternate',
       type: 'application/atom+xml',
       title: 'TresJS Blog RSS',
-      href: 'https://tresjs.org/blog/rss.xml'
+      href: joinURL(site.url, '/blog/rss.xml')
     }
   ]
 })

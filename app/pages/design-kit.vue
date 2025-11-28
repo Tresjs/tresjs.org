@@ -1,13 +1,23 @@
 <script setup lang="ts">
+import { joinURL } from 'ufo'
+
+const site = useSiteConfig()
+const title = 'Design Kit'
+const description = 'Design Kit of projects built with TresJS, the declarative ThreeJS framework for Vue'
+
+useHead({
+  title,
+})
+
 useSeoMeta({
-  title: 'Design Kit | TresJS',
-  description: 'Design Kit of projects built with TresJS, the declarative ThreeJS framework for Vue',
-  ogTitle: 'Design Kit',
-  ogDescription: 'Design Kit of projects built with TresJS, the declarative ThreeJS framework for Vue',
-  ogImage: '/social/og-design-kit.png',
-  twitterTitle: 'Design Kit',
-  twitterDescription: 'Design Kit of projects built with TresJS, the declarative ThreeJS framework for Vue',
-  twitterImage: '/social/og-design-kit.png',
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: joinURL(site.url, '/social/og-design-kit.png'),
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: joinURL(site.url, '/social/og-design-kit.png'),
   twitterCard: 'summary_large_image',
 })
 
