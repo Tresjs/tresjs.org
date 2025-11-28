@@ -158,7 +158,11 @@ useInfiniteScroll(
                   :description="description"
                   :authors="authors"
                   :badge="badge"
-                />
+                >
+                  <template #image>
+                    <NuxtImg format="webp" sizes="100vw sm:50vw md:1000px" :src="thumbnail" :alt="title" class="w-full aspect-video object-cover h-auto rounded-lg" />
+                  </template>
+                </UChangelogVersion>
               </UChangelogVersions>
             </div>
           </div>
