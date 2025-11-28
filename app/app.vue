@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { joinURL } from 'ufo'
+
 const colorMode = useColorMode()
 
 const isDark = computed({
@@ -10,29 +12,40 @@ const isDark = computed({
   },
 })
 
-useSeoMeta({
-  title: 'TresJS | The solution for 3D with Vue',
-  description: 'TresJS is a library for building 3D web applications with Three.js.',
-  ogTitle: 'TresJS | The solution for 3D with Vue',
-  ogDescription: 'TresJS is a library for building 3D web applications with Three.js.',
-  ogUrl: 'https://tresjs.org',
-  twitterTitle: 'TresJS | The solution for 3D with Vue',
-  twitterDescription: 'TresJS is a library for building 3D web applications with Three.js.',
-  twitterImage: 'https://tresjs.org/og-image.png',
-  twitterCard: 'summary'
-})
+const site = useSiteConfig()
 
 useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-  ],
+  titleTemplate: title => title ? `${title} · TresJS` : 'TresJS: The Intuitive 3D Framework for Vue',
   link: [
     { rel: 'icon', href: isDark.value ? '/favicon-dark.svg' : '/favicon.svg' },
   ],
-  htmlAttrs: {
-    lang: 'en',
-  },
 })
+
+if (import.meta.server) {
+  useHead({
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ],
+    htmlAttrs: {
+      lang: 'en',
+    },
+  })
+
+  useSeoMeta({
+    ogSiteName: site.name,
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterSite: 'tresjs_dev',
+  })
+
+  useSchemaOrg([
+    defineOrganization({
+      name: site.name,
+      url: site.url,
+      logo: joinURL(site.url, '/favicon.svg'),
+    }),
+  ])
+}
 </script>
 
 <template>

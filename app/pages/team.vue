@@ -1,18 +1,24 @@
 <script setup lang="ts">
+import { joinURL } from 'ufo'
+
+const site = useSiteConfig()
+const title = 'Team'
+const description = 'The development of TresJS is led by a small but passionate team.'
+
 useHead({
-  title: 'TresJS | Team',
+  title,
 })
 
 useSeoMeta({
-  title: 'TresJS | Team',
-  description: 'The development of TresJS is led by a small but passionate team.',
-  ogTitle: 'TresJS | Team',
-  ogDescription: 'The development of TresJS is led by a small but passionate team.',
-  ogImage: '/social/og-home.png',
-  ogUrl: 'https://tresjs.org',
-  twitterTitle: 'TresJS',
-  twitterDescription: 'The development of TresJS is led by a small but passionate team.',
-  twitterImage: '/social/og-home.png',
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: joinURL(site.url, '/social/og-home.png'),
+  ogUrl: site.url,
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: joinURL(site.url, '/social/og-home.png'),
   twitterCard: 'summary_large_image',
 })
 

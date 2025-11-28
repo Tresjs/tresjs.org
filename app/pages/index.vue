@@ -1,18 +1,24 @@
 <script setup lang="ts">
+import { joinURL } from 'ufo'
+
+const site = useSiteConfig()
+const title = 'TresJS'
+const description = 'Build Interactive 3D experiences with Vue'
+
 useHead({
-  title: 'TresJS | Build Interactive 3D experiences with Vue',
+  title: `${title} | ${description}`,
 })
 
 useSeoMeta({
-  title: 'TresJS',
-  description: 'Build Interactive 3D experiences with Vue',
-  ogTitle: 'TresJS',
-  ogDescription: 'Build Interactive 3D experiences with Vue',
-  ogImage: '/social/og-home.png',
-  ogUrl: 'https://tresjs.org',
-  twitterTitle: 'TresJS',
-  twitterDescription: 'Build Interactive 3D experiences with Vue',
-  twitterImage: '/social/og-home.png',
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: joinURL(site.url, '/social/og-home.png'),
+  ogUrl: site.url,
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: joinURL(site.url, '/social/og-home.png'),
   twitterCard: 'summary_large_image',
 })
 </script>
