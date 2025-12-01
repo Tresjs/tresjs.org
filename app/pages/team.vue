@@ -14,11 +14,11 @@ useSeoMeta({
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: joinURL(site.url, '/social/og-home.png'),
+  ogImage: joinURL(site.url, '/social/og-team.png'),
   ogUrl: site.url,
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: joinURL(site.url, '/social/og-home.png'),
+  twitterImage: joinURL(site.url, '/social/og-team.png'),
   twitterCard: 'summary_large_image',
 })
 
