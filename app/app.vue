@@ -36,6 +36,7 @@ if (import.meta.server) {
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterSite: 'tresjs_dev',
+    icon: joinURL(site.url, '/favicon.ico'),
   })
 
   useSchemaOrg([

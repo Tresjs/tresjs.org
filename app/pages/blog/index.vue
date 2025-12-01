@@ -19,6 +19,7 @@ useSeoMeta({
   twitterDescription: description,
   twitterImage: joinURL(site.url, '/social/og-blog.png'),
   twitterCard: 'summary_large_image',
+  icon: joinURL(site.url, '/favicon.ico'),
 })
 
 useHead({

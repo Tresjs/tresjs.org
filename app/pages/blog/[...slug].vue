@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
+import { joinURL } from 'ufo'
 
 const route = useRoute()
 const img = useImage()
+const site = useSiteConfig()
 const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
@@ -68,6 +70,7 @@ useSeoMeta({
   twitterTitle: `${blogPost?.value?.title} - Tres`,
   twitterDescription: blogPost?.value?.description,
   twitterImageAlt: blogPost?.value?.title,
+  icon: joinURL(site.url, '/favicon.ico'),
 })
 </script>
 
