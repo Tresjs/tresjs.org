@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@tresjs/nuxt',
     'motion-v/nuxt',
     '@nuxt/scripts',
+    'lenis/nuxt',
     '@nuxtjs/seo'
   ],
   image: {

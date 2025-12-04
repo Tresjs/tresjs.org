@@ -51,6 +51,8 @@ if (import.meta.server) {
 
 <template>
   <UApp>
+    <LenisScroll />
+
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

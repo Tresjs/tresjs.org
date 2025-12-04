@@ -24,7 +24,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <HomeHero />
     <LazyHomeDiagramSection />
     <LazyHomeScenesTabSection />
