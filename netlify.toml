@@ -1,8 +1,8 @@
 [build.environment]
   NODE_VERSION = "22"
+  NODE_OPTIONS = "--max-old-space-size=4096"
 [build]
-  command = "pnpm run generate"
-  publish = "dist"
+  command = "pnpm run build"
 [[redirects]]
   from = "/discord"
   to = "https://discord.gg/atuJunqHzc"

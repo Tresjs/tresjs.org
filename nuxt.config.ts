@@ -22,7 +22,8 @@ export default defineNuxtConfig({
     '@tresjs/nuxt',
     'motion-v/nuxt',
     '@nuxt/scripts',
-    '@nuxtjs/seo'
+    '@nuxtjs/seo',
+    'nuxt-studio',
   ],
   image: {
     format: ['webp', 'avif'],
@@ -73,12 +74,14 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    preset: 'netlify',
     prerender: {
       routes: [
         '/',
         '/blog',
       ],
       crawlLinks: true,
+      concurrency: 1, // Limit concurrent prerendering to reduce memory usage
     },
   },
   icon: {
@@ -93,10 +96,15 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/team': { prerender: true },
+    '/blog/**': { prerender: true },
     '/blog/rss.xml': { prerender: true },
     '/discord': { redirect: { to: 'https://discord.gg/atuJunqHzc', statusCode: 301 } },
+    // Enable SSR for Nuxt Studio routes
+    '/_studio/**': { ssr: true },
+    '/api/_studio/**': { ssr: true },
   },
   $production: {
+    devtools: { enabled: false },
     scripts: {
       registry: {
         fathomAnalytics: {
@@ -105,4 +113,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  studio: {
+    // Studio admin login route
+    route: '/_studio', // default
+
+    // Git repository configuration
+    repository: {
+      provider: 'github', // 'github' or 'gitlab' (default: 'github')
+      owner: 'tresjs', // your GitHub/GitLab owner (required)
+      repo: 'tresjs.org', // your repository name (required)
+      branch: 'main', // branch to commit to (default: 'main')
+      rootDir: '', // subdirectory for monorepos (default: '')
+      private: false, // request access to private repos (default: true)
+    },
+  }
 })
