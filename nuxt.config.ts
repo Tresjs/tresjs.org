@@ -74,6 +74,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    preset: 'netlify',
     prerender: {
       routes: [
         '/',
@@ -94,8 +95,12 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/team': { prerender: true },
+    '/blog/**': { prerender: true },
     '/blog/rss.xml': { prerender: true },
     '/discord': { redirect: { to: 'https://discord.gg/atuJunqHzc', statusCode: 301 } },
+    // Enable SSR for Nuxt Studio routes
+    '/_studio/**': { ssr: true },
+    '/api/_studio/**': { ssr: true },
   },
   $production: {
     scripts: {

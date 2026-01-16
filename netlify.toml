@@ -1,8 +1,8 @@
 [build.environment]
   NODE_VERSION = "22"
 [build]
-  command = "pnpm run generate"
-  publish = "dist"
+  command = "pnpm run build"
+  publish = ".output/public"
 [[redirects]]
   from = "/discord"
   to = "https://discord.gg/atuJunqHzc"
