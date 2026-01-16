@@ -81,6 +81,7 @@ export default defineNuxtConfig({
         '/blog',
       ],
       crawlLinks: true,
+      concurrency: 1, // Limit concurrent prerendering to reduce memory usage
     },
   },
   icon: {
@@ -103,6 +104,7 @@ export default defineNuxtConfig({
     '/api/_studio/**': { ssr: true },
   },
   $production: {
+    devtools: { enabled: false },
     scripts: {
       registry: {
         fathomAnalytics: {
