@@ -113,4 +113,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  studio: {
+    // Studio admin login route
+    route: '/_studio', // default
+
+    // Git repository configuration
+    repository: {
+      provider: 'github', // 'github' or 'gitlab' (default: 'github')
+      owner: 'tresjs', // your GitHub/GitLab owner (required)
+      repo: 'tresjs.org', // your repository name (required)
+      branch: 'main', // branch to commit to (default: 'main')
+      rootDir: '', // subdirectory for monorepos (default: '')
+      private: false, // request access to private repos (default: true)
+    },
+  }
 })
