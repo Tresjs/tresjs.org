@@ -3,7 +3,6 @@
   NODE_OPTIONS = "--max-old-space-size=4096"
 [build]
   command = "pnpm run build"
-  publish = ".output/public"
 [[redirects]]
   from = "/discord"
   to = "https://discord.gg/atuJunqHzc"
