@@ -15,7 +15,7 @@ const { data: page } = useAsyncData('home-hero', () => queryCollection('index').
  <div class="px-8 ">
   <div class="border-x border-dashed border-gray-200 dark:border-default py-16 md:py-32 mx-auto max-w-(--ui-container)">
     <div class="blueprint relative w-full h-[600px]">
-      <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">WebGL</span>
+      <span class="absolute top-[18px] right-[-30px] text-sm text-gray-300 dark:text-gray-600 rotate-90 font-mono">WebGL/WebGPU</span>
       <UIcon name="lucide-plus" size="24"  class="absolute -bottom-3 -left-3 text-gray-300 z-10" />
       <div class="absolute top-0 left-0 w-full h-full">
         <TresCanvas class="!pointer-events-none" :clear-color="isDark ? colors.DARK : colors.LIGHT">
