@@ -1,7 +1,7 @@
 // Taken from https://github.com/nuxt/nuxt.com/blob/main/helpers/mdc-parser.mjs
 
 import { parseMarkdown } from '@nuxtjs/mdc/runtime'
-import rehypeHighlight from '@nuxtjs/mdc/runtime/highlighter/rehype-nuxt'
+import rehypeHighlight from '@nuxtjs/mdc/runtime/highlighter/rehype'
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma'
 import { createJavaScriptRegexEngine } from 'shiki'
 

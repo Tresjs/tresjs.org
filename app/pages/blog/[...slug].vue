@@ -51,7 +51,10 @@ const ogImageUrl = computed(() => {
   })
 })
 
-defineOgImage({
+// nuxt-og-image v6's defineOgImage signature is (component, props, options).
+// Passing a prebuilt thumbnail URL must go through the options arg, otherwise
+// the object is treated as the component and crashes meta resolution.
+defineOgImage(undefined, {}, {
   url: ogImageUrl.value,
   alt: blogPost?.value?.title,
   extension: 'png',
