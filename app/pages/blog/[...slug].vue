@@ -12,7 +12,7 @@ const { data: blogPost } = await useAsyncData(route.path, () => {
 })
 
 // Unknown slugs must 404 — otherwise the page renders with null data and
-// social scrapers read "undefined made with TresJS by @undefined" from the meta.
+// social scrapers read "undefined - TresJS" from the meta.
 if (!blogPost.value) {
   throw createError({ statusCode: 404, statusMessage: 'Blog post not found', fatal: true })
 }
@@ -73,7 +73,7 @@ useSeoMeta({
   title: blogPost?.value?.title,
   description: blogPost?.value?.description,
   keywords: blogPost?.value?.tags?.join(', '),
-  ogTitle: `${blogPost?.value?.title} made with TresJS by @${blogPost?.value?.author}`,
+  ogTitle: `${blogPost?.value?.title} - TresJS`,
   ogDescription: blogPost?.value?.description,
   ogType: 'article',
   ogImageAlt: blogPost?.value?.title,
