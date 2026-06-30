@@ -39,6 +39,7 @@
     "@iconify-json/lucide": "^1.2.115",
     "@nuxtjs/seo": "^5.3.1",
     "@tresjs/nuxt": "^5.6.3",
+    "remark-reading-time": "^2.1.0",
     "shiki": "^4.3.0",
     "tailwind-scrollbar": "^4.0.2"
   },

@@ -87,6 +87,9 @@ importers:
       '@tresjs/nuxt':
         specifier: ^5.6.3
         version: 5.6.3(88a3786d7ddcf06198713db1da1af43c)
+      remark-reading-time:
+        specifier: ^2.1.0
+        version: 2.1.0
       shiki:
         specifier: ^4.3.0
         version: 4.3.0
@@ -4417,6 +4420,12 @@ packages:
     resolution: {integrity: sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==}
     engines: {node: '>=4.0'}
 
+  estree-util-is-identifier-name@3.0.0:
+    resolution: {integrity: sha512-hFtqIDZTIUZ9BXLb8y4pYGyk6+wekIivNVTcmvk8NoOh+VeRn5y6cEHzbURrWbfp1fIqdVipilzj+lfaadNZmg==}
+
+  estree-util-value-to-estree@3.5.0:
+    resolution: {integrity: sha512-aMV56R27Gv3QmfmF1MY12GWkGzzeAezAX+UplqHVASfjc9wNzI/X6hC0S9oxq61WT4aQesLGslWP9tKk6ghRZQ==}
+
   estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
 
@@ -6188,6 +6197,9 @@ packages:
     resolution: {integrity: sha512-9u/XQ1pvrQtYyMpZe7DXKv2p5CNvyVwzUB6uhLAnQwHMSgKMBR62lc7AHljaeteeHXn11XTAaLLUVZYVZyuRBQ==}
     engines: {node: '>= 20.19.0'}
 
+  reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+
   redis-errors@1.2.0:
     resolution: {integrity: sha512-1qny3OExCf0UvUV/5wpYKf2YwPcOqXzkwKKSmKHiE6ZMQs5heeE/c8eXK+PNllPvmjgAbfnsbpkGZWy8cBpn9w==}
     engines: {node: '>=4'}
@@ -6259,6 +6271,9 @@ packages:
 
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
+
+  remark-reading-time@2.1.0:
+    resolution: {integrity: sha512-gBsJbQv87TUq4dRMSOgIX6P60Tk9ke8c29KsL7bccmsv2m9AycDfVu3ghRtrNpHLZU3TE5P/vImGOMSPzYU8rA==}
 
   remark-rehype@11.1.2:
     resolution: {integrity: sha512-Dh7l57ianaEoIpzbp0PC9UKAdCSVklD8E5Rpw7ETfbTl3FqcOOgq5q2LVDhgGCkaBv7p24JXikPdvhhmHvKMsw==}
@@ -11953,6 +11968,12 @@ snapshots:
 
   estraverse@5.3.0: {}
 
+  estree-util-is-identifier-name@3.0.0: {}
+
+  estree-util-value-to-estree@3.5.0:
+    dependencies:
+      '@types/estree': 1.0.9
+
   estree-walker@2.0.2: {}
 
   estree-walker@3.0.3:
@@ -14762,6 +14783,8 @@ snapshots:
 
   readdirp@5.0.0: {}
 
+  reading-time@1.5.0: {}
+
   redis-errors@1.2.0: {}
 
   redis-parser@3.0.0:
@@ -14906,6 +14929,13 @@ snapshots:
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
+
+  remark-reading-time@2.1.0:
+    dependencies:
+      estree-util-is-identifier-name: 3.0.0
+      estree-util-value-to-estree: 3.5.0
+      reading-time: 1.5.0
+      unist-util-visit: 5.1.0
 
   remark-rehype@11.1.2:
     dependencies:
