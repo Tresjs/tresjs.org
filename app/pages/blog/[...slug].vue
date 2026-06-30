@@ -56,6 +56,8 @@ const ogImageUrl = computed(() => {
 // the object is treated as the component and crashes meta resolution.
 defineOgImage(undefined, {}, {
   url: ogImageUrl.value,
+  width: 1200,
+  height: 630,
   alt: blogPost?.value?.title,
   extension: 'png',
 })

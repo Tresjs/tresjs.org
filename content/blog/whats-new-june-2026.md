@@ -2,7 +2,7 @@
 title: "The Loop Chronicles: June 2026 Recap"
 author: alvarosabu
 category: updates
-date: 2026-06-29
+date: 2026-06-30
 description: Physics lands in TresJS! A recap of June 2026 - the first alpha of @tresjs/rapier, transmission materials and more.
 draft: false
 thumbnail: /blog/whats-new-june-2026/the-loop-chronicles-june-2026.png
