@@ -53,6 +53,9 @@ export default defineNuxtConfig({
             dark: 'catppuccin-frappe',
           }
         },
+        remarkPlugins: {
+          'remark-reading-time': {},
+        },
       },
     }
   },

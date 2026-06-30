@@ -70,6 +70,12 @@ export default defineContentConfig({
         url: z.string(),
         author: z.union([z.string(), z.array(z.string())]),
         draft: z.boolean().optional(),
+        readingTime: z.object({
+          text: z.string(),
+          minutes: z.number(),
+          time: z.number(),
+          words: z.number(),
+        }).optional(),
       }),
     }),
     testimonials: defineCollection({

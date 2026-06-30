@@ -2,6 +2,7 @@
 import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
 import { joinURL } from 'ufo'
+import { useClipboard } from '@vueuse/core'
 
 const route = useRoute()
 const img = useImage()
@@ -9,6 +10,12 @@ const site = useSiteConfig()
 const { data: blogPost } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
+
+// Unknown slugs must 404 — otherwise the page renders with null data and
+// social scrapers read "undefined made with TresJS by @undefined" from the meta.
+if (!blogPost.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Blog post not found', fatal: true })
+}
 
 const { data: formattedBlogPost } = await useAsyncData<BlogCollectionItem & { authors: { name: string, description: string, avatar: { src: string } }[] }>(`formatted-blog-post-${route.path}`, async () => {
   if (!blogPost.value) return {}
@@ -51,8 +58,13 @@ const ogImageUrl = computed(() => {
   })
 })
 
-defineOgImage({
+// nuxt-og-image v6's defineOgImage signature is (component, props, options).
+// Passing a prebuilt thumbnail URL must go through the options arg, otherwise
+// the object is treated as the component and crashes meta resolution.
+defineOgImage(undefined, {}, {
   url: ogImageUrl.value,
+  width: 1200,
+  height: 630,
   alt: blogPost?.value?.title,
   extension: 'png',
 })
@@ -71,6 +83,37 @@ useSeoMeta({
   twitterDescription: blogPost?.value?.description,
   twitterImageAlt: blogPost?.value?.title,
   icon: joinURL(site.url, '/favicon.ico'),
+})
+
+// readingTime is injected by the remark-reading-time plugin (see nuxt.config).
+const readingTime = computed(() => blogPost.value?.readingTime?.text)
+
+const shareUrl = computed(() => joinURL(site.url, route.path))
+const { copy, copied } = useClipboard({ source: shareUrl })
+
+const shareItems = computed(() => {
+  const url = shareUrl.value
+  const text = blogPost.value?.title ?? ''
+  return [
+    {
+      label: 'Post on X',
+      icon: 'i-simple-icons-x',
+      to: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+      target: '_blank',
+    },
+    {
+      label: 'Share on Bluesky',
+      icon: 'i-simple-icons-bluesky',
+      to: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${text} ${url}`)}`,
+      target: '_blank',
+    },
+    {
+      label: 'Share on LinkedIn',
+      icon: 'i-simple-icons-linkedin',
+      to: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      target: '_blank',
+    },
+  ]
 })
 </script>
 
@@ -106,14 +149,39 @@ class="flex justify-center items-center rounded-full border-1 border-dashed bord
           {{ formattedBlogPost?.title }}
         </h2>
         
-        <div class="ml-2 flex gap-4 py-4">
-          <UUser
-            v-for="author in formattedBlogPost?.authors"
-            :key="author.name"
-            :name="author.name"
-            :description="author.description"
-            :avatar="author.avatar"
-        />
+        <div class="ml-2 flex items-center justify-between gap-4 py-4">
+          <div class="flex gap-4">
+            <UUser
+              v-for="author in formattedBlogPost?.authors"
+              :key="author.name"
+              :name="author.name"
+              :description="author.description"
+              :avatar="author.avatar"
+            />
+          </div>
+          <div class="flex items-center gap-3 text-muted mr-8">
+            <span v-if="readingTime" class="flex items-center gap-1 font-mono text-xs uppercase whitespace-nowrap">
+              <UIcon name="i-heroicons-clock" class="size-4" />
+              {{ readingTime }}
+            </span>
+            <UFieldGroup>
+              <UButton
+                color="neutral"
+                variant="outline"
+                :icon="copied ? 'i-heroicons-check' : 'i-heroicons-link'"
+                :label="copied ? 'Copied!' : 'Copy Link'"
+                @click="copy(shareUrl)"
+              />
+              <UDropdownMenu :items="shareItems" :content="{ align: 'end' }">
+                <UButton
+                  color="neutral"
+                  variant="outline"
+                  icon="i-heroicons-chevron-down"
+                  aria-label="Share article"
+                />
+              </UDropdownMenu>
+            </UFieldGroup>
+          </div>
         </div>
       </div>
       <div class="w-full pl-2 pr-4 flex flex-col flex-col-reverse lg:flex-row gap-8">
