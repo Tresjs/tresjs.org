@@ -48,12 +48,12 @@ Here it is in action: a clump of rigid bodies pulled toward a center point, coll
 What's in the box for `1.0.0-alpha.0`:
 
 ::prose-list
-- **`<Physics>`** **provider** with `RigidBody`, automatic **and** custom colliders, and joints
-- **Full collider shapes** support: cuboids, balls, capsules, trimeshes and friends
-- **Collision events** and **contact force events** so you can react when things actually hit
-- **`collisionGroups`** **and** **`solverGroups`** for fine-grained filtering of what collides with what
-- **`useRapierContext`** to reach into the physics world from your own composables
-- Smarter collider position & rotation handling, plus extra `RigidBody` props
+- [**`<Physics>`** **provider**](https://rapier.tresjs.org/api) with [`RigidBody`](https://rapier.tresjs.org/api/rigid-body), [automatic](https://rapier.tresjs.org/api/rigid-body/automatic-colliders) **and** [custom colliders](https://rapier.tresjs.org/api/rigid-body/custom-colliders), and [joints](https://rapier.tresjs.org/api/joint)
+- [**Full collider shapes** support](https://rapier.tresjs.org/api/rigid-body/automatic-colliders): cuboids, balls, capsules, trimeshes and friends
+- [**Collision events**](https://rapier.tresjs.org/api/rigid-body/collisions) and [**contact force events**](https://rapier.tresjs.org/api/rigid-body/contact-force) so you can react when things actually hit
+- [**`collisionGroups`** **and** **`solverGroups`**](https://rapier.tresjs.org/api/rigid-body/collisions) for fine-grained filtering of what collides with what
+- [**`useRapierContext`**](https://rapier.tresjs.org/api/use-rapier) to reach into the physics world from your own composables
+- Smarter collider position & rotation handling, plus extra [`RigidBody`](https://rapier.tresjs.org/api/rigid-body) props
 ::
 
 ::prose-note
@@ -112,7 +112,7 @@ It does more than stamp-and-forget: multiple decals stack with z-layering, layou
 
 ### `MeshTransmissionMaterial`
 
-That gorgeous glass / frosted look, with thickness, roughness and chromatic aberration, is now one component away ([#1436](https://github.com/Tresjs/tres/pull/1436)).
+That gorgeous glass / frosted look, with thickness, roughness and chromatic aberration, is now one component away ([#1436](https://github.com/Tresjs/tres/pull/1436)). Check the [`MeshTransmissionMaterial` docs](https://cientos.tresjs.org/api/materials/mesh-transmission-material) for all the props.
 
 ::embed-scene
 :blog-embed-scene-transmission
@@ -120,11 +120,11 @@ That gorgeous glass / frosted look, with thickness, roughness and chromatic aber
 
 ### A sharper `Environment`
 
-The new **`quality` prop** ([#1418](https://github.com/Tresjs/tres/issues/1418)) lets you serve **2k or 4k** preset HDRs depending on how crisp (or how light) you need your reflections. We also fixed `Environment url` reactivity and cleaned up the docs demo ([#1407](https://github.com/Tresjs/tres/issues/1407)).
+The new **`quality` prop** ([#1418](https://github.com/Tresjs/tres/issues/1418)) lets you serve **2k or 4k** preset HDRs depending on how crisp (or how light) you need your reflections. We also fixed `Environment url` reactivity and cleaned up the docs demo ([#1407](https://github.com/Tresjs/tres/issues/1407)). See the [`Environment` docs](https://cientos.tresjs.org/api/staging/environment).
 
 ### More reliable `PointerLockControls`
 
-`PointerLockControls` got its event-listener logic refactored for more dependable lock/unlock handling.
+[`PointerLockControls`](https://cientos.tresjs.org/api/controls/pointer-lock-controls) got its event-listener logic refactored for more dependable lock/unlock handling.
 
 Thanks to Alfarish Fizikri, [Jaime Torrealba](https://github.com/JaimeTorrealba) and everyone who reviewed and tested these.
 
