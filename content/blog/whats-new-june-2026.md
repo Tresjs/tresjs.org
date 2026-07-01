@@ -108,7 +108,7 @@ const session = computed(() => decalRef.value?.editor ?? null)
 ```
 
 
-It does more than stamp-and-forget: multiple decals stack with z-layering, layouts serialize to plain JSON via `v-model:data`, and an `editable` mode plus `DecalDebugUI` give you an in-canvas editor to place and tweak decals by hand (with undo/redo). See the [Decal docs](https://cientos.tresjs.org/api/abstractions/decal.html) for the full editor workflow.
+It does more than stamp-and-forget: multiple decals stack with z-layering, layouts serialize to plain JSON via `v-model:data`, and an `editable` mode plus `DecalDebugUI` give you an in-canvas editor to place and tweak decals by hand (with undo/redo). See the [Decal docs](https://cientos.tresjs.org/api/abstractions/decal) for the full editor workflow.
 
 ### `MeshTransmissionMaterial`
 
