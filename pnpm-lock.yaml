@@ -41,6 +41,9 @@ importers:
       '@tresjs/cientos':
         specifier: 5.8.1
         version: 5.8.1(@tresjs/core@5.8.3(three@0.185.0)(vue@3.5.39(typescript@6.0.3)))(react@19.2.7)(three@0.185.0)(vue@3.5.39(typescript@6.0.3))
+      '@tresjs/rapier':
+        specifier: ^1.0.1
+        version: 1.0.1(@tresjs/core@5.8.3(three@0.185.0)(vue@3.5.39(typescript@6.0.3)))(three@0.185.0)(vue@3.5.39(typescript@6.0.3))
       '@unhead/vue':
         specifier: ^3.1.6
         version: 3.1.6(crossws@0.4.6(srvx@0.11.17))(esbuild@0.28.1)(lightningcss@1.32.0)(rollup@4.62.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.0.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))
@@ -310,6 +313,9 @@ packages:
     resolution: {integrity: sha512-NZs5RFuNb6tjQd2JBsRYQT+OqE+z16Kg9/72HG4k+uJdzK90sAGtAjOwK8bsvav/9l85KGx4agfkgxnfbl313w==}
     peerDependencies:
       devframe: 0.5.4
+
+  '@dimforge/rapier3d-compat@0.19.3':
+    resolution: {integrity: sha512-mMVdSj1PRTT108s9Swbu2GQOmHbn8kbJANRV5xfczL3s0T4vkgZAuoMRgvBzQcHanpKusbC0ZJj6z3mC3aj3vg==}
 
   '@dxup/nuxt@0.4.1':
     resolution: {integrity: sha512-gtYffW6OfWNvoLW+XD3Mx/K8uUq08PMGLYJoDxc92EzZAWqR0FhcR5iaLm5r/OxyGTKz+P5f5Y7Aoir9+SjYaw==}
@@ -3030,6 +3036,13 @@ packages:
     resolution: {integrity: sha512-tD8aE1U+paPt7YvJcpkWN6ayQJqWENR4369O9W06FoCPL5Pt6SmuJDJhlYLgz4k44UJzfw2GOZBKOOyDK7SZzg==}
     peerDependencies:
       three: '>=0.133'
+
+  '@tresjs/rapier@1.0.1':
+    resolution: {integrity: sha512-NXBix8Lq+K+wfZFVRNRt2jtJyVwnqVbzDd9OQoJXgIW+hUd7ku8UBSL0MtVYglkyl1RDsQg7wh3i7mfsxz4iYQ==}
+    peerDependencies:
+      '@tresjs/core': ^5.3.2
+      three: '>=0.169'
+      vue: '>=3.4.0'
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
@@ -7650,6 +7663,8 @@ snapshots:
       - vite
       - webpack
 
+  '@dimforge/rapier3d-compat@0.19.3': {}
+
   '@dxup/nuxt@0.4.1(magicast@0.5.3)(typescript@6.0.3)':
     dependencies:
       '@dxup/unimport': 0.1.2
@@ -10478,6 +10493,14 @@ snapshots:
       - webpack
       - yup
       - zod
+
+  '@tresjs/rapier@1.0.1(@tresjs/core@5.8.3(three@0.185.0)(vue@3.5.39(typescript@6.0.3)))(three@0.185.0)(vue@3.5.39(typescript@6.0.3))':
+    dependencies:
+      '@dimforge/rapier3d-compat': 0.19.3
+      '@tresjs/core': 5.8.3(three@0.185.0)(vue@3.5.39(typescript@6.0.3))
+      '@vueuse/core': 14.3.0(vue@3.5.39(typescript@6.0.3))
+      three: 0.185.0
+      vue: 3.5.39(typescript@6.0.3)
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
