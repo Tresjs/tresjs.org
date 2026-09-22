@@ -140,7 +140,7 @@ class="flex justify-center items-center rounded-full border-1 border-dashed bord
             class="rounded-full transition-opacity duration-300"
             icon="i-heroicons-arrow-left"
             to="/blog"
-      
+            aria-label="Back to blog"
           />
         </Motion>
         </div>

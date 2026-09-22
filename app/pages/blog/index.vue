@@ -138,7 +138,7 @@ useInfiniteScroll(
               <p class="text-sm text-gray-500">
                 Stay up-to-date with news from TresJS
               </p>
-              <UButton variant="outline" color="neutral" to="https://tresjs.org/blog/rss.xml" target="_blank" icon="i-heroicons-rss" label="RSS Feed" />
+              <UButton variant="outline" color="neutral" to="/blog/rss.xml" external target="_blank" icon="i-heroicons-rss" label="RSS Feed" />
             </div>
             <USeparator />
           </div>

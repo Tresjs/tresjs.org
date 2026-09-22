@@ -26,3 +26,5 @@ logs
 -old*
 # Netlify build output
 .netlify
+
+.playwright-mcp
