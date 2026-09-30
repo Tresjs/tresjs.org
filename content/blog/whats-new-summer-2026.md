@@ -233,6 +233,10 @@ Fixes worth knowing about:
 - **Copy as JSON.** Copy the current values with stable control keys, and without display-only controls. Tune a scene by hand, then paste the values into your code or into your AI assistant of choice.
 ::
 
+Try it on the noise shader from the new docs hero. Move the sliders, hit **Randomize**, then search for `warp` or copy the values:
+
+:blog-embed-scene-leches
+
 Tres Leches also has its own documentation site now, at [leches.tresjs.org](https://leches.tresjs.org/) ([#1198](https://github.com/Tresjs/tres/pull/1198)), with installation, controls, reactive state, folders, multiple panels and the full API. The same PR fixes dark mode.
 
 ::prose-note
