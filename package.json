@@ -38,7 +38,9 @@
     "vue-router": "^5.3.1"
   },
   "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
     "@iconify-json/lucide": "^1.2.135",
+    "@iconify-json/simple-icons": "^1.2.98",
     "@nuxtjs/seo": "^5.3.16",
     "@tresjs/nuxt": "^5.7.0",
     "remark-reading-time": "^2.1.0",
