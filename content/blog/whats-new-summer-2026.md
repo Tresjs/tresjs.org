@@ -2,7 +2,7 @@
 title: "The Loop Chronicles: Summer 2026 Recap"
 author: alvarosabu
 category: updates
-date: 2026-09-29
+date: 2026-09-30
 description: Portals open in TresJS! A recap of summer 2026 - MeshPortalMaterial and TresPortal, Rapier hits stable, Instances, the new tres CLI and more.
 draft: false
 thumbnail: /blog/whats-new-summer-2026/the-loop-chronicles-summer-2026.png
