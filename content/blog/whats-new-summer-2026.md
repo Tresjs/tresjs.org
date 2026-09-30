@@ -243,6 +243,42 @@ Tres Leches also has its own documentation site now, at [leches.tresjs.org](http
 `@tresjs/leches@1.3.1` changes how folder names become key prefixes ([#1509](https://github.com/Tresjs/tres/pull/1509)). Before, only some emoji were stripped, so `useControls('⛰ Terrain', { height })` gave you `⛰TerrainHeight`, a key you could not destructure. Now every emoji and non-ASCII symbol is stripped, and accented and non-Latin letters stay. If you used bracket access such as `controls['⛰TerrainHeight']`, change it to `TerrainHeight`.
 ::
 
+## Glyph speaks Vue
+
+[Glyph](https://github.com/pmndrs/glyph), the new typography engine from pmndrs, ships with **first-class TresJS support**. It does font baking, Unicode shaping, paragraph layout and batched text rendering, and `@pmndrs/glyph/vue` gives you all of it as Vue components.
+
+:blog-embed-lab{src="https://lab.tresjs.org/experiments/glyph-cut-out/" title="Glyph Cut Out demo"}
+
+Glyph needs WebGPU, so pass a `WebGPURenderer` factory to `TresCanvas` through its `renderer` prop:
+
+```vue
+<script setup lang="ts">
+import { GlyphProvider, Text } from '@pmndrs/glyph/vue'
+import { preloadSlug } from '@pmndrs/glyph/vue/slug'
+import { TresCanvas, type TresRendererSetupContext } from '@tresjs/core'
+import { WebGPURenderer } from 'three/webgpu'
+import { toValue } from 'vue'
+
+preloadSlug('/fonts/Inter.font.glb')
+
+const createRenderer = (context: TresRendererSetupContext) => new WebGPURenderer({ canvas: toValue(context.canvas) })
+</script>
+
+<template>
+  <TresCanvas :renderer="createRenderer">
+    <GlyphProvider handle="hud" :font-faces="{ Inter: '/fonts/Inter.font.glb' }">
+      <Text font="Inter">Hello, HUD</Text>
+    </GlyphProvider>
+  </TresCanvas>
+</template>
+```
+
+A `<Text>` renders once its fonts load, and load failures arrive through `@error`. To load a font inside a component, use `useSlug`, `useMsdf` or `useBitmap` from `@pmndrs/glyph/vue/*`. Each returns a `ready` promise you can await under `<Suspense>`. Full details in the [Glyph README](https://github.com/pmndrs/glyph#tresjs-vue).
+
+::prose-note
+Glyph does not support the classic `WebGLRenderer`.
+::
+
 ## Everything in sync
 
 The whole family moved together on September 14, September 25 and again on September 29. These are the latest:
@@ -269,6 +305,7 @@ The September 25 round carries the `Stage` and shadow fixes above, restores math
 
 ::prose-list
 - [**Portals RPG Difficulty**](https://lab.tresjs.org/experiments/portals-rpg-difficulty/): the one at the top of this post. Three portals, three worlds, one `MeshPortalMaterial`.
+- [**Glyph Cut Out**](https://lab.tresjs.org/experiments/glyph-cut-out/): text rendered with pmndrs Glyph on WebGPU, straight from `@pmndrs/glyph/vue`.
 - [**Plexus Particles**](https://lab.tresjs.org/experiments/plexus-particles/): WebGPU + TSL VFX. Mouse-spawned glowing particles linked to their nearest neighbours, with turbulence and bloom, ported from the three.js `webgpu_tsl_vfx_linkedparticles` example.
 - [**Gelatinous Cube**](https://lab.tresjs.org/experiments/gelatinous-cube/): drei's classic, rebuilt with `MeshTransmissionMaterial`. A skeleton and its weapons frozen inside a translucent cube.
 - [**Rapier Vehicle**](https://lab.tresjs.org/experiments/rapier-car/): Rapier's ray-cast vehicle controller driven from `useRapier()`. WASD to drive, Space to brake, R to reset.
