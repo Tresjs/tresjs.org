@@ -8,7 +8,7 @@ draft: false
 thumbnail: /blog/whats-new-summer-2026/the-loop-chronicles-summer-2026.png
 ---
 
-Yo! Welcome back to **The Loop Chronicles**. We skipped the July and August editions because, honestly, we were too busy shipping. Rubber ducks 🐥, mostly... into the pool 🏊...ith `<RigidBody collider="ball">` on each one, because a duck that doesn't bob is a frankly a downright lie. Between cannonballs we also found time to ship some code 🚀, so this one is a double feature: everything that landed across the TresJS ecosystem between July and mid-September 2026, wrapped up in `@tresjs/core@5.9.2`, `@tresjs/cientos@5.9.2` and `@tresjs/rapier@1.1.2`. Grab a coffee ☕, this is a long one.
+Yo! Welcome back to **The Loop Chronicles**. We skipped the July and August editions because, honestly, we were too busy shipping. Rubber ducks 🐥, mostly... into the pool 🏊... with `<RigidBody collider="ball">` on each one, because a duck that doesn't bob is a frankly a downright lie. Between cannonballs we also found time to ship some code 🚀, so this one is a double feature: everything that landed across the TresJS ecosystem between July and mid-September 2026, wrapped up in `@tresjs/core@5.9.2`, `@tresjs/cientos@5.9.2` and `@tresjs/rapier@1.1.2`. Grab a coffee ☕, this is a long one.
 
 ## Portals have entered the scene
 
