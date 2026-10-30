@@ -70,6 +70,7 @@ export default defineContentConfig({
         url: z.string(),
         author: z.union([z.string(), z.array(z.string())]),
         draft: z.boolean().optional(),
+        rawbody: z.string(),
         readingTime: z.object({
           text: z.string(),
           minutes: z.number(),

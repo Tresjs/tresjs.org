@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { splitByCase, upperFirst } from 'scule'
 
-const props = defineProps<{
+const { to, title, icon = 'i-lucide-bookmark' } = defineProps<{
   to: string
-  title: string
+  title?: string
+  icon?: string
 }>()
 
 const createBreadcrumb = (link: string = 'Missing link') => {
@@ -22,12 +23,12 @@ const createBreadcrumb = (link: string = 'Missing link') => {
     .replace('Api', 'API')
 }
 
-const computedTitle = computed<string>(() => props.title || createBreadcrumb(props.to))
+const computedTitle = computed<string>(() => title || createBreadcrumb(to))
 </script>
 
 <template>
   <ProseCallout
-    icon="i-lucide-bookmark"
+    :icon
     :to="to"
     :aria-label="computedTitle"
   >

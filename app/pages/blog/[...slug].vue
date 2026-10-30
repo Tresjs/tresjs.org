@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { BlogCollectionItem } from '@nuxt/content'
 import { Motion } from "motion-v"
-import { joinURL } from 'ufo'
-import { useClipboard } from '@vueuse/core'
+import { joinURL, withoutTrailingSlash } from 'ufo'
+import { refAutoReset, useClipboard } from '@vueuse/core'
+import type { DropdownMenuItem } from '@nuxt/ui'
 
 const route = useRoute()
 const img = useImage()
@@ -89,12 +90,50 @@ useSeoMeta({
 const readingTime = computed(() => blogPost.value?.readingTime?.text)
 
 const shareUrl = computed(() => joinURL(site.url, route.path))
-const { copy, copied } = useClipboard({ source: shareUrl })
+const { copy } = useClipboard({ source: shareUrl })
 
-const shareItems = computed(() => {
+const markdownPath = computed(() => `/raw${withoutTrailingSlash(route.path)}.md`)
+const markdownUrl = computed(() => joinURL(site.url, markdownPath.value))
+
+// Nitro's crawler skips links with a .md extension.
+prerenderRoutes(markdownPath.value)
+
+useHead({
+  link: [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl }],
+})
+
+const toast = useToast()
+const pageCopied = refAutoReset(false, 1500)
+
+async function copyPage() {
+  const markdown = $fetch<string>(markdownPath.value, { responseType: 'text' })
+  try {
+    // Passing a promise keeps the user gesture alive, Safari rejects writeText after an await.
+    await navigator.clipboard.write([
+      new ClipboardItem({ 'text/plain': markdown.then(text => new Blob([text], { type: 'text/plain' })) }),
+    ])
+    pageCopied.value = true
+  }
+  catch {
+    toast.add({ title: 'Could not copy the page', icon: 'i-heroicons-x-mark', color: 'error' })
+  }
+}
+
+async function copyLink() {
+  await copy(shareUrl.value)
+  toast.add({ title: 'Link copied', icon: 'i-heroicons-check', color: 'success' })
+}
+
+const shareItems = computed<DropdownMenuItem[][]>(() => {
   const url = shareUrl.value
   const text = blogPost.value?.title ?? ''
-  return [
+  const llmPrompt = encodeURIComponent(`Read ${markdownUrl.value} so I can ask questions about it.`)
+  return [[
+    {
+      label: 'Copy link',
+      icon: 'i-heroicons-link',
+      onSelect: copyLink,
+    },
     {
       label: 'Post on X',
       icon: 'i-simple-icons-x',
@@ -113,7 +152,27 @@ const shareItems = computed(() => {
       to: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
       target: '_blank',
     },
-  ]
+  ], [
+    {
+      label: 'View as Markdown',
+      icon: 'i-simple-icons-markdown',
+      to: markdownPath.value,
+      target: '_blank',
+      external: true,
+    },
+    {
+      label: 'Open in ChatGPT',
+      icon: 'i-simple-icons-openai',
+      to: `https://chatgpt.com/?hints=search&q=${llmPrompt}`,
+      target: '_blank',
+    },
+    {
+      label: 'Open in Claude',
+      icon: 'i-simple-icons-claude',
+      to: `https://claude.ai/new?q=${llmPrompt}`,
+      target: '_blank',
+    },
+  ]]
 })
 </script>
 
@@ -168,9 +227,9 @@ class="flex justify-center items-center rounded-full border-1 border-dashed bord
               <UButton
                 color="neutral"
                 variant="outline"
-                :icon="copied ? 'i-heroicons-check' : 'i-heroicons-link'"
-                :label="copied ? 'Copied!' : 'Copy Link'"
-                @click="copy(shareUrl)"
+                :icon="pageCopied ? 'i-heroicons-check' : 'i-heroicons-document-duplicate'"
+                :label="pageCopied ? 'Copied!' : 'Copy page'"
+                @click="copyPage"
               />
               <UDropdownMenu :items="shareItems" :content="{ align: 'end' }">
                 <UButton
