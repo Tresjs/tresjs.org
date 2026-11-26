@@ -61,6 +61,16 @@ const _useFooterLinks = () => {
           label: 'postprocessing',
           to: 'https://post-processing.tresjs.org/',
           target: '_blank'
+        },
+        {
+          label: 'rapier',
+          to: 'https://rapier.tresjs.org/',
+          target: '_blank'
+        },
+        {
+          label: 'leches',
+          to: 'https://leches.tresjs.org/',
+          target: '_blank'
         }
       ]
     }

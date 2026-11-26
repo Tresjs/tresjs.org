@@ -5,6 +5,11 @@ category: updates
 date: 2026-10-29
 description: WebGPU gets its own entry in TresJS! A recap of October 2026 - @tresjs/core 5.10, TSL ports in Cientos, N8AO ambient occlusion and two TresJS talks at Vue Fes Japan 2026.
 draft: false
+readingTime:
+  text: 8 min read
+  minutes: 7.465
+  time: 447900
+  words: 1493
 thumbnail: /blog/whats-new-october-2026/the-loop-chronicles-october-2026.png
 ---
 
@@ -43,7 +48,12 @@ In the talk, I showed how I ported that scene to Vue with TresJS components, and
 
 The live demo is in the [lab](https://lab.tresjs.org/experiments/vuefes-japan-2025/).
 
-::read-more{to="https://vuefesjapan-2026.alvarosabu.dev/" title="Vue Fes Japan 2026 slides" icon="i-lucide-presentation"}
+::read-more
+---
+icon: i-lucide-presentation
+title: Vue Fes Japan 2026 slides
+to: https://vuefesjapan-2026.alvarosabu.dev/
+---
 See the **slides** of the talk.
 ::
 
@@ -80,10 +90,10 @@ const colorNode = mix(
 What `@tresjs/core/webgpu` gives you:
 
 ::prose-list
-- **A `TresCanvas` that creates a `WebGPURenderer`.** It passes `antialias`, `alpha`, `depth`, `stencil`, `powerPreference` and `logarithmicDepthBuffer` to the renderer. The `renderer` prop is still there for other options.
+- **A** **`TresCanvas`** **that creates a** **`WebGPURenderer`****.** It passes `antialias`, `alpha`, `depth`, `stencil`, `powerPreference` and `logarithmicDepthBuffer` to the renderer. The `renderer` prop is still there for other options.
 - **Node materials as tags.** The entry adds every class of `three/webgpu` to the catalogue, so `<TresMeshStandardNodeMaterial>` works with no `extend()`. The tags and their props are typed.
-- **A typed `useTres()`.** `renderer` is a `WebGPURenderer`, so `renderer.backend` needs no cast.
-- **No `WebGLRenderer` in your bundle.** An app that imports only from `@tresjs/core/webgpu` does not ship the WebGL renderer ([#1544](https://github.com/Tresjs/tres/pull/1544)).
+- **A typed** **`useTres()`****.** `renderer` is a `WebGPURenderer`, so `renderer.backend` needs no cast.
+- **No** **`WebGLRenderer`** **in your bundle.** An app that imports only from `@tresjs/core/webgpu` does not ship the WebGL renderer ([#1544](https://github.com/Tresjs/tres/pull/1544)).
 ::
 
 The root entry `@tresjs/core` does not change. Its `TresCanvas` still uses `WebGLRenderer`, and a build check fails if the root entry can reach `three/webgpu` or `three/tsl`. When the browser has no WebGPU, `WebGPURenderer` falls back to its WebGL2 backend, and node materials still work.
@@ -157,10 +167,10 @@ Every prop is reactive, and `renderMode` gives you debug views, including a spli
 ### Core
 
 ::prose-list
-- **Awaiting `useLoader` returns everything** ([#1548](https://github.com/Tresjs/tres/pull/1548)). `await useGLTF(...)`, or any loader built on `useLoader`, resolved with a partial object and dropped `nodes`, `materials`, `load` and `progress`. Now `const { state, nodes } = await useGLTF('/model.glb')` works as you would expect.
+- **Awaiting** **`useLoader`** **returns everything** ([#1548](https://github.com/Tresjs/tres/pull/1548)). `await useGLTF(...)`, or any loader built on `useLoader`, resolved with a partial object and dropped `nodes`, `materials`, `load` and `progress`. Now `const { state, nodes } = await useGLTF('/model.glb')` works as you would expect.
 - **On-demand scenes stay idle after a prop update** ([#1499](https://github.com/Tresjs/tres/pull/1499)). A component that created a fresh position array could make an on-demand scene render again and again.
 - **No devtools in production** ([#1498](https://github.com/Tresjs/tres/pull/1498)). `TresCanvas` registered the devtools in production builds too, and their performance monitor walked the scene even with on-demand rendering.
-- **`PCFShadowMap` on WebGPU** ([#1508](https://github.com/Tresjs/tres/pull/1508)). three r186 removed `PCFSoftShadowMap` from `WebGPURenderer` and logged a warning on every WebGPU scene with shadows. From r186, `PCFShadowMap` is the default on WebGPU too, and it is already soft there, so you lose no quality.
+- **`PCFShadowMap`** **on WebGPU** ([#1508](https://github.com/Tresjs/tres/pull/1508)). three r186 removed `PCFSoftShadowMap` from `WebGPURenderer` and logged a warning on every WebGPU scene with shadows. From r186, `PCFShadowMap` is the default on WebGPU too, and it is already soft there, so you lose no quality.
 ::
 
 The first two fixes come from [Felix Schwämmle](https://github.com/felixschwamm), in their first contributions to TresJS, with a reproduction test for each. Welcome, Felix 🎉!
@@ -179,7 +189,7 @@ This changes how existing scenes look: dots are darker and more saturated, the s
 
 ::prose-list
 - **Custom colliders sit on their body** ([#1515](https://github.com/Tresjs/tres/pull/1515)). A `<CapsuleCollider>` inside a `<RigidBody>` with a `position` got the body offset twice, and a collider `position` was read as a world position. Collider `position` and `rotation` are now offsets from the body, as the types say. If you used world values to work around this, your colliders will move.
-- **`<Physics debug>` lines are visible** ([#1514](https://github.com/Tresjs/tres/pull/1514)). They were almost black, and colliders inside a mesh did not show. They now draw on top in Rapier's colors.
+- **`<Physics debug>`** **lines are visible** ([#1514](https://github.com/Tresjs/tres/pull/1514)). They were almost black, and colliders inside a mesh did not show. They now draw on top in Rapier's colors.
 ::
 
 ### Tres Leches
@@ -205,12 +215,9 @@ pnpm up @tresjs/core @tresjs/cientos @tresjs/nuxt @tresjs/post-processing @tresj
 
 ### 👉 Full Release Notes
 
-::read-more{to="https://github.com/Tresjs/tres/releases" title="Full Release Notes" icon="i-lucide-scroll-text"}
-::
+:read-more{icon="i-lucide-scroll-text" title="Full Release Notes" to="https://github.com/Tresjs/tres/releases"}
 
 ## From the community
-
-<!-- TODO(alvaro): add 3-5 verified community projects from October 2026 (Discord #showcase, X, Bluesky). Verify authorship and originality before featuring, see June post for the :magic-link format. -->
 
 ## Thanks
 
@@ -221,8 +228,8 @@ Thank you to [Shingo Hiranuma](https://github.com/hiranuma) for bringing TresJS 
 `/webgpu` is the foundation. The next step is in review: a set of **experimental TSL composables** for `@tresjs/core/webgpu` ([#1545](https://github.com/Tresjs/tres/pull/1545)).
 
 ::prose-list
-- **`useUniforms` and `useUniform`** bind plain values, refs, getters or Tres Leches controls to TSL uniforms. A change writes `uniform.value` with no shader recompile, and requests a frame in on-demand mode.
-- **`useNodes` and `useLocalNodes`** share node graphs between components in the same canvas.
+- **`useUniforms`** **and** **`useUniform`** bind plain values, refs, getters or Tres Leches controls to TSL uniforms. A change writes `uniform.value` with no shader recompile, and requests a frame in on-demand mode.
+- **`useNodes`** **and** **`useLocalNodes`** share node graphs between components in the same canvas.
 - **`useRenderPipeline`** renders the canvas through three's `RenderPipeline`, for post-processing on WebGPU.
 ::
 
