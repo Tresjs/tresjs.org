@@ -92,15 +92,12 @@ const readingTime = computed(() => blogPost.value?.readingTime?.text)
 const shareUrl = computed(() => joinURL(site.url, route.path))
 const { copy } = useClipboard({ source: shareUrl })
 
-const markdownPath = computed(() => `/raw${withoutTrailingSlash(route.path)}.md`)
+// nuxt-ai-ready (from @nuxtjs/seo) serves this route and adds the text/markdown alternate link.
+const markdownPath = computed(() => `${withoutTrailingSlash(route.path)}.md`)
 const markdownUrl = computed(() => joinURL(site.url, markdownPath.value))
 
 // Nitro's crawler skips links with a .md extension.
 prerenderRoutes(markdownPath.value)
-
-useHead({
-  link: [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl }],
-})
 
 const toast = useToast()
 const pageCopied = refAutoReset(false, 1500)
